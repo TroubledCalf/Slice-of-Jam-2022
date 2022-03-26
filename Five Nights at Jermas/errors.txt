@@ -2,11 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/options.rpy", line 32: EOL while scanning string literal
-(Perhaps you left out a " at the end of the first line.)
-    _p("created by""
-                    ^
-    
+File "game/script.rpy", line 40: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
+    "It is best kept hidden in plain sight."
+                                            ^
 
-Ren'Py Version: Ren'Py 7.4.9.2142
-Fri Mar 25 20:48:31 2022
+Ren'Py Version: Ren'Py 7.4.11.2266
+Sat Mar 26 11:53:23 2022
