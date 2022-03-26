@@ -200,9 +200,12 @@ label start:
                 # I guess more realistically, someone wouldn't be able to sleep so soundly in a bed that's not theirs
                 # what if sleeping soundly is tied to accepting food? that's creepy but anyway
                 jump day_3
+    #bedroom map
+    label bedroom:
+        show screen gameUI
 
     #player lost control of victim
     label afterwards:
-        
+
 
     return
