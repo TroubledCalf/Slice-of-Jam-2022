@@ -30,6 +30,18 @@ label start:
 
         "You're laying down on a thin mattress in what appears to be a small bedroom? Definitely not your bedroom."
 
+        "The room smells musty and damp. As you place your feet down to the floor, it feels cold."
+
+        "Strange. Especially the last thing you remember is the hot sunlight of mid-July."
+
+        e "I am underground."
+
+        "You say to yourself."
+
+        "Waves of sheer panic starts running through your system. Your breath quickens."
+        "It feels as if a vaccum is sucking up all the air out of your lungs. Desperate, you look for a window. An opening. Anything."
+        "You finally find a small opening, where the light from outside can come through, but it is too high up to reach."
+        "You can't do anything here. You are stuck."
         # add more thoughts, specifcally emotions here
 
         "Suddenly, you hear footsteps coming down the hall. "
@@ -150,8 +162,7 @@ label start:
                 jump day_2
 
     label day_2:
-
-        $ currentCompliance = 0
+        $ currentCompliance = 0 # <- 1/2 the current score, instead of reset to 0
         # you demand to go home or not again
         # and you have breakfast again
 
@@ -165,6 +176,7 @@ label start:
 
         "And you can't do a thing about it."
 
+<<<<<<< Updated upstream
         # add more thoughts, specifcally emotions here
         "You let this thought consume you until you hear the footsteps from yesterday."
 
@@ -172,6 +184,9 @@ label start:
         other than kidnapper and victim."
 
         k "Good morning. How are you today?"
+=======
+        # add more thoughts, speficifcally emotions here
+>>>>>>> Stashed changes
 
         menu:
             "Demand to go home":
@@ -248,6 +263,27 @@ label start:
         k "Before I leave, is there anything more you'd like to speak about?"
 
         # filler
+
+        #on day 2, you are given a test. gameplay-wise, this is a foreshadowing
+        #to the player that you need to pass this point to advance to the next phase
+        #(as well as meeting the threshold compliance score)
+
+        "You watch the kidnapper walk out of the door. But something is different from last time."
+        "They always lock the door when they leave, but this time, they just left."
+
+        menu:
+            "Walk over to the door":
+                jump after_walk_to_door
+            "Remain where you are.":
+                pass
+
+        label after_walk_to_door:
+            "As you have expected, when you turn the doorknob, it is not locked."
+            "Should you open the door?"
+            menu:
+                "Open the door":
+
+
 
         menu:
             "Attack your captor":
