@@ -107,29 +107,6 @@ label start:
                 k "If you are not hungry right now, that is fine."
                 k "You can eat whenever you like, and I will take your dishes when you sleep."
                 "He puts the bowl beside your bed on a night stand."
-        k "What I wanted to ask was, what preferences do you have? On your oatmeal, I mean. I only have so many ingredients."
-        k "I could give you banana slices, strawberry, hell, even honey."
-        "He looks at you pointedly on that last word."
-        menu:
-            "remain silent.":
-                $ currentCompliance -= 1
-                k "You're not talkative today. That's fine. There's always tomorrow."
-            "banana slices":
-                $ currentCompliance += 1
-                "He clasps his hands together."
-                k "Wonderful. I will keep this in mind"
-            "strawberry":
-                $ currentCompliance += 1
-                "He clasps his hands together."
-                k "Wonderful. I will keep this in mind"
-            "honey":
-                $ currentCompliance += 1
-                "He clasps his hands together."
-                k "Wonderful. I will keep this in mind"
-            "watermelon":
-                $ currentCompliance -= 2
-                "His smile fades slightly, before he regains composure."
-                k "You'll learn to appreciate what I offer you in time."
         "He stands up once again."
         k "Before I leave, is there anything more you'd like to speak about?"
 
