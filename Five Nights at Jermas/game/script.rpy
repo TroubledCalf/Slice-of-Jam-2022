@@ -89,6 +89,10 @@ label start:
 
         # We need to find stuff for the victim to do in between visits from the kidnapper
 
+####
+# breakfast scene, then sleep/sitting around before captor comes to say goodnight and you have option to attack
+###
+
         n "You here the click of the door again."
         k "I would be a poor host if I did not provide for my guests."
         n "They approach you holding a tray and take a seat beside you on the bed."
@@ -136,9 +140,6 @@ label start:
         n "He stands up once again."
         k "Before I leave, is there anything more you'd like to speak about?"
 
-        ####
-        # breakfast scene, then sleep/sitting around before captor comes to say goodnight and you have option to attack
-        ###
         menu:
             "Attack your captor":
                 $ currentCompliance -= 4
