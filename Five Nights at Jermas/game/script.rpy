@@ -81,7 +81,92 @@ label start:
 # breakfast scene, then sleep/sitting around before captor comes to say goodnight and you have option to attack
 ###
 
-        "You here the click of the door again."
+        "You hear the click of the door again."
+        k "I would be a poor host if I did not provide for my guests."
+        "They approach you holding a tray and take a seat beside you on the bed."
+        "Oatmeal."
+        "Not the most enjoyable of meals, not by a long shot."
+        k "I wish I could have made something more appealing, but of course..."
+        k "its hard to do so without knowing your preferences."
+        # a note-so-nice smile I imagine
+        "He waits expectantly."
+        menu:
+            "Take the oatmeal.":
+                $ currentCompliance += 1
+                "Unpleasant as your situation may be, it is hard to refuse warm food."
+                k "Good."
+                k "I wouldn't want you to go hungry."
+                "They hand you the bowl with a slight smile of triumph and leave the room."
+                "Seeing the food makes you hungry and you begin to eat."
+                "A few minutes pass and the bowl is empty."
+                
+            "Refuse it":
+                $ currentCompliance -= 1
+                "They continue to smile at you."
+                k "If you are not hungry right now, that is fine."
+                k "You can eat whenever you like, and I will take your dishes when you sleep."
+                "He puts the bowl beside your bed on a night stand and then leaves the room."
+                "Once again, you hear the latch click and you are truly alone."
+
+        # limited exploration scene
+        
+        menu:
+            "Attack your captor":
+                $ currentCompliance -= 4
+                "You launch yourself at your captor."
+                #@TODO
+                jump day_1
+
+            "Do nothing":
+                $ currentCompliance += 4
+                "You drift to sleep, harrowed by the day's events..."
+                #@TODO
+                # I guess more realistically, someone wouldn't be able to sleep so soundly in a bed that's not theirs
+                # what if sleeping soundly is tied to accepting food? that's creepy but anyway
+                $ prevCompliance = currentCompliance
+                jump day_2
+
+    label day_2:
+
+        $ currentCompliance = 0
+        # you demand to go home or not again
+        # and you have breakfast again
+
+        "You wake up."
+
+        "You look out into the room you're in and remember everything from yesterday."
+
+        "Trapped."
+        "Lost."
+        "Confused."
+
+        "And you can't do a thing about it."
+
+        # add more thoughts, specifcally emotions here
+
+        menu:
+            "Demand to go home":
+                $ currentCompliance -= 1
+                "Maybe you could demand to go home again?"
+                v "I want to go home now!"
+                k "Go home? You forgot already? This is your home now."
+                "With that, they leave the room and you hear a latch click."
+                "Once again, you just lay defeated."
+                "There is nothing you can do."
+            "Just accept the kidnapper for a little longer":
+                $ currentCompliance += 1
+                v "So are you going to bring me food soon?"
+                k "See, you're getting it!"
+                k "Keep this up and maybe I'll even let you out of this room..."
+                "With that, they leave the room and you hear a latch click."
+                "You take a deep breath, once again grateful to still be alive."
+                "If you were let out of this room, you could escape..."
+                "After a while of boredom, though, you slowly fall asleep..."
+
+                # you already looked around before, but maybe allow that again?
+
+        #breakfast scene, pretty much EXACTLY the same as yesterday
+        "You hear the click of the door again."
         k "I would be a poor host if I did not provide for my guests."
         "They approach you holding a tray and take a seat beside you on the bed."
         "Oatmeal."
@@ -133,7 +218,7 @@ label start:
                 $ currentCompliance -= 4
                 "You launch yourself at your captor."
                 #@TODO
-                jump day_1
+                jump day_2
 
             "Do nothing":
                 $ currentCompliance += 4
@@ -142,60 +227,45 @@ label start:
                 # I guess more realistically, someone wouldn't be able to sleep so soundly in a bed that's not theirs
                 # what if sleeping soundly is tied to accepting food? that's creepy but anyway
                 $ prevCompliance = currentCompliance
-                jump day_2
+                jump day_3
 
-    label day_2:
-
+    label day_3:
         $ currentCompliance = 0
-        # you demand to go home or not again
-        # and you have breakfast again
-
+        
         "You wake up."
 
-        "You look out into the room you're in and remember everything from yesterday."
+        "It's been... 2 nights now? And you're still here."
 
-        "Trapped."
-        "Lost."
-        "Confused."
-
-        "And you can't do a thing about it."
+        "You're starting to feel unclean. Of course, there's no shower in here."
+        "No mirror either, so you can't even check your appearance for sure."
+        v "This."
+        v "Is."
+        v "Hell."
 
         # add more thoughts, specifcally emotions here
+        "Like clockwork, the kidnapper starts walking down the hall."
 
         menu:
-            "Demand to go home":
+            "Demand to go home again":
                 $ currentCompliance -= 1
-                "Maybe you could demand to go home again?"
-                v "I want to go home now!"
-                k "Go home? You forgot already? This is your home now."
+                "Maybe there's still a chance of going home? They seem like they listen..."
+                v "Can I please go home?"
+                k "You don't seem so determined anymore. That's good."
+                k "But I think you're starting to understand now."
+                k "This is your home."
                 "With that, they leave the room and you hear a latch click."
-                "Once again, you just lay defeated."
-            "Just accept the kidnapper for a little longer":
+                "You pretty much expected that."
+                "All you can do is just sit and wait."                
+            "Don't anger them":
                 $ currentCompliance += 1
-                v "So are you going to bring me food soon?"
-                k "See, you're getting it!"
-                k "Keep this up and maybe I'll even let you out of this room..."
+                v "Good morning."
+                k "Good morning, my dear."
+                "They wrinkled their nose"
+                k "You might need a shower soon. Not to worry! I'll"
                 "With that, they leave the room and you hear a latch click."
                 "You take a deep breath, once again grateful to still be alive."
                 "If you were let out of this room, you could escape..."
+                "After a while of boredom, though, you slowly fall asleep..."
 
-                # you already looked around before, but maybe allow that again?
-
-        #breakfast scene, pretty much EXACTLY the same as yesterday
-
-        menu:
-            "Attack your captor":
-                $ currentCompliance -= 4
-                "You launch yourself at your captor."
-                #@TODO
-                jump day_2
-
-            "Do nothing":
-                $ currentCompliance += 4
-                "You drift to sleep, harrowed by the day's events..."
-                #@TODO
-                # I guess more realistically, someone wouldn't be able to sleep so soundly in a bed that's not theirs
-                # what if sleeping soundly is tied to accepting food? that's creepy but anyway
-                jump day_3
 
     return
