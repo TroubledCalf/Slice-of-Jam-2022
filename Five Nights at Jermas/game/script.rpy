@@ -288,7 +288,7 @@ label start:
                         else:
                             "You fall asleep..."
                             jump day_2
- ###################################
+###################################
     # phase 5
     label badEnd:
         scene white
