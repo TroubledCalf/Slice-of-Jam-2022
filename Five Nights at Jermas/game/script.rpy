@@ -32,7 +32,7 @@ label start:
 
         n "Suddenly, you hear footsteps coming down the hall. "
 
-        menu: 
+        menu:
             "Pretend to be asleep because they might be dangerous":
                 $ currentCompliance -= 1
                 n "You hide underneath the covers and shiver as you wait for the door to open."
@@ -73,8 +73,17 @@ label start:
                 n "You take a deep breath, grateful to still be alive."
                 n "At least this person doesn't seem intent on killing you. That means you could escape..."
 
-                # perhaps a bit about looking around the room a la point-and-click adventure
-            
+        # perhaps a bit about looking around the room a la point-and-click adventure
+
+        # Thought it might be a nice touch to have no clocks
+        #   emphasis the loop and deja vu and all that
+        n "You have no idea how long you stay on the bed like that."
+        n "As you raise your head and look around the room, it occurs to you"
+        n "There is not a single clock in the room"
+        n "Nor is there a window."
+        n "How long has it been since you came here? Since you woke up? Since your captor even left?"
+        n "You have no idea."
+
         ####
         # breakfast scene, then sleep/sitting around before captor comes to say goodnight and you have option to attack
         ###
@@ -91,5 +100,5 @@ label start:
                 # I guess more realistically, someone wouldn't be able to sleep so soundly in a bed that's not theirs
                 # what if sleeping soundly is tied to accepting food? that's creepy but anyway
 
-                # proceed to day 2   
+                # proceed to day 2
     return
