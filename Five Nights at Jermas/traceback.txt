@@ -1,0 +1,36 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 29, in script
+    with fade(0.1,0.0,1.5)
+  File "game/script.rpy", line 29, in <module>
+    with fade(0.1,0.0,1.5)
+Exception: Not a color: 1.5
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 29, in script
+    with fade(0.1,0.0,1.5)
+  File "renpy/ast.py", line 1436, in execute
+    trans = renpy.python.py_eval(self.expr)
+  File "renpy/python.py", line 2276, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "renpy/python.py", line 2269, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 29, in <module>
+    with fade(0.1,0.0,1.5)
+  File "renpy/curry.py", line 48, in __call__
+    return self.callable(*(self.args + args), **merged_kwargs)
+  File "renpy/display/transition.py", line 230, in Fade
+    widget = renpy.display.image.Solid(color)
+  File "renpy/display/imagelike.py", line 49, in __init__
+    self.color = renpy.easy.color(color)
+  File "renpy/color.py", line 194, in __new__
+    raise Exception("Not a color: %r" % (color,))
+Exception: Not a color: 1.5
+
+Windows-10-10.0.22000
+Ren'Py 7.4.9.2142
+Five Nights at Jermas 1.0
+Sat Mar 26 18:46:32 2022
