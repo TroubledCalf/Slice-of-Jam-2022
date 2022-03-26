@@ -7,15 +7,18 @@ default ateFood = False
 # Soundtracks
 
 # Characters
-define e = Character("Eileen")
 define v = Character("Victim")
 define k = Character("Kidnapper")
 
 # Character sprites
 
+
+# Scenes/backgrounds
+image black = "#000"
+
 label start:
     label day_1:
-        scene bg room
+        scene black
 
         show eileen happy
 
@@ -83,7 +86,7 @@ label start:
         # breakfast scene, then sleep/sitting around before captor comes to say goodnight and you have option to attack
         ###
 
-        "You hear the click of the door again."
+        "You here the click of the door again."
         k "I would be a poor host if I did not provide for my guests."
         "They approach you holding a tray and take a seat beside you on the bed."
         "Oatmeal."
@@ -98,20 +101,38 @@ label start:
                 "Unpleasant as your situation may be, it is hard to refuse warm food."
                 k "Good."
                 k "I wouldn't want you to go hungry."
-                "They hand you the bowl with a slight smile of triumph and leave the room."
-                "Seeing the food makes you hungry and you begin to eat."
-                "A few minutes pass and the bowl is empty."
-                
             "Refuse it":
                 $ currentCompliance -= 1
                 "They continue to smile at you."
                 k "If you are not hungry right now, that is fine."
                 k "You can eat whenever you like, and I will take your dishes when you sleep."
-                "He puts the bowl beside your bed on a night stand and then leaves the room."
-                "Once again, you hear the latch click and you are truly alone."
+                "He puts the bowl beside your bed on a night stand."
+        k "What I wanted to ask was, what preferences do you have? On your oatmeal, I mean. I only have so many ingredients."
+        k "I could give you banana slices, strawberry, hell, even honey."
+        "He looks at you pointedly on that last word."
+        menu:
+            "remain silent.":
+                $ currentCompliance -= 1
+                k "You're not talkative today. That's fine. There's always tomorrow."
+            "banana slices":
+                $ currentCompliance += 1
+                "He clasps his hands together."
+                k "Wonderful. I will keep this in mind"
+            "strawberry":
+                $ currentCompliance += 1
+                "He clasps his hands together."
+                k "Wonderful. I will keep this in mind"
+            "honey":
+                $ currentCompliance += 1
+                "He clasps his hands together."
+                k "Wonderful. I will keep this in mind"
+            "watermelon":
+                $ currentCompliance -= 2
+                "His smile fades slightly, before he regains composure."
+                k "You'll learn to appreciate what I offer you in time."
+        "He stands up once again."
+        k "Before I leave, is there anything more you'd like to speak about?"
 
-        # limited exploration scene
-        
         menu:
             "Attack your captor":
                 $ currentCompliance -= 4
@@ -241,15 +262,13 @@ label start:
                 # filler
                 # I guess more realistically, someone wouldn't be able to sleep so soundly in a bed that's not theirs
                 # what if sleeping soundly is tied to accepting food? that's creepy but anyway
-                $ prevCompliance = currentCompliance
                 jump day_3
+    #bedroom map
+    label bedroom:
+        show screen gameUI
 
+    #player lost control of victim
     label day_3:
-        $ currentCompliance = 0
-        
-        "You wake up."
-
-        "It's been... 2 nights now? And you're still here."
 
         "You're starting to feel unclean. Of course, there's no shower in here."
         "No mirror either, so you can't even check your appearance for sure."
