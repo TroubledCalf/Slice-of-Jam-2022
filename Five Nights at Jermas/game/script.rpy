@@ -344,6 +344,18 @@ label start:
         k "Don't you ever think about leaving me, ok?"
         k "I'm sorry I hurt you, but it hurts me more seeing you like this."
         k "I don't know what I would do without you."
+        "You sniffle and mouth the words \"I love you\""
+        "He smiles, and you smile back."
+        k "However, my love,"
+        "You feel a sharp pain in your abdomen"
+        "You look down and see a knife sticking out from you."
+        k "Til death do us part."
+        "As you black out, he gets closer to your face, and you notice him staring intensely at your lips."
+
+        scene black
+        "You feel him gently brush your lips and grab the small of your back before you slump over, and your vision fades to black"
+        "BAD END"
+
 
 
     return
