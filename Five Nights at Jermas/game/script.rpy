@@ -77,9 +77,9 @@ label start:
 
         # We need to find stuff for the victim to do in between visits from the kidnapper
 
-####
-# breakfast scene, then sleep/sitting around before captor comes to say goodnight and you have option to attack
-###
+        ####
+        # breakfast scene, then sleep/sitting around before captor comes to say goodnight and you have option to attack
+        ###
 
         "You hear the click of the door again."
         k "I would be a poor host if I did not provide for my guests."
