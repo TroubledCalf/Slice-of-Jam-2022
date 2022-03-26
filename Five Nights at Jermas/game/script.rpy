@@ -13,87 +13,114 @@ define k = Character("Kidnapper")
 # Character sprites
 
 label start:
-    scene bg room
+    label day_1:
+        scene bg room
 
-    show eileen happy
+        show eileen happy
 
-    n "You wake up."
+        n "You wake up."
 
-    hide eileen happy
+        hide eileen happy
 
-    n "Where is this?"
+        n "Where is this?"
 
-    n "Slowly, your senses start to come to you..."
+        n "Slowly, your senses start to come to you..."
 
-    n "You're laying down on a thin mattress in what appears to be a small bedroom? Definitely not your bedroom."
+        n "You're laying down on a thin mattress in what appears to be a small bedroom? Definitely not your bedroom."
 
-    # add more thoughts, specifcally emotions here
+        # add more thoughts, specifcally emotions here
 
-    n "Suddenly, you hear footsteps coming down the hall. "
+        n "Suddenly, you hear footsteps coming down the hall. "
 
-    menu: 
-        "Pretend to be asleep because they might be dangerous":
-            $ currentCompliance -= 1
-            jump pretend
-        "See who it is":
-            $ currentCompliance += 1
-            jump stay_up
-        # these are sort of place-holder values and options just to get something down
+        menu: 
+            "Pretend to be asleep because they might be dangerous":
+                $ currentCompliance -= 1
+                jump pretend
+            "See who it is":
+                $ currentCompliance += 1
+                jump stay_up
+            # these are sort of place-holder values and options just to get something down
 
-    label pretend:
-        
-        n "You hide underneath the covers and shiver as you wait for the door to open."
+        label pretend:
+            
+            n "You hide underneath the covers and shiver as you wait for the door to open."
 
-        n "Your heart beats faster as the steps get closer..."
+            n "Your heart beats faster as the steps get closer..."
 
-        n "The door swings open with a creak."
+            n "The door swings open with a creak."
 
-        n "Someone steps in and all you can do is hope to not be killed."
+            n "Someone steps in and all you can do is hope to not be killed."
 
-        k "Hi~ I know you're awake, by the way. There's no need to pretend."
+            k "Hi~ I know you're awake, by the way. There's no need to pretend."
 
-    label stay_up:
+        label stay_up:
 
-        n "You get up and wait for the door to open."
+            n "You get up and wait for the door to open."
 
-        n "Your heart beats faster as the steps get closer..."
+            n "Your heart beats faster as the steps get closer..."
 
-        n "The door swings open with a creak."
+            n "The door swings open with a creak."
 
-        # show the kidnapper
+            # show the kidnapper
 
-        n "A shadowy figure enters the room."
+            n "A shadowy figure enters the room."
 
-        k "Hello, I see you're up now."
+            k "Hello, I see you're up now."
 
-        # how should the kidnapper address the victim other than "you?"
+            # how should the kidnapper address the victim other than "you?"
 
-        v "H-hi... you're not going to hurt me, are you?"
+            v "H-hi... you're not going to hurt me, are you?"
 
-        k "Of course not! I love you!"
+            k "Of course not! I brought you here for a reason."
 
-        v "W-what? I-I don't know you..."
+            v "W-what? I-I don't know you..."
 
-        k "It's okay, you'll get to know me a lot better real soon"
+            k "That's okay, you'll get to know me eventually."
 
-        # someone *please* rewrite this
-    
-    menu:
-        "Attack your captor":
-            $ currentCompliance -= 4
-            jump attack
+            n "This is very wrong."
+
+            menu:
+                "Demand to go home":
+                    $ currentCompliance -= 1
+                    n "You jump off the bed and scream at them."
+                    v "I want to go home now!"
+                    k "Go home? This IS your home now. Don't you worry, you'll love it here!"
+                    n "With that, they leave the room and you hear a latch click."
+                    n "All you can do is curl up and start sobbing."
+                "Just accept the kidnapper for now":
+                    $ currentCompliance += 1
+                    v "Oh.. okay..."
+                    k "See, you're getting it!"
+                    k "We're going to have so much fun together!"
+                    n "With that, they leave the room and you hear a latch click."
+                    n "You take a deep breath, grateful to still be alive."
+                    n "At least this person doesn't seem intent on killing you. That means you could escape..."
+
+                    # perhaps a bit about looking around the room a la point-and-click adventure
+            # someone *please* rewrite this
+        ####
+        # breakfast scene, then sleep/sitting around before captor comes to say goodnight and you have option to attack
+        ###
+        menu:
+            "Attack your captor":
+                $ currentCompliance -= 4
+                jump attack
 
 
-        "Do nothing":
-            $ currentCompliance += 4
-            jump day_1_sleep
+            "Do nothing":
+                $ currentCompliance += 4
+                jump day_1_sleep
 
-    label attack:
-        n "You launch yourself at your captor"
+        label attack:
+            n "You launch yourself at your captor."
 
-    label day_1_sleep:
-        n "You drift to sleep, harrowed by the day's events..."
+            @TODO
 
-        # I guess more realistically, someone wouldn't be able to sleep so soundly in a bed that's not theirs
-        # what if sleeping soundly is tied to accepting food? that's creepy but anyway
+        label day_1_sleep:
+            n "You drift to sleep, harrowed by the day's events..."
+            @TODO
+            # I guess more realistically, someone wouldn't be able to sleep so soundly in a bed that's not theirs
+            # what if sleeping soundly is tied to accepting food? that's creepy but anyway
+
+            # proceed to day 2
     return
