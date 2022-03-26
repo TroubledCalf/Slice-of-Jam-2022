@@ -153,7 +153,6 @@ label start:
 
         "And you can't do a thing about it."
 
-<<<<<<< Updated upstream
         # add more thoughts, specifcally emotions here
         "You let this thought consume you until you hear the footsteps from yesterday."
 
@@ -161,9 +160,6 @@ label start:
         other than kidnapper and victim."
 
         k "Good morning. How are you today?"
-=======
-        # add more thoughts, speficifcally emotions here
->>>>>>> Stashed changes
 
         menu:
             "Demand to go home":
