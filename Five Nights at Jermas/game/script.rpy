@@ -12,7 +12,7 @@ define k = Character("Kidnapper")
 
 # Character sprites
 
-label day_1:
+label start:
     scene bg room
 
     show eileen happy
@@ -32,39 +32,39 @@ label day_1:
     n "Suddenly, you hear footsteps coming down the hall. "
 
     menu: 
-        "Pretend to be asleep because they might be dangerous"
+        "Pretend to be asleep because they might be dangerous":
             $ currentCompliance -= 1
             jump pretend
-        "See who it is"
+        "See who it is":
             $ currentCompliance += 1
             jump stay_up
         # these are sort of place-holder values and options just to get something down
 
     label pretend:
         
-        n "You hide underneath the covers and shiver as you wait for the door to open"
+        n "You hide underneath the covers and shiver as you wait for the door to open."
 
         n "Your heart beats faster as the steps get closer..."
 
-        n "The door swings open with a creak"
+        n "The door swings open with a creak."
 
-        n "Someone steps in and all you can do is hope to not be killed"
+        n "Someone steps in and all you can do is hope to not be killed."
 
         k "Hi~ I know you're awake, by the way. There's no need to pretend."
 
     label stay_up:
 
-        n "You get up and wait for the door to open"
+        n "You get up and wait for the door to open."
 
         n "Your heart beats faster as the steps get closer..."
 
-        n "The door swings open with a creak"
+        n "The door swings open with a creak."
 
         # show the kidnapper
 
-        n "A shadowy figure enters the room"
+        n "A shadowy figure enters the room."
 
-        k "Hello, I see you're up now"
+        k "Hello, I see you're up now."
 
         # how should the kidnapper address the victim other than "you?"
 
@@ -79,16 +79,17 @@ label day_1:
         # someone *please* rewrite this
     
     menu:
-        "Attack your captor"
+        "Attack your captor":
             $ currentCompliance -= 4
             jump attack
 
 
-        "Do nothing"
+        "Do nothing":
             $ currentCompliance += 4
             jump day_1_sleep
 
     label attack:
+        n "You launch yourself at your captor"
 
     label day_1_sleep:
         n "You drift to sleep, harrowed by the day's events..."
