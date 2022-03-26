@@ -19,11 +19,11 @@ label start:
 
         "You wake up."
 
-        "Where is this?"
+        "Where are you?"
 
         "Slowly, your senses start to come to you..."
 
-        "You're laying down on a thin mattress in what appears to be a small bedroom? Definitely not your bedroom."
+        "You're laying down on a thin mattress in what appears to be a small bedroom? Definitely not your own."
 
         # add more thoughts, specifcally emotions here
 
@@ -81,7 +81,7 @@ label start:
 # breakfast scene, then sleep/sitting around before captor comes to say goodnight and you have option to attack
 ###
 
-        "You here the click of the door again."
+        "You hear the click of the door again."
         k "I would be a poor host if I did not provide for my guests."
         "They approach you holding a tray and take a seat beside you on the bed."
         "Oatmeal."
