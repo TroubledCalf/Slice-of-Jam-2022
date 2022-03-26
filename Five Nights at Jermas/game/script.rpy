@@ -255,17 +255,56 @@ label start:
                 k "This is your home."
                 "With that, they leave the room and you hear a latch click."
                 "You pretty much expected that."
-                "All you can do is just sit and wait."                
+                "All you can do is just sit and wait."  
+                # filler              
             "Don't anger them":
                 $ currentCompliance += 1
                 v "Good morning."
                 k "Good morning, my dear."
                 "They wrinkled their nose"
-                k "You might need a shower soon. Not to worry! I'll"
+                k "You might need a shower soon. Not to worry! I'll help you with that later."
                 "With that, they leave the room and you hear a latch click."
-                "You take a deep breath, once again grateful to still be alive."
-                "If you were let out of this room, you could escape..."
-                "After a while of boredom, though, you slowly fall asleep..."
+                "Once again, you're alone in this little room with nothing to do."
+                # filler
 
+            #breakfast scene, pretty much EXACTLY the same as yesterday
+        "You hear the click of the door again."
+        k "I would be a poor host if I did not provide for my guests."
+        "They approach you holding a tray and take a seat beside you on the bed."
+        "Oatmeal."
+        "Not the most enjoyable of meals, not by a long shot."
+        k "I wish I could have made something more appealing, but of course..."
+        k "its hard to do so without knowing your preferences."
+        # a note-so-nice smile I imagine
+        "He waits expectantly."
+        menu:
+            "Take the oatmeal.":
+                # remember breakfast choice from before
+                $ currentCompliance += 1
+                "Unpleasant as your situation may be, it is hard to refuse warm food."
+                k "Good."
+                k "I wouldn't want you to go hungry."
+            "Refuse it":
+                $ currentCompliance -= 1
+                "They continue to smile at you."
+                k "If you are not hungry right now, that is fine."
+                k "You can eat whenever you like, and I will take your dishes when you sleep."
+                "He puts the bowl beside your bed on a night stand."
+        
+        # filler 
+        menu:
+            "Attack your captor":
+                $ currentCompliance -= 4
+                "You launch yourself at your captor."
+                #@TODO
+                jump day_3
 
+            "Do nothing":
+                $ currentCompliance += 4
+                "You drift to sleep, harrowed by the day's events..."
+                #@TODO
+                # I guess more realistically, someone wouldn't be able to sleep so soundly in a bed that's not theirs
+                # what if sleeping soundly is tied to accepting food? that's creepy but anyway
+                $ prevCompliance = currentCompliance
+                jump day_4
     return
