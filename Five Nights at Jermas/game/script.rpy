@@ -6,7 +6,6 @@ default currentCompliance = 0
 
 # Characters
 define e = Character("Eileen")
-define n = Character("Narrator")
 define v = Character("Victim")
 define k = Character("Kidnapper")
 
