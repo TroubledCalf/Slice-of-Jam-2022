@@ -2,13 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 119: expected statement.
+File "game/script.rpy", line 43: expected statement.
     @TODO
          ^
 
-File "game/script.rpy", line 123: expected statement.
+File "game/script.rpy", line 85: expected statement.
+    @TODO
+         ^
+
+File "game/script.rpy", line 90: expected statement.
     @TODO
          ^
 
 Ren'Py Version: Ren'Py 7.4.10.2178
-Sat Mar 26 12:56:09 2022
+Sat Mar 26 13:01:47 2022

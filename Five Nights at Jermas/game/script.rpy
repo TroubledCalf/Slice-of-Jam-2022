@@ -40,7 +40,7 @@ label start:
                 n "The door swings open with a creak."
                 n "Someone steps in and all you can do is hope to not be killed."
                 k "Hi~ I know you're awake, by the way. There's no need to pretend."
-                @TODO
+                #@TODO
             "See who it is":
                 $ currentCompliance += 1
                 n "You get up and wait for the door to open."
@@ -82,12 +82,12 @@ label start:
             "Attack your captor":
                 $ currentCompliance -= 4
                 n "You launch yourself at your captor."
-                @TODO
+                #@TODO
 
             "Do nothing":
                 $ currentCompliance += 4
                 n "You drift to sleep, harrowed by the day's events..."
-                @TODO
+                #@TODO
                 # I guess more realistically, someone wouldn't be able to sleep so soundly in a bed that's not theirs
                 # what if sleeping soundly is tied to accepting food? that's creepy but anyway
 
