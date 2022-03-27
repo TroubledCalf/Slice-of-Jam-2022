@@ -9,7 +9,17 @@ define v = Character("You")
 define k = Character("Kidnapper")
 
 # Character sprites
-image eyes = "images/kindapper sprites/eyes.png"
+image eyes = "images/kindapper_sprites/eyes.png"
+image isaac straight:
+    "./images/kindapper_sprites/straight.png"
+image isaac angry:
+    "./images/kindapper_sprites/angry.png"
+image isaac half:
+    "./images/kindapper_sprites/halfNhalf.png"
+image isaac happy:
+    "./images/kindapper_sprites/happy.png"
+image isaac vhappy:
+    "./images/kindapper_sprites/wistful.png"
 
 # Scenes/backgrounds
 image black = "#000"
