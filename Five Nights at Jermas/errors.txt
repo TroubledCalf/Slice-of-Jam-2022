@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 315: Line is indented, but the preceding with statement statement does not expect a block. Please check this line's indentation.
-    if compliance >= -2: 
-    ^
+File "game/script.rpy", line 40: expected statement.
+    renpy.music.register_channel("victim_channel",loop = True)
+                                                              ^
+
+File "game/script.rpy", line 41: expected statement.
+    renpy.music.register_channel("kidnapper_channel",loop = True)
+                                                                 ^
 
 Ren'Py Version: Ren'Py 7.4.9.2142
-Sun Mar 27 02:38:46 2022
+Sun Mar 27 15:06:38 2022

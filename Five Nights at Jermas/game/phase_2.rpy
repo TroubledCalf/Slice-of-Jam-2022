@@ -1,5 +1,6 @@
 default acceptedCoffee = False
 default acceptedBook = False
+default hadLunch = False
 label phase_2:
     label day_3:
         scene bedroom
@@ -409,6 +410,7 @@ label phase_2:
                     k "Follow me, and we can have a lovely afternoon together."
                     jump lunchtime
         label lunchtime:
+            $ hadLunch = True
             if acceptedCoffee:
                 "You found yourself in the now-familiar kitchen."
             else:

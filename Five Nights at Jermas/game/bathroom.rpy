@@ -12,11 +12,11 @@ label goToBathroom:
 
     "Another day passes."
     "You play along with your captor, satisfying them."
-    "After lunch you feel an urge."
+    "After lunch, you feel an urge."
 
     "You knock on your door to be let out for the bathroom."
     if currentCompliance > highComplBR:
-        "In a moments notice, you here the locks behind click and shift."
+        "In a moment's notice, you here the locks behind click and shift."
     else:
         "After some time, the door swings open."
 
@@ -32,7 +32,7 @@ label goToBathroom:
                 call askForBRNormal
             else:
                 show isaac straight
-                "Their expression turns dour."
+                "Their expression turns sour."
                 k "Would it kill you to speak up? I'm not going to yell at you."
         "Ask for the bathroom.":
             call askForBRNormal
@@ -65,7 +65,6 @@ label inBathroom:
         "Looking around, what will you do?"
         menu:
             "You're done here.":
-                #PLACEHOLDERPLACEHOLDERPLACEHOLDER
                 $ allDone = True
             "Use the toilet" if not usedToilet:
                 call useToilet
