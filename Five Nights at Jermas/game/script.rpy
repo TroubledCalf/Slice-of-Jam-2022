@@ -52,7 +52,7 @@ image hallway = "images/backgrounds/hallway.png"
 image kitchen = "images/backgrounds/kitchen.png"
 image bathroom = "images/backgrounds/bathroom.png"
 image door_night = "images/backgrounds/door_nighttime.png"
-image kitchen = "images/backgrounds/kitchen.png"
+image dining_hall = "images/backgrounds/dining_hall.png"
 
 label start:
     stop music

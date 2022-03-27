@@ -300,17 +300,22 @@ label dinnerWithMyMan:
                 jump accepted_Dinner
         label refused_Dinner:
             "You shouldn't have dinner with this person."
+            show isaac straight
             k "Oh... that's too bad."
+            show isaac happy
             k "Well, as usual, I know you'll eventually say yes."
             k "You have to."
             k "You love me."
             k "You just don't know it yet."
             k "Good night for now, though."
+            scene black
             jump dinnerWithMyMan
 
         label accepted_Dinner:
+            scene dining_hall
             "They take your hand and walk you to a new room you haven't seen yet."
             "It's a dining room at the end of the hall."
+            show isaac happy
             k "Here's my dining room!"
             k "Do you like it?"
             menu:
@@ -346,8 +351,10 @@ label dinnerWithMyMan:
 
         menu:
             "Attempt to escape":
+                hide isaac happy
                 jump escape_attempt
             "Stay with them":
+                show black
                 jump badEnd
 
     label escape_attempt:
@@ -356,6 +363,7 @@ label dinnerWithMyMan:
         # 2. your compliance score is in the middle range => you are able to escape. good ending.
         # 3. your compliance score is too high => you are not able to escape. bad ending.
         if compliance > highComplianceDN: # the 3rd outcome
+            show isaac happy
             "You will escape."
             v "You know, I've been thinking, I've grown towards you, Isaac."
             v "I want to stay with you."
@@ -366,6 +374,7 @@ label dinnerWithMyMan:
             v "I feel much safer when I am with you. You are my safe haven, Isaac."
             "No, no, NO! THIS IS NOT WHAT YOU ARE SUPPOSED TO DO!"
             "JAYDYN! NO!"
+            show isaac vhappy
             k "You are finally accepting me...I am so happy. I love you, I love you so much Jaydyn!"
             "..."
             "..."
@@ -373,8 +382,10 @@ label dinnerWithMyMan:
             "Jaydyn chooses to stay with Isaac."
             "Jaydyn, smiling as brilliantly as ever, replies back to Isaac."
             v "I love you too!"
+            scene black
             jump badEnd
         elif compliance < -highComplianceDN: # the 1st outcome
+            show isaac happy
             if var_flag ==  1:
                 "You try to escape by distracting the kidnapper. This time, you plan to ask for some chili pepper."
                 v "Hey, Isaac."
@@ -383,14 +394,18 @@ label dinnerWithMyMan:
                 k "Oh, is the food bland this time? I'm sorry, I don't usually cook for someone else, so I didn't know how you'd like it."
                 v "...It's fine. It's just that I'm used to eating food a bit spicy back at home..." # <- kind of showing that YOU and JAYDYN have the same end goal: going back home
                 k "Okay, thanks for letting me know. I'll go check the kitchen to see if we have any."
+                show isaac straight
                 "The kidnapper gets up from the chair, but their eyes linger on yours for way too long."
+                show isaac close_straight
                 "They seem a bit disappointed when you mentioned your life before this, as if they want you to forget everything except the current life here."
                 "But disappointment is not the only emotion you see. You also see suspicion, doubt in their eyes. What if they have figured out again?"
                 "You try to get out of this uncomfortable situation by smiling at them. They smile back, but it seems as if their suspicion has yet to subside."
+                show isaac straight
                 k "You've never smiled at me like that. Is there something wrong you did that you are not telling me right now?"
                 v "W-what do you mean? All I wanted was chili pepper..."
                 "But they weren't wrong. They probably figured out again. Today's not the day."
                 $ var_flag += 1
+                scene black
                 jump pretend_phase
             elif var_flag ==  2:
                 # asking for the kidnapper's favourite drink, the kidnapper makes it for JAYDYN but it is drugged
@@ -401,6 +416,7 @@ label dinnerWithMyMan:
                 "The kidnapper makes eye contact with you. You have yet to get used to their unsettling gaze. You avert your eyes to the served tuna sandwich."
                 "You briefly think that tuna sandwich is definitely much more appetizing than the daily oatmeal bowls before opening your mouth again to speak."
                 v "I was wondering what your favorite drink is..."
+                show isaac close_happy
                 "The kidnapper's eyes widen, definitely taken aback by your surprisingly intimate question. They struggle to muster up an answer for awhile but manage to speak."
                 k "W-wow, I didn't expect you to ask me that kind of question. This whole time, I thought you didn't want to have anything to do with me."
                 k "I guess I was wrong about you."
@@ -408,15 +424,19 @@ label dinnerWithMyMan:
                 v "Can you make some for me, whatever it is? After all, dinners are special, and you know what that means."
                 "You are disgusted as you say that, but you can't do much about this either. Even worse, they blush to that."
                 "It is even more clear that you need to get out of this place. Immediately."
+                show isaac vhappy
                 k "Y-you are definitely something. You are doing things to me. But yeah, I will make some for you, just give me a quick minute or two."
+                hide isaac vhappy
                 """You nod. The kidnapper leaves the dining room, and you decide that unlike your previous tries, you should remain in your seat.
                 You realize that you were being too anxious and trying things that were simply out of character. You need to give the kidnapper some trust.
                 Once you do that, you are sure that this time you will be able to escape."""
+                show isaac vhappy
                 "The kidnapper comes back with the drink. By the scent of it, it is alcoholic. That is okay. You drank a lot before coming to this place anyway."
                 "You vaguely remember something about not accepting drinks from strangers, but this doesn't matter. You have to build trust."
                 "So you accept the drink and neck half of it down. Simple. It's not like it's your first time downing something tasting like hard liquor."
                 """But after a while, you feel a bit dizzy. You start wondering to yourself whether you drank it too fast.
                 But to think about your past experience, this should be nothing."""
+                show isaac straight
                 v "...Did you drug me?"
                 k "I'm sorry, I'm so sorry...I wasn't sure if you were going to stay with me."
                 show isaac angry
@@ -433,15 +453,22 @@ label dinnerWithMyMan:
                 v "Yeah, actually...would it be possible for you to cook something for me?"
                 k "Oh...is the food not to your liking?"
                 v "Oh no, it's just that I am feeling especially hungry today..."
+                show isaac straight
                 "The kidnapper stares into your eyes, long and hard. You get the shivers from their penetrating stare."
                 "They may have noticed you had something going on. But the kidnapper doesn't say much. They just stare."
                 "Then, they finally get up from the table to fetch you something, but their eyes never leave you."
+                hide isaac straight
                 k "Okay, we have some ramen noodles and..."
                 "The kidnapper's voice starts fading out for you, because you are too anxious, looking for the right opportunity to make your escape."
                 k "...You've been awfully quiet. Is everything okay?"
                 "Their eyes stare into your soul. They know. They know that you are trying to escape."
+<<<<<<< Updated upstream
                 show eyes
                 play music jumpScare
+=======
+                show isaac insane
+                play jumpScare
+>>>>>>> Stashed changes
                 v "...N-no? Everything is fine!"
                 "Today is not the day..."
                 jump pretend_phase
@@ -451,11 +478,14 @@ label dinnerWithMyMan:
             k "Yeah? Do you need something?"
             v "Yeah, actually, I really liked the tuna sandwich you made, and I was wondering you can make some more for me?"
             k "Oh really? I'm so glad that you liked it. I'll try to make one as soon as possible!"
+            hide isaac happy
             "Isaac excitedly scampers to the cabinets in the kitchen while humming 'Hip To Be Square' by Huey Lewis & The News. Until they groan a little."
+            show isaac happy
             k "I'm so sorry, but I have to go upstairs to get some more ingredients...I'm so sorry, I'm so sorry..."
             v "It's okay."
             k "I'll quickly go upstairs to get some more. Will you wait for me?"
             v "Sure, don't worry too much about me."
+            hide isaac happy
             "Isaac runs upstairs, and closes the door on you."
             "You are left alone, and you start thinking."
             """You have a staircase to upper ground, which means you can find the front door to get out of the building.
@@ -503,9 +533,12 @@ label dinnerWithMyMan:
 
     label pretend_phase:
 
+        scene bedroom_day
+
         "You wake up the next day."
         "And, to be honest, you're not even sure what day it is at this point."
 
+        show isaac happy
         "Like the day before, your captor comes to take you to the kitchen to have oatmeal."
         "They ask if you want to chat."
 
@@ -530,14 +563,16 @@ label dinnerWithMyMan:
             "You have a long talk before they leave."
         label no_to_chat_p:
             "They leave you alone after you refuse to chat."
-
+        hide isaac happy
         # PART 2 OF PRETEND, SHOWER
         "Just like yesterday, you wonder if you should take a shower."
         menu:
             "Take shower":
+                scene bathroom
                 $ compliance += 1
                 "You spend time in the bathroom cleaning yourself up."
                 "..."
+                scene bedroom_day
                 "After your time in the bathroom, you're satisfied."
                 "All you can do now is sit around."
             "Don't take a shower":
@@ -545,8 +580,10 @@ label dinnerWithMyMan:
                     $ compliance -= 1
                     v "I want to impress them!"
                     "What the- No. That's wrong."
+                    scene bathroom
                     "You spend time in the bathroom cleaning yourself up."
                     "..."
+                    scene bedroom_day
                     "After your time in the bathroom, you're satisfied."
                     "All you can do now is sit around."
                 else:
@@ -573,18 +610,23 @@ label dinnerWithMyMan:
                     "NO!"
                     "YOU CAN'T DO THIS!"
                     "Jaydyn happily takes their hand to follow them out of the room."
+                    scene hallway
                     "Jaydyn is not supposed to do this."
                     $ compliance -= 1
                     jump lunchtime_p4_p
                 else:
                     """Another disappointed look crosses their face, but them remembering that sometimes you don't want lunch but still appreciate,
                     they leave you alone, and you drift to sleep."""
+                    scene black
                     jump book_p4_p
             "Follow them":
                 $ compliance += 3
+                scene hallway
                 "You choose to go to lunch with them. They grab your hand and take you to the kitchen."
                 jump lunchtime_p4_p
         label lunchtime_p4_p:
+            scene kitchen
+            show isaac happy
             if hadLunch:
                 "Like before, you see a pile of vegetables on the counter."
                 k "We're making soup again!"
@@ -633,12 +675,14 @@ label dinnerWithMyMan:
                     label good_p4_p:
                         $ compliance += 2
                         k "I'm happy!"
+                        show isaac vhappy
                         k "I'll make you even happier tonight."
                         v "W-what?"
                         k "It's a surprise~"
                         k "I'll just say one thing..."
                         k "I'm pretty skilled..."
                         k "... at cooking, of course."
+                        show isaac happy
                         v "Oh.. oh."
                         k "What did you think I meant?"
                         k "I won't say any more, though."
@@ -654,6 +698,7 @@ label dinnerWithMyMan:
                         v "Thank you. I think I needed a hug."
                     "You sit in silence for a bit longer."
                     "After finishing the meal, they take your hand and walk you back to the room."
+                    scene bedroom
                     jump book_p4_p
 
             ## BOOK/NAP
@@ -684,6 +729,7 @@ label dinnerWithMyMan:
                     "There isn't much to do, except for rereading the newspaper clippings."
 
                 "You eventually drift to sleep."
+                scene black
                 jump dinner
     return
 
