@@ -438,17 +438,8 @@ label dinnerWithMyMan:
                 "The kidnapper's voice starts fading out for you, because you are too anxious, looking for the right opportunity to make your escape."
                 k "...You've been awfully quiet. Is everything okay?"
                 "Their eyes stare into your soul. They know. They know that you are trying to escape."
-<<<<<<< Updated upstream
                 show eyes
-<<<<<<< HEAD
-                #play jumpScare
-=======
                 play music jumpScare
->>>>>>> 4ad525c35904cfda1b283dcc2d395198d3b3646e
-=======
-                show isaac insane
-                play jumpScare
->>>>>>> Stashed changes
                 v "...N-no? Everything is fine!"
                 "Today is not the day..."
                 jump pretend_phase
