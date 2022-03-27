@@ -43,8 +43,14 @@ label dinnerWithMyMan:
             k "Oh...is the food not to your liking?"
             v "Oh no, it's just that I am especially feeling hungry today..."
             "The kidnapper stares into your eyes, long and hard. You get the shivers from their pentrating stare."
-            "They may have noticed you had something going on "
-
+            "They may have noticed you had something going on. But the kidnapper don't say much. They just stare."
+            "Then, they finally get up from the table to fetch you something, but their eyes never leave you."
+            k "Okay, we have some ramen noodles and..."
+            "The kidnapper's voice starts fading out for you, because you are too anxious, looking for the right opportunity to make your escape."
+            k "...You've been awfully quiet. Is everything okay?"
+            "Their eyes are right in front of your eyes. They know. They know that you are trying to escape."
+            v "...N-no? Everything is fine!"
+            "Today is not the day..."
             jump dinnerWithMyMan
         else:
             jump winEnd
