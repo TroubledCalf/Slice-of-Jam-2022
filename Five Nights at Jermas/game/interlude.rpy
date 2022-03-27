@@ -79,7 +79,7 @@ label interludeTwoMidComp:
 
     return
 
-label interludeThreeMidComp
+label interludeThreeMidComp:
 
     scene door_night
 
@@ -105,7 +105,7 @@ label interludeThreeMidComp
     "Certainly. Whatever happens tomorrow, you'll have to tread carefully."
     return
 
-label interludeThreeHighComp
+label interludeThreeHighComp:
 
     scene door_night
 

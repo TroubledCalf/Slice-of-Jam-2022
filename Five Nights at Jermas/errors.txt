@@ -2,17 +2,9 @@
 errors listed below, and try again.
 
 
-The label good_p4 is defined twice, at File "game/phase_4_dinner.rpy", line 186:
-            label good_p4:
-and File "game/phase_4_dinner.rpy", line 594:
-            label good_p4:
-
-
-The label bad_p4 is defined twice, at File "game/phase_4_dinner.rpy", line 199:
-            label bad_p4:
-and File "game/phase_4_dinner.rpy", line 607:
-            label bad_p4:
-
+File "game/script.rpy", line 41: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    zoome 2.0
+             ^
 
 Ren'Py Version: Ren'Py 7.4.9.2142
-Sun Mar 27 16:03:07 2022
+Sun Mar 27 17:18:47 2022
