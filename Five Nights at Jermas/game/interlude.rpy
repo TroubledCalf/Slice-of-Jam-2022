@@ -7,7 +7,8 @@ label interludeOne:
     "But as grim as your situation may be, at least the rhythms are changing."
     "With hope and a certain balance, you can get through this."
 
-    hide black with fade
+    show bedroom_day with fade
+    scene bedroom_day
 
     return
 
