@@ -38,7 +38,7 @@ image isaac close_angry:
     zoom 2.0
 image isaac close_happy:
     "./images/kindapper_sprites/happy.png"
-    zoome 2.0
+    zoom 2.0
 image isaac close_straight:
     "./images/kindapper_sprites/straight.png"
     zoom 2.0
