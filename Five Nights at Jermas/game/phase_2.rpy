@@ -4,7 +4,7 @@ default hadLunch = False
 default knowsFav = False
 label phase_2:
     label day_3:
-        scene bedroom
+        scene bedroom_day
         $ compliance = compliance // 2
         play victim_channel bedroom_victim fadein 2.0
         play music bedroom_main volume 0.5
@@ -310,7 +310,7 @@ label phase_2:
 
     # lunch for real
     label day_5:
-        scene room
+        scene bedroom_day
         $ compliance = 0
         "You wake up to yet another day on this thin mattress."
         play victim_channel bedroom_victim fadein 2.0
@@ -342,7 +342,7 @@ label phase_2:
                     "After a few minutes, they get up to leave."
                     k "I'll be back!"
                     hide issac
-                    stop kidnapper_channel fadeout
+                    stop kidnapper_channel fadeout 1.0
                 "No":
                     $ compliance -= 1
                     v "No."
@@ -351,7 +351,7 @@ label phase_2:
                     k "I'll be back with the oats you want so badly."
                     "They leave the room."
                     hide issac
-                    stop kidnapper_channel fadeout
+                    stop kidnapper_channel fadeout 1.0
         else:
             k "But, I did bring the book with me if you'd like to give it another shot."
             menu:
@@ -368,7 +368,7 @@ label phase_2:
                     "They smiled."
                     k "Don't worry about it."
                     hide issac
-                    stop kidnapper_channel fadeout
+                    stop kidnapper_channel fadeout 1.0
                 "Refuse the book.":
                     show issac angry
                     $ compliance -= 1
@@ -378,7 +378,7 @@ label phase_2:
                     k "Anyway, I'll be back with breakfast!"
                     "They leave in good spirits, for some reason..."
                     hide issac
-                    stop kidnapper_channel fadeout
+                    stop kidnapper_channel fadeout 1.0
 
 
         #breakfast scene
@@ -399,7 +399,7 @@ label phase_2:
                 k "I'm glad you like my cooking so much."
                 "With that, they leave the room. There is no latch noise."
                 hide issac
-                stop kidnapper_channel fadeout
+                stop kidnapper_channel fadeout 1.0
             "Refuse it":
                 $ compliance -= 1
                 "You still will not have their oatmeal, no matter how good it smells."
@@ -408,7 +408,7 @@ label phase_2:
                 "He puts the bowl beside your bed on a night stand."
                 "With that, they leave the room. There is no latch noise."
                 hide issac
-                stop kidnapper_channel fadeout
+                stop kidnapper_channel fadeout 1.0
 
         "Within a few minutes, they return."
         show issac straight
@@ -432,7 +432,7 @@ label phase_2:
                     k "Nevermind, that's fine, I still have another idea you might like."
                     "With a disappointed face, they leave the room."
                     hide issac
-                    stop kidnapper_channel fadeout
+                    stop kidnapper_channel fadeout 1.0
                     jump no_kitchen_day_5
         else:
             menu:
@@ -456,7 +456,7 @@ label phase_2:
                     k "Again, that's fine, I still have another idea you might like."
                     "With a straight face, they leave the room."
                     hide issac
-                    stop kidnapper_channel fadeout
+                    stop kidnapper_channel fadeout 1.0
                     jump no_kitchen_day_5
 
         label kitchen_day_5:
@@ -520,7 +520,7 @@ label phase_2:
 
             k "Okay, back into the room you go! I'll come get you later! I have a surprise!"
             hide issac
-            stop kidnapper_channel fadeout
+            stop kidnapper_channel fadeout 1.0
             $ acceptedCoffee = True
             jump after_kitchen_day_5
 
@@ -579,7 +579,7 @@ label phase_2:
                     k "Alright, that's fine. I'm sure you'll agree later."
                     "With that, they leave the room, leaving you with nothing more to do but sleep."
                     hide issac
-                    stop kidnapper_channel fadeout
+                    stop kidnapper_channel fadeout 1.0
                     "You slowly drift to sleep..."
                     jump end_day_5
                 "Follow them":
@@ -685,7 +685,8 @@ label phase_2:
             k "Goodnight!"
             "Though you are not tired, you climb into bed."
             "After possibly hours, you finally drift to sleep."
-            scene black fadeout
+            scene black
+            with fade
             if compliance < -1:
                 jump day_5
             else:
