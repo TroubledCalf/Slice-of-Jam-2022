@@ -42,5 +42,5 @@ File "game/phase_2.rpy", line 582: expected simple expression
     stop kidnapper_channel fadeout
                                   ^
 
-Ren'Py Version: Ren'Py 7.4.10.2178
-Sun Mar 27 17:49:21 2022
+Ren'Py Version: Ren'Py 7.4.9.2142
+Sun Mar 27 17:58:33 2022
