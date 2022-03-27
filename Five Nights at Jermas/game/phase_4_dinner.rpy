@@ -53,7 +53,7 @@ label dinnerWithMyMan:
         "They leave the room and the footsteps fade away."
     jump shower_p4
     ## SHOWER
-    label shower_p4
+    label shower_p4:
         "You sit by yourself for a while longer."
         "Maybe you should take a shower."
         "Your captor might treat you even better if you're clean..."
@@ -74,7 +74,7 @@ label dinnerWithMyMan:
         label after_shower_p4:
             "After your time in the bathroom, you're satisfied."
             "All you can do now is sit around."
-            jump lunch_p4    
+            jump lunch_p4
 
     ## LUNCH
     label lunch_p4:
@@ -215,11 +215,11 @@ label dinnerWithMyMan:
             "With nothing to do in the room other than read, perhaps that's what you should do."
             menu:
                 "Read":
-                    compliance += 2
+                    $ compliance += 2
                     jump read_p4
                 "Sleep":
                     if compliance > highComplianceDN:
-                        compliance -= 2
+                        $ compliance -= 2
                         "You watch in horror as Jaydyn simply decides to read the book."
                         "Did they forget who gave them the book?"
                         "Don't read it!"
