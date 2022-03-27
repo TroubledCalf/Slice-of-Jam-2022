@@ -8,7 +8,7 @@ default canBrush = False
 default canBath = False
 
 label goToBathroom:
-    $ currentCompliance = currentCompliance / 2
+    $ currentCompliance = currentCompliance // 2
 
     "Another day passes."
     "You play along with your captor, satisfying them."

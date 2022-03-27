@@ -21,9 +21,21 @@ image isaac happy:
 image isaac vhappy:
     "./images/kindapper_sprites/wistful.png"
 
+image isaac close_angry:
+    "./images/kindapper_sprites/angry.png"
+    zoom 2.0
+image isaac close_happy:
+    "./images/kindapper_sprites/happy.png"
+    zoome 2.0
+image isaac close_straight:
+    "./images/kindapper_sprites/straight.png"
+    zoom 2.0
+
 # Scenes/backgrounds
 image black = "#000"
 image bedroom = "images/backgrounds/bedroom_concept_art.png"
+image bedroom_day = "images/backgrounds/bedroom2_daytime.png"
+image bedroom_night = "images/backgrounds/bedroom2_nighttime.png"
 image white = "#ffffff"
 image red = "#CD5C5C"
 image hallway = "images/backgrounds/hallway.png"
@@ -37,7 +49,7 @@ label start:
 
         "You wake up."
 
-        show bedroom
+        scene bedroom_day
         with fade
 
         "Where is this?"
@@ -68,6 +80,7 @@ label start:
                 "Someone steps in and all you can do is hope to not be killed as you try to silence your breath."
                 k "Hi~ I know you're awake, by the way. There's no need to pretend."
                 "You slowly lift your head out of the blankets."
+                show isaac happy
                 k "There you are!"
                 "They grin at you as you cower away."
             "See who it is":
@@ -76,6 +89,7 @@ label start:
                 "Your heart beats faster as the steps get closer..."
                 "The door swings open with a creak."
                 # show kidnapper smiling
+                show isaac half
                 "A shadowy figure enters the room."
                 k "Hello, I see you're up now."
                 # how should the kidnapper address the victim other than "you?"
@@ -92,23 +106,28 @@ label start:
                 "You jump off the bed and scream at them."
                 v "I want to go home now!"
                 #show the kidnapper angry
+                show isaac angry
                 k "Go home? This IS your home now. Don't you worry, you'll love it here!"
                 #hide kidnapper
+                hide isaac
                 "With that, they leave the room and you hear a latch click."
                 "All you can do is curl up and start sobbing."
             "Just accept the kidnapper for now":
                 $ compliance += 1
                 #show kidnapper smiling
                 v "Oh.. okay..."
+                show isaac happy
                 k "See, you're getting it!"
                 k "We're going to have so much fun together!"
                 #hide kidnapper
+                hide isaac
                 "With that, they leave the room and you hear a latch click."
                 "You take a deep breath, grateful to still be alive."
                 "At least this person doesn't seem intent on killing you. That means you could escape..."
 
 
         "You hear the click of the door again."
+        show isaac happy
         k "I would be a poor host if I did not provide for my guests."
         "They approach you holding a tray and take a seat beside you on the bed."
         "Oatmeal."
@@ -116,6 +135,7 @@ label start:
         k "I wish I could have made something more appealing, but of course..."
         k "It's hard to do so without knowing your preferences."
         # a note-so-nice smile I imagine
+        show isaac vhappy
         "They wait expectantly."
         menu:
             "Take the oatmeal.":
@@ -130,6 +150,7 @@ label start:
                 k "You can eat whenever you like, and I will take your dishes when you sleep."
                 "He puts the bowl beside your bed on a night stand."
         #show kidnapper neutral
+        show isaac happy
         "He stands up once again."
         k "Before I leave, is there anything more you'd like to speak about?"
         "You get an idea."
@@ -139,6 +160,7 @@ label start:
                 $ compliance -= 4
                 "You launch yourself at them."
                 #show kidnapper angry and zoomed in
+                show isaac close_angry
                 "You knock them to the floor, but they quickly flip you on your back."
                 #if available, show kidnapper on top of player
                 "After a few seconds of you struggling, they pin you down."
@@ -148,8 +170,10 @@ label start:
                 k "Please don't cause problems for us."
                 v "THERE IS NO 'US!'"
                 #show kidnapper disappointed
+                show isaac close_straight # we didn't have anything w a frown
                 k "Are you so sure of that? I wouldn't hold your breath."
                 k "Just go back to sleep, will you?"
+                hide isaac
                 scene black
                 with fade
                 v "You hide under the covers, sorely defeated."
@@ -158,6 +182,7 @@ label start:
 
             "Do nothing":
                 $ compliance += 4
+                hide isaac
                 "You see the kidnapper finally leaving you in the lonely room. Thank god."
                 "But even if they DID leave, there is nothing for you to do here. Nor do you feel brave enough to explore the room just yet."
                 "After staring into the void for some time, your body gives out, and you slowly drift away to sleep..."
@@ -169,7 +194,7 @@ label start:
         # and you have breakfast again
 
         "You wake up."
-        scene bedroom
+        scene bedroom_day
         with fade
         "You look out into the room you're in and remember everything from yesterday."
 
@@ -188,6 +213,7 @@ label start:
         "Like the two of you were married or something."
 
         #show kidnapper smiling
+        show isaac happy
         k "Good morning. How are you today?"
 
         menu:
@@ -199,14 +225,17 @@ label start:
                 k "But I understand, it'll take you some time to accept that."
                 k "I came down to let you know breakfast will be ready soon."
                 #hide kidnapper
+                hide isaac
                 "With that, they leave the room and you hear a latch click."
                 "Once again, you just lay defeated."
                 "There is nothing you can do, so you just sit there."
             "Just accept the kidnapper for a little longer":
                 $ compliance += 1
                 v "So are you going to bring me food soon?"
+                show isaac vhappy
                 k "See, you're getting it!"
                 k "Keep this up and maybe I'll even let you out of this room..."
+                hide isaac
                 #hide kidnapper
                 "With that, they leave the room and you hear a latch click."
                 "You take a deep breath, once again grateful to still be alive."
@@ -216,15 +245,18 @@ label start:
         #breakfast scene, pretty much EXACTLY the same as yesterday
         "You hear the click of the door again."
         #show kidnapper smiling
+        show isaac happy
         k "It is time for some more oatmeal! I know you wanted some more since yesterday."
         "They approach you holding a tray and take a seat beside you on the bed."
         "Oatmeal. Again."
         "But given that you are kidnapped, you can't say much. This is definitely better than not getting food at all."
         #show kidnapper neutral
+        show isaac straight
         k "I know that I've been offering you oatmeal two days in a row...I'm so sorry."
         k "But I don't know...after all, we don't know each other as well."
         k "That's okay though! We have all this time together to get even closer!"
         # a note-so-nice smile I imagine
+        show isaac vhappy
         "Differently from yesterday, they place the spoon in your hands, which have been shaking this entire time."
         "They wait for you to take a spoonful."
         menu:
@@ -259,6 +291,7 @@ label start:
                         $ brekkiePref = 4
                         #hide kidnapper smiling
                         #show kidnapper neutral
+                        show isaac straight
                         "Their smile fades slightly, before they regains composure."
                         k "...You'll learn to appreciate what I offer you in time."
             "Refuse it":
@@ -269,6 +302,7 @@ label start:
                 "They put the bowl beside your bed on a night stand."
 
         "They stand up once again."
+        show isaac happy
         k "Before I leave, is there anything more you'd like to speak about?"
 
         menu:
@@ -276,6 +310,7 @@ label start:
                 $ compliance -= 4
                 "You launch yourself at your captor."
                 #show kidnapper angry
+                show isaac angry
                 "They hit you back with ease, leaving you in a heap on the floor."
                 "Really? I've treated you so well and you attack me like this?!"
                 "Please don't ruin our relationship."
@@ -296,6 +331,7 @@ label start:
         #(as well as meeting the threshold compliance score)
 
         #hide kidnapper smiling
+        hide isaac
         "You watch the kidnapper walk out of the door. But something is different from last time."
         "They always lock the door when they leave, but this time, they just left."
 
@@ -315,9 +351,11 @@ label start:
                     #very close (AND CREEPY) shot on the kidnapper's eyes would be nice
                     #to visually explain that the kidnapper was, in fact, right outside of the door,
                     #waiting patiently to test you.
+                    show isaac close_happy
                     k "Haha! You are so funny, you actually opened the door!"
                     k "I hope you don't feel too annoyed. I am a person too, so I sometimes forget to lock the door."
                     k "Good night!"
+                    hide isaac
                     jump day_2
                 "Go back to the bed. Right now is not the time.":
                     scene black
