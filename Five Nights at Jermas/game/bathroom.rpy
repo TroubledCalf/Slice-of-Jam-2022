@@ -113,11 +113,11 @@ label exitBR
     elif not canBath and currentCompliance >= lowComplBR and brushedTeeth:
         $ canBath = True
     elif canBrush and canBath and currentCompliance >= lowComplBR:
-        jump
+        jump dinnerWithMyMan
     elif lowComplBR > currentCompliance:
         k "I am a bit disappointed in you. I expected a little bit more trust. Until you trust me a bit more, I'll have to refuse your bathroom requests."
         k "I'm sorry, but I'm doing this for you."
-        jump
+        jump day_5
 
 
 
