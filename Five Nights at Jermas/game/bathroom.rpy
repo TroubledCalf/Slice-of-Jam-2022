@@ -8,14 +8,14 @@ default canBrush = False
 default canBath = False
 
 label goToBathroom:
-    $ currentCompliance = currentCompliance // 2
+    $ compliance = compliance // 2
 
     "Another day passes."
     "You play along with your captor, satisfying them."
     "After lunch, you feel an urge."
 
     "You knock on your door to be let out for the bathroom."
-    if currentCompliance > highComplBR:
+    if compliance > highComplBR:
         "In a moment's notice, you here the locks behind click and shift."
     else:
         "After some time, the door swings open."
@@ -27,8 +27,8 @@ label goToBathroom:
 
     menu:
         "Nod towards the bathroom.":
-            $ currentCompliance -= 1
-            if currentCompliance > highComplBR:
+            $ compliance -= 1
+            if compliance > highComplBR:
                 call askForBRNormal
             else:
                 show isaac straight
@@ -37,7 +37,7 @@ label goToBathroom:
         "Ask for the bathroom.":
             call askForBRNormal
         "Ask nicely" if timesGoneToBR > 1:
-            $ currentCompliance += 1
+            $ compliance += 1
             v "May I please go to the bathroom?"
             k "..."
             k "Good."
@@ -80,7 +80,7 @@ label inBathroom:
                 $ brushedTeeth = True
             "Take a bath" if not tookBath:
                 "You undress and step into the bath."
-                if currentCompliance < highComplBR:
+                if compliance < highComplBR:
                     "You hope desperately there are no hidden cameras in this bathroom."
                 "You reach for the nozzle and turn for the water."
                 if canBath:
@@ -99,7 +99,7 @@ label exitBR:
     "An odd request. What you do in the bathroom is your business."
     menu:
         "Knock and wait for them.":
-            $ currentCompliance += 2
+            $ compliance += 2
             "You knock on the door and wait patiently. You see no reason to disobey now."
             "You put your ear to the door listening for footsteps or any indication of their approach but find none."
             k "Hey! No worries, I'm right here."
@@ -108,7 +108,7 @@ label exitBR:
             k "I knew you wouldn't betray my trust."
 
         "Open the door yourself.":
-            $ currentCompliance -= 2
+            $ compliance -= 2
             "You open the door only to come face to face with your captor on the other side."
             "They almost look disappointed in you."
             k "Jaydyn. I thought you would remember. Do you need a memory device? I have a supply of sticky notes actually."
@@ -119,20 +119,20 @@ label exitBR:
     "They direct you towards your given bedroom again. Notably following you the whole way through."
 
     ## Section for expanding bathroom privileges
-    if not canBrush and currentCompliance >= lowComplBR and usedToilet:
+    if not canBrush and compliance >= lowComplBR and usedToilet:
         hide isaac
         $ canBrush = True
-    elif not canBath and currentCompliance >= lowComplBR and brushedTeeth:
+    elif not canBath and compliance >= lowComplBR and brushedTeeth:
         hide isaac
         $ canBath = True
-    elif canBrush and canBath and currentCompliance >= lowComplBR and usedToilet and brushedTeeth and tookBath:
+    elif canBrush and canBath and compliance >= lowComplBR and usedToilet and brushedTeeth and tookBath:
         hide isaac
-        if currentCompliance > highComplBR:
+        if compliance > highComplBR:
             call interludeThreeHighComp
         else:
             call interludeThreeMidComp
         jump dinnerWithMyMan
-    elif lowComplBR > currentCompliance:
+    elif lowComplBR > compliance:
         show isaac straight
         k "I am a bit disappointed in you. I expected a little bit more trust. Until you trust me a bit more, I'll have to refuse your bathroom requests."
         k "I'm sorry, but I'm doing this for you."
@@ -164,11 +164,11 @@ label useToilet:
     "Anyway, back to toilet paper."
     menu:
         "Put it on loose-end-over":
-            $ currentCompliance += 1
+            $ compliance += 1
             "You put on the toilet paper as instructed. After all, there's no reason to upset them over this."
         "Put it on loose-end-under":
-            $ currentCompliance -= 1
-            if currentCompliance > highComplBR:
+            $ compliance -= 1
+            if compliance > highComplBR:
                 "You put on the toilet paper as instructed. After all, there's no reason to upset them over this."
             else:
                 "You put it on wrong, ignoring their instructions. You have no reason to listen to a kidnapper."
@@ -181,14 +181,14 @@ label brushTeeth:
     v "'Don't Touch! :-) --Isaac'"
     menu:
         "Rummage through the pills.":
-            $ currentCompliance -= 1
+            $ compliance -= 1
             "You're really putting your school's D.A.R.E. program to good use."
             "You find mostly tylenol and advil. Some other drugs you don't know but none you think will be useful."
             "At this point you've over turned enough bottles there's no hope in putting them back into place."
             "Oh well."
         "Leave them be.":
-            $ currentCompliance += 1
-            if currentCompliance > highComplBR:
+            $ compliance += 1
+            if compliance > highComplBR:
                 "You're really putting your school's D.A.R.E. program to good use."
                 "You find mostly tylenol and advil. Some other drugs you don't know but none you think will be useful."
                 "At this point you've over turned enough bottles there's no hope in putting them back into place."
@@ -220,7 +220,7 @@ label takeBath:
             $ saidToShampoo = True
         "Don't use them":
             $ saidToShampoo = False
-    if saidToShampoo or currentCompliance > highComplBR:
+    if saidToShampoo or compliance > highComplBR:
         "You open the bottles and rub shampoo into your hair."
         v "It's nice in a weird way that they still think of me."
         "Weird? Certainly. 'Nice' is a separate question."
