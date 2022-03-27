@@ -279,13 +279,13 @@ label day_5:
           k "Wonderful!"
           "They take your hand."
           k "Let's go!"          
-          jump kitchen
+          jump kitchen_day_5
         "Refuse coffee":
           "There wasn't really anything helpful in the kitchen."
           k "Oh... why do you not want any today?"
           k "Nevermind, that's fine, I still have another idea you might like."          
           "With a disappointed face, they leave the room."
-          jump no_kitchen
+          jump no_kitchen_day_5
     else:
       menu:
         "Accept coffee":
@@ -301,15 +301,15 @@ label day_5:
           "You breathed a sigh of relief."
           "In fact, this was a good thing!"
           "You could now learn more about the house..."
-          jump kitchen
+          jump kitchen_day_5
         "Refuse coffee":
           "You still don't want their coffee"
           k "You still don't want any?."
           k "Again, that's fine, I still have another idea you might like."          
           "With a straight face, they leave the room."
-          jump no_kitchen
+          jump no_kitchen_day_5
 
-    label kitchen:
+    label kitchen_day_5:
       "You follow them out of the room and up a set of stairs into a little kitchen."
       "There was indeed a coffeepot brewing some delicious-smelling vanilla coffee."
 
@@ -346,8 +346,11 @@ label day_5:
       "Maybe you should've taken the coffee?"
       "They could've taken you to the kitchen."
       if acceptedBook:
-        "You decide it's better to just read the book"
-      jump lunch
+        "You decide it's better to just read the book."
+        "It's a pretty good story..."
+        "You "
+        $ compliance += 1 
+        jump lunch
     
     label after_kitchen_day_5:
       "Having nothing better to do, it's probably time to sleep."
