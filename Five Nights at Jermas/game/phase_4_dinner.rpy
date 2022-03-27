@@ -52,31 +52,26 @@ label dinnerWithMyMan:
                     k "You don't want to have lunch?"
                     k "We've come so far!"
                     "No. You've already spent a lot of time with them and gained so little out of it."
-                    v "I "
-                    "The kidnapper sat down next to you in bed."
-                    k "Awwww, why not? It'll be fun~"
-                    v "I just don't want to."
-                    k "Alright, that's fine. I'm sure you'll agree one."
+                    v "I appreciate everything you've done for me, but I just don't want lunch today."
+                    v "I hope you can respect that."
+                    "A disappointed look crosses their face."
+                    k "Of course."
                     "With that, they left the room, leaving you with nothing more to do but sleep."
                     "You slowly drift to sleep..."
-                    jump end_day_5
+                    jump book
                 "Follow them":
                     $ compliance += 3
-                    "More information would always be helpful."
+                    "They've treated you well so far, so why not?"
                     "You choose to go to lunch with them."
-                    v "Okay, I can't wait!"
-                    k "I knew you'd want to spend more time with me!"
-                    "They grab your hand."
-                    k "Follow me, and we can have a lovely afternoon together."
+                    v "Okay, let's go!"
+                    k "I told you that you'd eventually get used to me."
+                    "That... was a terrifying thought..."
+                    "They grab your hand and take you to the kitchen."
                     jump lunchtime
         label lunchtime:
-            if acceptedCoffee:
-                "You found yourself in the now-familiar kitchen."
-            else:
-                "It's a relatively small kitchen but adequate for cooking."
-            "You see a stack of vegetables on the counter."
-            k "We're making soup!"
-            "You were just glad to not have oatmeal."
+            "Like before, you see a pile of vegetables on the counter."
+            k "We're making soup again!"
+            "Not ideal, but still better than oatmeal."
             v "So are we going to start?"
             k "Yup! One thing though - you don't get to use a knife."
             "You can't help but admire his caution. They thought of everything."
@@ -84,55 +79,37 @@ label dinnerWithMyMan:
             "You spend the next 15 minutes choosing spices."
             k "Perfect!"
             "They put in the spices and the both of you sit down to wait."
-            if acceptedBook:
-                k "So, how are you liking the book?"
-                menu:
-                    "Like it":
-                        $ compliance += 1
-                        v "I'm really liking it!"
-                        k "You can relate to it, right?"
-                        v "Yup."
-                        v "Plus, I'm really bored anyway, so I'm glad to have anything."
-                    "Dislike it":
-                        $ compliance -= 2
-                        v "It's awful."
-                        v "What, you thought I'd be happy with this just because it's in a book?"
-                        v "I'm not Belle, you know."
-                        # sad face
-                        k "I'm sorry to hear you didn't like it."
-                        k "But I really do hope you'll get used to me eventually."
-            else:
-                k "So, how are you doing?"
-                menu:
-                    "Bad":
-                        if compliance > 2:
-                            v "I'm doing good!"
-                            "Wait... what? You're not doing good... Why did you say that?"
-                            jump good
-                        else:
-                            jump bad
-                    "Good":
-                        v "I'm doing okay!"
-                label good:
-                    $ compliance += 2
-                    k "That's good to hear!"
-                    k "Though, I think you do need a shower."
-                    k "I know I promised you that before, but I've just been so busy with you!"
-                    k "It's a lot of work to keep you happy."
-                    v "I know how hard you work!"
-                    "What's wrong with you? Have you forgetten who this is?"
-                    k "Haha, thank you for appreciating me!"
-                    k "Anyway, I will help you with the shower if today goes well."
-                    v "Thank you!"
-                label bad:
-                    $ compliance -= 1
-                    v "I hate it here."
-                    k "That's not good!"
-                    k "Anything I can do to make it better?"
-                    v "I think I really need a shower, honestly..."
-                    k "You're right! I'm so sorry. I know I promised earlier, but I forgot."
-                    k "I will definitely help with that if today goes well."
-                    v "Okay, thank you."
+            k "So, how are you doing?"
+            menu:
+                "Bad":
+                    if compliance > 2:
+                        v "I'm doing good!"
+                        "Wait... what? You're kidnapped... Why did you say that?"
+                        jump good_p4
+                    else:
+                        jump bad_p4
+                "Good":
+                    v "I'm doing okay!"
+            label good_p4:
+                $ compliance += 2
+                k "That's good to hear!"
+                k "Though, I think you do need a shower."
+                k "I know I promised you that before, but I've just been so busy with you!"
+                k "It's a lot of work to keep you happy."
+                v "I know how hard you work!"
+                "What's wrong with you? Have you forgetten who this is?"
+                k "Haha, thank you for appreciating me!"
+                k "Anyway, I will help you with the shower if today goes well."
+                v "Thank you!"
+            label bad_p4:
+                $ compliance -= 1
+                v "I hate it here."
+                k "That's not good!"
+                k "Anything I can do to make it better?"
+                v "I think I really need a shower, honestly..."
+                k "You're right! I'm so sorry. I know I promised earlier, but I forgot."
+                k "I will definitely help with that if today goes well."
+                v "Okay, thank you."
             "You sit in silence for a bit longer."
             "Suddenly, they get up."
             k "I think the soup's ready!"
@@ -149,7 +126,8 @@ label dinnerWithMyMan:
             k "Okay, you know the drill!"
             "They take your hand and walk you back to your new room."
     ## BOOK/NAP
-
+    label book:
+        pass
     ## DINNER
     # this is the most important part
 
@@ -209,7 +187,7 @@ label dinnerWithMyMan:
                 case 2:
                     #write smth else idfk
                 case _:
-                    #write smth else 
+                    #write smth else
             jump dinnerWithMyMan # change this label to somewhere else other than dinnerWithMyMan for the sake of variety in dialogue.
         else:
             "You try to escape by distracting Isaac. You plan to make Isaac go to the kitchen to cook something for you."
