@@ -1,6 +1,9 @@
 default highComplianceDN = 3
 default var_flag = 0 # <- flag for variation in dialogue for pretend-phase
 default took_Shower = False
+
+define audio.jumpScare = "./audio/It...cant_be_breathy.mp3"
+
 label dinnerWithMyMan:
     scene bedroom_day
     $ compliance = compliance // 2
@@ -416,6 +419,7 @@ label dinnerWithMyMan:
                 k "...You've been awfully quiet. Is everything okay?"
                 "Their eyes stare into your soul. They know. They know that you are trying to escape."
                 show eyes
+                play jumpScare
                 v "...N-no? Everything is fine!"
                 "Today is not the day..."
                 jump pretend_phase
