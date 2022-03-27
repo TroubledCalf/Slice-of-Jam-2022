@@ -1,4 +1,4 @@
-Sun Mar 27 14:06:37 2022
+Sun Mar 27 14:44:44 2022
 Windows-10-10.0.22000
 Ren'Py 7.4.9.2142
  
@@ -7,69 +7,21 @@ Bootstrap to the start of init.init took 0.06s
 Early init took 0.00s
 Loader init took 0.02s
 Loading error handling took 0.02s
-Loading script took 0.22s
-Loading save slot metadata. took 0.01s
+Loading script took 0.24s
+Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
 
-File "game/phase_4_dinner.rpy", line 184: elif clause expects a non-empty block.
-    elif var_flag == 1:
-                       ^
+File "game/script.rpy", line 2: expected statement.
+    renpy.music.register_channel("victim_channel", loop=True)
+                                                             ^
 
-File "game/phase_4_dinner.rpy", line 186: expected statement.
-    elif var_flag == 2:
-                  ^
-
-File "game/phase_4_dinner.rpy", line 188: expected statement.
-    else:
-        ^
+File "game/script.rpy", line 3: expected statement.
+    renpy.music.register_channel("kidnapper_channel", loop=True)
+                                                                ^
 DPI scale factor: 1.250000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Interface start took 0.35s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: 'NVIDIA Corporation'
-Renderer: 'NVIDIA GeForce RTX 2060/PCIe/SSE2'
-Version: '4.6.0 NVIDIA 512.15'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1733, 975) drawable=(1733, 975)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init took 61.38s
-Early init took 0.00s
-Loader init took 0.02s
-Loading error handling took 0.01s
-C:\Users\17703\Documents\GitHub\Slice-of-Jam-2022\Five Nights at Jermas\game\phase_2.rpy         label lunch:
-
-C:\Users\17703\Documents\GitHub\Slice-of-Jam-2022\Five Nights at Jermas\game\phase_2.rpy         label lunch:
-
-C:\Users\17703\Documents\GitHub\Slice-of-Jam-2022\Five Nights at Jermas\game\phase_2.rpy         label lunchtime:
-
-C:\Users\17703\Documents\GitHub\Slice-of-Jam-2022\Five Nights at Jermas\game\phase_2.rpy         label lunchtime:
-
-Loading script took 0.16s
-Loading save slot metadata. took 0.01s
-Loading persistent took 0.00s
-Importing _renpysteam: ImportError('No module named _renpysteam',)
-
-The label lunch is defined twice, at File "game/phase_2.rpy", line 384:
-        label lunch:
-and File "game/phase_4_dinner.rpy", line 44:
-        label lunch:
-
-
-The label lunchtime is defined twice, at File "game/phase_2.rpy", line 411:
-        label lunchtime:
-and File "game/phase_4_dinner.rpy", line 71:
-        label lunchtime:
-
-DPI scale factor: 1.250000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start took 0.49s
+Interface start took 0.40s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
