@@ -281,7 +281,7 @@ label start:
                     k "Haha! You are so funny, you actually opened the door!"
                     k "I hope you don't feel too annoyed. I am a person too, so I sometimes forget to lock the door."
                     k "Good night!"
-
+                    jump day_2
                 "Go back to the bed. Right now is not the time.":
                         if compliance >= -2: # for phase 1, the middle (normal) range is -2 to 2, inclusive.
                             "You slowly fall asleep...hoping that the day will be different tomorrow."
@@ -289,10 +289,5 @@ label start:
                         else:
                             "You fall asleep..."
                             jump day_2
- ###################################
-    # phase 5
-
-
-
 
     return
