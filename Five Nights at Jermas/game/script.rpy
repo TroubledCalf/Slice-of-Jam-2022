@@ -37,6 +37,9 @@ image isaac close_happy:
 image isaac close_straight:
     "./images/kindapper_sprites/straight.png"
     zoom 2.0
+image fight:
+    "./images/kidnapper_sprites/fight.png"
+
 
 # Scenes/backgrounds
 image black = "#000"
@@ -175,15 +178,14 @@ label start:
                 $ compliance -= 4
                 # make kidnapper audio much louder?
                 "You launch yourself at them."
-                show isaac angry:
-                    zoom 1.6
+                show fight
                 "You knock them to the floor, but they quickly flip you on your back."
                 #if available, show kidnapper on top of player
                 "After a few seconds of you struggling, they pin you down."
                 k "Did you think you had a chance?"
-                show isaac happy:
-                    zoom 1.6
                 "You're lifted and carried onto the bed."
+                show isaac happy at top:
+                    zoom 1.6
                 k "Please don't cause problems for us."
                 v "THERE IS NO 'US!'"
                 show isaac straight
