@@ -420,7 +420,8 @@ label dinnerWithMyMan:
                 show isaac angry
                 k "YOU KEEP TRYING TO LEAVE MY SIDE, WHEN I'M HERE TRYING TO PROTECT YOU!!!"
                 k "There are so many dangerous things out there, and I can protect you. Why do you keep trying to leave me..."
-                "You shed a sorrowful tear of defeat before finally blacking out." #black out
+                "You shed a sorrowful tear of defeat before finally blacking out."
+                scene black
                 $ var_flag == 0
                 jump pretend_phase
             else:
@@ -437,12 +438,17 @@ label dinnerWithMyMan:
                 "The kidnapper's voice starts fading out for you, because you are too anxious, looking for the right opportunity to make your escape."
                 k "...You've been awfully quiet. Is everything okay?"
                 "Their eyes stare into your soul. They know. They know that you are trying to escape."
+<<<<<<< Updated upstream
                 show eyes
 <<<<<<< HEAD
                 #play jumpScare
 =======
                 play music jumpScare
 >>>>>>> 4ad525c35904cfda1b283dcc2d395198d3b3646e
+=======
+                show isaac insane
+                play jumpScare
+>>>>>>> Stashed changes
                 v "...N-no? Everything is fine!"
                 "Today is not the day..."
                 jump pretend_phase
@@ -470,7 +476,8 @@ label dinnerWithMyMan:
             """As swiftly as possible, you slide open the door, and as you step out
             and your foot touches the dirt that has been warmed by the midsummer sun, a stream of tears start running down your face."""
             "You are finally free."
-            jump winEnd #black out
+            scene white
+            jump winEnd
 
     label winEnd:
         #loop back to the beginning of the game again (ofc they are nto playing through the entire thing)
