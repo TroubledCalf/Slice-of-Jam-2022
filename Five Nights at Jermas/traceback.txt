@@ -1,14 +1,14 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While loading <'Image' u'./images/kindapper_sprites/happy.png'>:
-  File "game/script.rpy", line 103, in script
+  File "game/script.rpy", line 98, in script
     k "There you are!"
 IOError: Couldn't find file './images/kindapper_sprites/happy.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 103, in script
+  File "game/script.rpy", line 98, in script
     k "There you are!"
   File "renpy/ast.py", line 721, in execute
     renpy.exports.say(who, what, *args, **kwargs)
@@ -52,10 +52,6 @@ Full traceback:
     rend = render(child, w, h, st, at)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 263, in renpy.display.render.render
-  File "renpy/display/transform.py", line 733, in render
-    return transform_render(self, width, height, st, at)
-  File "accelerator.pyx", line 187, in renpy.display.accelerator.transform_render
-  File "render.pyx", line 263, in renpy.display.render.render
   File "renpy/display/im.py", line 607, in render
     return cache.get(self, render=True)
   File "renpy/display/im.py", line 271, in get
@@ -67,4 +63,4 @@ IOError: Couldn't find file './images/kindapper_sprites/happy.png'.
 Windows-10-10.0.22000
 Ren'Py 7.4.9.2142
 Make Yourself at Home A Story of Beauty and the Oatmeal
-Sun Mar 27 17:44:03 2022
+Sun Mar 27 17:47:33 2022
