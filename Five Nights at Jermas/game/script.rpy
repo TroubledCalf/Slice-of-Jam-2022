@@ -100,7 +100,7 @@ label start:
             "Oatmeal."
             "Not the most enjoyable of meals, not by a long shot."
             k "I wish I could have made something more appealing, but of course..."
-            k "its hard to do so without knowing your preferences."
+            k "It's hard to do so without knowing your preferences."
             # a note-so-nice smile I imagine
             "They wait expectantly."
             menu:
@@ -186,7 +186,7 @@ label start:
 
         #breakfast scene, pretty much EXACTLY the same as yesterday
         "You hear the click of the door again."
-        k "It is time for some more oatmeal! I know you wanted some more sicne yesterday."
+        k "It is time for some more oatmeal! I know you wanted some more since yesterday."
         "They approach you holding a tray and take a seat beside you on the bed."
         "Oatmeal. Again."
         "But given that you are kidnapped, you can't say much. This is definitely better than not getting food at all."
