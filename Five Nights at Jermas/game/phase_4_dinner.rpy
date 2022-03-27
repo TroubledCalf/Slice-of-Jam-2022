@@ -1,5 +1,6 @@
 default highComplianceDN = 3 # <- this is just a placeholder value
 default var_flag = 0 # <- flag for variation in dialogue for pretend-phase
+default took_Shower = False
 label dinnerWithMyMan:
     $ compliance = compliance // 2
     #place holder dialogue
@@ -56,15 +57,36 @@ label dinnerWithMyMan:
         "You sit by yourself for a while longer."
         "Maybe you should take a shower."
         "Your captor might treat you even better if you're clean..."
-        jump lunch_p4
         menu:
             "Take shower":
+                $ compliance += 1
+                jump inBathroom_p4
             "Don't take a shower":
+                if compliance > highComplianceDN:
+                    $ compliance -= 1
+                    v "I want to impress them!"
+                    "What the- No. That's wrong."
+                    jump inBathroom_p4
+                else:
+                    $ compliance -= 1
+                    "You decide to just sit around in your room."
+                    jump lunch_p4
+        label after_shower_p4:
+            "After your time in the bathroom, you're satisfied."
+            "All you can do now is sit around."
+            jump lunch_p4    
 
     ## LUNCH
     label lunch_p4:
-        "You hear the familiar steps and know it's probably lunch time."
+        "After a while, you hear the familiar steps and know it's probably lunch time."
         "The door opens and they walk in."
+        if took_Shower:
+            k "Wow, you smell nice today~"
+            v "Thanks!"
+        else:
+            k "Did you forget to shower today?"
+            k "That's fine, I still accept and care for you."
+            v "S-sorry..."
         v "Is it time for lunch?"
         k "Yes it is! Are you going to join me?"
         # CHOICE
@@ -359,8 +381,13 @@ label dinnerWithMyMan:
                 "The kidnapper comes back with the drink. By the scent of it, it is alcoholic. That is okay. You drank a lot before coming to this place anyway."
                 "You vaguely remember something about not accepting drinks from strangers, but this doesn't matter. You have to build trust."
                 "So you accept the drink and neck half of it down. Simple. It is not like it is your first time downing something tasting like hard liquor." # <- i'm not projecting i swear
-                """But after a while, you feel a bit dizzy. You start wondering to yourself whether you drank it too fast. But to think about your past experience,
-                this should be nothing. """
+                """But after a while, you feel a bit dizzy. You start wondering to yourself whether you drank it too fast.
+                But to think about your past experience, this should be nothing."""
+                v "...Did you drug me?"
+                k "I'm sorry, I'm so sorry...I wasn't sure if you were going to stay with me."
+                k "YOU KEEP TRYING TO LEAVE MY SIDE, WHEN I'M HERE TRYING TO PROTECT YOU!!!" #angry
+                k "There are so many dangerous things out there, and I can protect you. Why do you keep trying to leave me..."
+                "You shed a sorrowful tear of defeat before finally blacking out." #black out
                 $ var_flag == 0
                 jump pretend_phase
             else:
@@ -370,13 +397,13 @@ label dinnerWithMyMan:
                 v "Yeah, actually...would it be possible if you cook something for me?"
                 k "Oh...is the food not to your liking?"
                 v "Oh no, it's just that I am especially feeling hungry today..."
-                "The kidnapper stares into your eyes, long and hard. You get the shivers from their pentrating stare."
-                "They may have noticed you had something going on. But the kidnapper don't say much. They just stare."
+                "The kidnapper stares into your eyes, long and hard. You get the shivers from their penetrating stare."
+                "They may have noticed you had something going on. But the kidnapper doesn't say much. They just stare."
                 "Then, they finally get up from the table to fetch you something, but their eyes never leave you."
                 k "Okay, we have some ramen noodles and..."
                 "The kidnapper's voice starts fading out for you, because you are too anxious, looking for the right opportunity to make your escape."
                 k "...You've been awfully quiet. Is everything okay?"
-                "Their eyes are right in front of your eyes. They know. They know that you are trying to escape." #eyes jumpscare
+                "Their eyes stare into your soul. They know. They know that you are trying to escape." #eyes jumpscare
                 v "...N-no? Everything is fine!"
                 "Today is not the day..."
                 jump pretend_phase # change this label to somewhere else other than dinnerWithMyMan for the sake of variety in dialogue.
@@ -404,15 +431,79 @@ label dinnerWithMyMan:
             """As swiftly as possible, you slide open the door, and as you step out
             and your foot touch the dirt that has been warmed by the midsummer sun, tears stream start running down your face."""
             "You are finally free."
-            jump winEnd
+            jump winEnd #black out
 
     label winEnd:
-        # place holder: you win screen!
+        #loop back to the beginning of the game again (ofc they are nto playing through the entire thing)
+        #but the character is not referred to as JAYDYN nor YOU. It is a completely different person.
+        # this time, however, you have no control over them. the cycle repeats but you can do nothing about it.
+        $ v = Character("Jean")
+        scene black
+
+        "Jean wakes up."
+
+        show bedroom
+        with fade
+
+        play victim_channel bedroom_victim fadein 2.0
+        play music bedroom_main volume 0.5
+
+        "Where is this?"
+
+        "Slowly, Jean's senses start to come to them..."
+
+        "They're laying down on a thin mattress in what appears to be a small bedroom? It is definitely not their bedroom."
+
+        "The room smells musty and damp. The floor feels cold on their feet."
+
+        "Strange. Especially the last thing they remember is the hot sunlight of mid-July."
+
+        v "I am underground."
+        #black out
         return
 
     label pretend_phase:
-        #yada yada
 
-        #point at escape_attempt
+
+        jump escape_attempt
 
     return
+
+label inBathroom_p4:
+    play music BRTheme loop
+
+    "You enter the bathroom."
+    $ allDone = False
+    $ usedToilet = False
+    $ brushedTeeth = False
+    $ tookBath = False
+    while not allDone:
+        "Looking around, what will you do?"
+        menu:
+            "You're done here.":
+                $ allDone = True
+            "Use the toilet" if not usedToilet:
+                call useToilet
+            "Brush your teeth" if not brushedTeeth:
+                "You pull on the drawers over the sink hoping to get a brush and some toothpaste"
+                if canBrush:
+                    call brushTeeth
+                else:
+                    "Instead, the doors stay closed."
+                    v "God damn it."
+                    "They must have locked the drawer somehow. They don't even trust you for toothpaste?"
+                    "And the drugs cabinet. That makes more sense actually."
+                $ brushedTeeth = True
+            "Take a bath" if not tookBath:
+                "You undress and step into the bath."
+                if currentCompliance < highComplBR:
+                    "You hope desperately there are no hidden cameras in this bathroom."
+                "You reach for the nozzle and turn for the water."
+                if canBath:
+                    call takeBath
+                else:
+                    "only for nothing to come out."
+                    "This is ridiculous! You can't even take a bath? What, are you not trusted with large bodies of water?"
+                    "It certainly seems as much."
+                $ tookBath = True
+    jump after_shower_p4

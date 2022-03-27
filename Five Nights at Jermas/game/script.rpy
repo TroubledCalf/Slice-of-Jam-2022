@@ -37,7 +37,7 @@ image door_night = "images/backgrounds/door_nighttime.png"
 
 label start:
     stop music
-    
+
     #phase 1
     label day_1:
         scene black
@@ -96,7 +96,7 @@ label start:
                 v "W-what? I-I don't even know who you are..."
                 k "That's okay, you'll get to know me eventually."
                 "This is very wrong."
-                
+
 
         menu:
             "Demand to go home":
@@ -115,7 +115,7 @@ label start:
                 v "Oh.. okay..."
                 k "See, you're getting it!"
                 k "We're going to have so much fun together!"
-                #hide kidnapper            
+                #hide kidnapper
                 "With that, they leave the room and you hear a latch click."
                 stop kidnapper_channel fadeout 1.0
                 "You take a deep breath, grateful to still be alive."
@@ -173,7 +173,7 @@ label start:
                 "You hide under the covers, sorely defeated."
                 "Eventually, you do fall asleep."
                 $ compliance = compliance // 2
-                stop victim_channel fadeout 2.0 
+                stop victim_channel fadeout 2.0
                 jump day_1
 
             "Do nothing":
@@ -300,7 +300,7 @@ label start:
 
         "They stand up once again."
         k "Before I leave, is there anything more you'd like to speak about?"
-        
+
         menu:
             "Attack your captor":
                 $ compliance -= 4
@@ -360,12 +360,9 @@ label start:
                     with fade
                     if compliance >= -2: # for phase 1, the middle (normal) range is -2 to 2, inclusive.
                         "You slowly fall asleep...hoping that the day will be different tomorrow."
-<<<<<<< HEAD
                         stop kidnapper_channel fadeout 1.0
                         stop victim_channel fadeout 1.0
-=======
                         call interludeOne
->>>>>>> 30dc754ba403dcfd27947482f2237771c87c5258
                         jump phase_2
                     else:
                         "You fall asleep..."
