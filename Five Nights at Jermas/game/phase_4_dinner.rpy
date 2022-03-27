@@ -2,6 +2,7 @@ default highComplianceDN = 3
 default var_flag = 0 # <- flag for variation in dialogue for pretend-phase
 default took_Shower = False
 label dinnerWithMyMan:
+    scene bedroom_day
     $ compliance = compliance // 2
     "You wake up feeling excited for the first time in a while."
     v "Today's going to be great!"
@@ -9,11 +10,14 @@ label dinnerWithMyMan:
     "You stand by the door to greet your captor."
 
     "The sound of footsteps appear as expected and they walk in."
+    show isaac happy
     k "Good morning, Jaydyn!"
     v "Is my oatmeal ready?"
     k "Nope, but we can eat in the kitchen today."
     v "Okay!"
+    scene kitchen
     "You follow them down the hall to the kitchen, where oatmeal is set out."
+    show isaac happy
     k "I made you your usual!"
     v "Thank you!"
     "They wait a little longer for the oats to finish cooking."
@@ -37,11 +41,14 @@ label dinnerWithMyMan:
             else:
                 jump no_to_chat
     label yes_to_chat:
+        scene black
         "They talk a lot about different places they want to see in the future."
         "Oddly enough, Jaydyn is excited about those places."
         "This may be dangerous."
         "Jaydyn shouldn't trust this person, and yet... they do."
         "The conversation goes on for a terrifyingly long time..."
+        scene kitchen
+        show isaac happy
         k "Well, that was a good talk!"
     label no_to_chat:
         v "I'd prefer not to."
@@ -49,10 +56,13 @@ label dinnerWithMyMan:
         "But not Jaydyn's decision to leave earlier?"
         k "In that case, I'll leave you alone for now."
         k "Bye!"
+        hide isaac happy
         "They leave the room and the footsteps fade away."
+        scene black
     jump shower_p4
     ## SHOWER
     label shower_p4:
+        scene bedroom_day
         "You sit by yourself for a while longer."
         "Maybe you should take a shower."
         "Your captor may treat you even better if you're clean..."
@@ -71,6 +81,7 @@ label dinnerWithMyMan:
                     "You decide to just sit around in your room."
                     jump lunch_p4
         label after_shower_p4:
+            scene bedroom_day
             "After your time in the bathroom, you're satisfied."
             "All you can do now is sit around."
             jump lunch_p4
@@ -384,7 +395,8 @@ label dinnerWithMyMan:
                 But to think about your past experience, this should be nothing."""
                 v "...Did you drug me?"
                 k "I'm sorry, I'm so sorry...I wasn't sure if you were going to stay with me."
-                k "YOU KEEP TRYING TO LEAVE MY SIDE, WHEN I'M HERE TRYING TO PROTECT YOU!!!" #angry
+                show isaac angry
+                k "YOU KEEP TRYING TO LEAVE MY SIDE, WHEN I'M HERE TRYING TO PROTECT YOU!!!"
                 k "There are so many dangerous things out there, and I can protect you. Why do you keep trying to leave me..."
                 "You shed a sorrowful tear of defeat before finally blacking out." #black out
                 $ var_flag == 0
@@ -403,7 +415,7 @@ label dinnerWithMyMan:
                 "The kidnapper's voice starts fading out for you, because you are too anxious, looking for the right opportunity to make your escape."
                 k "...You've been awfully quiet. Is everything okay?"
                 "Their eyes stare into your soul. They know. They know that you are trying to escape."
-                #eyes jumpscare <- visual cue
+                show eyes
                 v "...N-no? Everything is fine!"
                 "Today is not the day..."
                 jump pretend_phase
@@ -664,6 +676,7 @@ label dinnerWithMyMan:
 label inBathroom_p4:
     play music BRTheme loop
 
+    scene
     "You enter the bathroom."
     $ allDone = False
     $ usedToilet = False
