@@ -2,21 +2,25 @@
         scene white
         "You wake up abruptly to a bright light"
         scene bedroom
-        # show k_smiling_creepy
+        with fade
+        show isaac vhappy
         k "Get up. You're going being moved."
         v "...ok"
         "You slowly get up and follow him"
         "As you follow him, he grabs something off a shelf."
         "It looks like an ankle monitor"
-        # hide k_smiling_creepy
+        hide isaac
         "He slowly approaches you with it and bends down in front of you."
         "He puts the ankle monitor around your left ankle, and you hear a click."
         "As he gets back up, he snatches your hand and briskly pulls you down the hallway and up the stairs."
 
         scene red
+        with fade
         "The sudden change in brightness from the dimly lit basement to the rest of the building burns your eyes, so you shut them."
         "He continues to drag you through the building, and eventually you feel carpet on your feet."
-        #scene living_room
+        scene white
+        with fade
+        show isaac vhappy
         "You slowly open your eyes and see him smiling with arms wide."
         "After days of being locked alone in his basement, you run towards him, tears in your eyes."
         "something im still figuring it out"
@@ -32,15 +36,24 @@
 
         menu:
             "Escape":
-                "..."
+                menu:
+                    "Escape":
+                        menu:
+                            "Stay":
+                                pass
+                            "Stay":
+                                pass
+                    "Stay":
+                        pass
             "Stay":
-                "..."
+                pass
         "..."
         "You stay."
 
-        #show k_smiling_creepy
         "After he finishes chopping his fruit, he approaches you with the knife."
         "He sits you both down on the couch."
+        show isaac vhappy:
+            zoom 2.0
         "He snatches your hand and turns it over, revealing your palm."
         "Wielding the knife, he makes a slit across your palm, and does the same to this own hand."
         "You grab his bloodied hand with your own. You wince in pain."
@@ -58,6 +71,9 @@
         "You feel a sharp pain in your abdomen"
         "You look down and see a knife sticking out from you."
         k "Til death do us part."
+        scene black
+        with fade
+        show isaac insane
         "As you black out, he gets closer to your face, and you notice him staring intensely at your lips."
 
         scene black
