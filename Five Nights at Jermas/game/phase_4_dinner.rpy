@@ -74,7 +74,7 @@ label dinnerWithMyMan:
         label after_shower_p4:
             "After your time in the bathroom, you're satisfied."
             "All you can do now is sit around."
-            jump lunch_p4    
+            jump lunch_p4
 
     ## LUNCH
     label lunch_p4:
@@ -464,11 +464,219 @@ label dinnerWithMyMan:
 
     label pretend_phase:
 
+        "You wake up the next day."
+        "And, to be honest, you're not even sure what day it is at this point."
 
-        jump escape_attempt
+        "Like the day before, your captor comes to take you to the kitchen to have oatmeal."
+        "They ask if you want to chat."
 
+        # PART 1 OF PRETEND, BREAKFAST/chat
+        menu:
+            "yes":
+                v "Sure!"
+                $ compliance += 1
+                jump yes_to_chat
+
+            "no":
+                $ compliance -= 1
+                "Probably not the best idea to tell them too much about yourself."
+                if compliance > highComplianceDN - 1:
+                    v "Sure!"
+                    "Jaydyn... what are you doing?"
+                    "You're not supposed to do that..."
+                    jump yes_to_chat
+                else:
+                    jump no_to_chat
+        label yes_to_chat_p:
+            "You have a long talk before they leave."
+        label no_to_chat_p:
+            "They leave you alone after you refuse to chat."
+
+        # PART 2 OF PRETEND, SHOWER
+        "Just like yesterday, you wonder if you should take a shower."
+        menu:
+            "Take shower":
+                $ compliance += 1
+                "You spend time in the bathroom cleaning yourself up."
+                "..."
+                "After your time in the bathroom, you're satisfied."
+                "All you can do now is sit around."
+            "Don't take a shower":
+                if compliance > highComplianceDN:
+                    $ compliance -= 1
+                    v "I want to impress them!"
+                    "What the- No. That's wrong."
+                    "You spend time in the bathroom cleaning yourself up."
+                    "..."
+                    "After your time in the bathroom, you're satisfied."
+                    "All you can do now is sit around."
+                else:
+                    $ compliance -= 1
+                    "You decide to just sit around in your room."
+
+        # PART 3 OF PRETEND, LUNCH
+        "After a while, you hear the familiar steps and know it's probably lunch time."
+        "The door opens and they walk in."
+        if took_Shower:
+            k "Wow, you smell nice today~"
+            v "Thanks!"
+        else:
+            k "Did you forget to shower today?"
+            k "That's fine, I still accept and care for you."
+            v "S-sorry..."
+        v "Is it time for lunch?"
+        k "Yes it is! Are you going to join me?"
+        # CHOICE
+        menu:
+            "Refuse":
+                if compliance > highComplianceDN:
+                    v "Sure!"
+                    "NO!"
+                    "YOU CAN'T DO THIS!"
+                    "Jaydyn happily takes their hand to follow them out of the room."
+                    "Jaydyn is not supposed to do this."
+                    $ compliance -= 1
+                    jump lunchtime_p4_p
+                else:
+                    """Another disappointed look crosses their face, but them remembering that sometimes you don't want lunch but still appreciate,
+                    they leave you alone, and you drift to sleep."""
+                    jump book_p4_p
+            "Follow them":
+                $ compliance += 3
+                "You choose to go to lunch with them. They grab your hand and take you to the kitchen."
+                jump lunchtime_p4_p
+        label lunchtime_p4_p:
+            if hadLunch:
+                "Like before, you see a pile of vegetables on the counter."
+                k "We're making soup again!"
+                "So this person could only cook two different things?" # emoTIONAL DAMAGE
+                "Sad."
+                v "So, are we going to start?"
+                    if compliance > highComplianceDN:
+                        k "Yup! I'll even let you use a knife this time!"
+                        "Wow, they really trust you."
+                    else:
+                        k "That's right! You still can't use a knife, though."
+                    "You work together to make a good brother both of you sit down to wait."
+            else:
+                "You see a pile of vegetables on the countertop. It is soup again"
+                k "We're making soup!"
+                "Better than oatmeal, at least."
+                k "Yup! One thing though - you don't get to use a knife."
+                "You can't help but admire his caution. They thought of everything."
+                k "I have a cabinet of spices, so put whatever you want in the boiling water."
+                "You spend the next 15 minutes choosing spices."
+                k "Perfect!"
+                "They put in the spices and the both of you sit down to wait."
+                # CHOICE
+                if acceptedBook:
+                    k "So, how are you liking the book?"
+                    menu:
+                        "Like it":
+                            $ compliance += 3
+                            v "I'm really liking it!"
+                            k "You can relate to it, right?"
+                            v "Yup."
+                            v "Plus, I'm really bored anyway, so I'm glad to have anything."
+                        "Dislike it":
+                            $ compliance -= 2
+                            v "I'm not fond of it."
+                            v "What, you thought I'd be happy with this just because it's in a book?"
+                            v "I'm not Belle, you know."
+                            # sad face
+                            k "I'm sorry to hear you didn't like it."
+                            k "But I really do hope you'll get used to me eventually."
+
+                    "After a few minutes, they check the pot."
+                    k "I think the soup's ready!"
+                    "You both proceed to work side-by-side to get the soup into bowls."
+                    "You eat quietly for a while."
+                    k "So, how are you doing?"
+                    # CHOICE
+                    menu:
+                        "Bad":
+                            $ compliance -= 1
+                            if compliance > highComplianceDN:
+                                v "I'm doing good!"
+                                "Wait... what? You're kidnapped... Why did you say that?"
+                                jump good_p4
+                            else:
+                                jump bad_p4
+                        "Good":
+                            $ compliance += 1
+                            v "I'm doing okay!"
+                    label good_p4:
+                        $ compliance += 2
+                        k "I'm happy!"
+                        k "I'll make you even happier tonight."
+                        v "W-what?"
+                        k "It's a surprise~"
+                        k "I'll just say one thing..."
+                        k "I'm pretty skilled..."
+                        k "... at cooking, of course."
+                        v "Oh.. oh."
+                        k "What did you think I meant?"
+                        k "I won't say any more, though."
+                        v "Alright then, I hope it's good!"
+                    label bad_p4:
+                        $ compliance -= 1
+                        v "I'm still not feeling great."
+                        k "That's not good!"
+                        k "Anything I can do to make it better?"
+                        v "I don't know... maybe I'm still scared?"
+                        k "They reach out and envelope you in their arms."
+                        "They're surprisingly warm and maybe you have a slight inclination to lean into them..."
+                        v "Thank you. I think I needed a hug."
+                    "You sit in silence for a bit longer."
+                    "After finishing the meal, they take your hand and walk you back to the room."
+                    jump book_p4
+
+            ## BOOK/NAP
+            label book_p4:
+                if acceptedBook:
+                    "With nothing to do in the room other than read, perhaps that's what you should do."
+                    menu:
+                        "Read":
+                            compliance += 2
+                            jump read_p4
+                        "Sleep":
+                            if compliance > highComplianceDN:
+                                compliance -= 2
+                                "You watch in horror as Jaydyn simply decides to read the book."
+                                "Did they forget who gave them the book?"
+                                "Don't read it!"
+                                jump read_p4
+                            else:
+                                "Sleeping is probably the best option."
+                                "You climb into bed."
+                    label read_p4:
+                        "Minutes stretch into hours as Jaydyn goes through the book."
+                        "You feel a warmness building in Jaydyn as they start to appreciate the story more."
+                        "This doesn't seem like a good thing but there's little you can do."
+
+                else:
+                    "You simply sit in the room and fiddle with your thumbs."
+                    "There isn't much to do, except for rereading the newspaper clippings."
+
+                "You eventually drift to sleep."
+                jump dinner
+
+    jump escape_attempt
     return
 
+
+
+
+
+
+
+
+
+
+
+
+
+##############################################
 label inBathroom_p4:
     play music BRTheme loop
 
