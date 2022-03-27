@@ -1,3 +1,5 @@
+define audio.BRTheme = "audio/Bathroom_Planning_Band_update.mp3"
+
 default timesGoneToBR = 0
 default highComplBR = 2 # change number based on how many actual choices there are in prev section
 default lowComplBR = -2
@@ -46,6 +48,8 @@ label goToBathroom:
     jump inBathroom
 
 label inBathroom:
+    play music BRTheme loop
+
     # Piss n shit
     "It's nice to actually be in a bathroom. Both access to real facilities and an actual room besides the bedroom you were kept in."
     $ allDone = False
