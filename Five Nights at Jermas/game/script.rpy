@@ -1,21 +1,25 @@
+init python:
+    # Channels
+    renpy.music.register_channel("victim_channel",loop = True)
+    renpy.music.register_channel("kidnapper_channel",loop = True)
+
 # Compliance
 default compliance = 0
 default brekkiePref = 0
 default ateFood = False
+
 # Soundtracks
-define audio.bedroom_victim = "Bedroomphobia_Main.mp3"
-define audio.bedroom_main = "Bedroomphobia_Main.mp3"
-define audio.bedroom_kidnapper = "Bedroomphobia_Main.mp3"
-# Channels
-renpy.music.register_channel("victim_channel",loop = True)
-renpy.music.register_channel("kidnapper_channel",loop = True)
+define audio.bedroom_victim = "./audio/Bedroomphobia_Main.mp3"
+define audio.bedroom_main = "./audio/Bedroomphobia_Main.mp3"
+define audio.bedroom_kidnapper = "./audio/Bedroomphobia_Main.mp3"
+define audio.kidnapper_theme = "./audio/Hes_no_kidnapper.mp3"
 
 # Characters
 define v = Character("You")
 define k = Character("Kidnapper")
 
 # Character sprites
-image eyes = "images/kindapper_sprites/eyes.png"
+image eyes = "./images/kindapper_sprites/eyes.png"
 image isaac straight:
     "./images/kindapper_sprites/straight.png"
 image isaac angry:
@@ -68,7 +72,7 @@ label start:
         "You can't do anything here. You are stuck."
 
         "Suddenly, you hear footsteps coming down the hall. "
-        play kidnapper_channel [ "<sync victim_channel>bedroom_kidnapper", "bedroom_kidnapper" ]
+        play kidnapper_channel [ "<sync victim_channel>./audio/Bedroomphobia_kidnapper.mp3", bedroom_kidnapper ]
 
         menu:
             "Pretend to be asleep because they might be dangerous":

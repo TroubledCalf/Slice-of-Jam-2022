@@ -302,7 +302,7 @@ screen navigation():
 
         spacing gui.navigation_spacing
 
-        if main_menu:
+        if renpy.get_screen("main_menu"):
 
             textbutton _("Start") action Start()
 
