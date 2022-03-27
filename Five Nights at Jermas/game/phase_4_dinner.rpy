@@ -557,40 +557,26 @@ label dinnerWithMyMan:
                         "Wow, they really trust you."
                     else:
                         k "That's right! You still can't use a knife, though."
-                    "You work together to make a good brother both of you sit down to wait."
+                    "You work together to get the soup cooking, and then both of you sit down to wait."
             else:
-                "You see a pile of vegetables on the countertop. It is soup again"
+                "You see a pile of vegetables on the countertop."
                 k "We're making soup!"
-                "Better than oatmeal, at least."
-                k "Yup! One thing though - you don't get to use a knife."
-                "You can't help but admire his caution. They thought of everything."
-                k "I have a cabinet of spices, so put whatever you want in the boiling water."
-                "You spend the next 15 minutes choosing spices."
+                "You pick out spices with their help and get everything into the pot."
                 k "Perfect!"
-                "They put in the spices and the both of you sit down to wait."
+                "Both of you sit down to wait for the soup to cook."
                 # CHOICE
                 if acceptedBook:
                     k "So, how are you liking the book?"
                     menu:
                         "Like it":
                             $ compliance += 3
-                            v "I'm really liking it!"
-                            k "You can relate to it, right?"
-                            v "Yup."
-                            v "Plus, I'm really bored anyway, so I'm glad to have anything."
+                            "You talk with the kidnapper about how much you liked the book."
                         "Dislike it":
                             $ compliance -= 2
-                            v "I'm not fond of it."
-                            v "What, you thought I'd be happy with this just because it's in a book?"
-                            v "I'm not Belle, you know."
-                            # sad face
-                            k "I'm sorry to hear you didn't like it."
-                            k "But I really do hope you'll get used to me eventually."
-
-                    "After a few minutes, they check the pot."
-                    k "I think the soup's ready!"
-                    "You both proceed to work side-by-side to get the soup into bowls."
-                    "You eat quietly for a while."
+                            "You talk to the kidnapper about how much you disliked the book."
+                            "They're pretty upset but assume you'll like them more in the future."
+                            #wowee they're right tho <-- ??????? bruh
+                    "The soup is done cooking soon, and you sit down to eat."
                     k "So, how are you doing?"
                     # CHOICE
                     menu:
@@ -624,32 +610,32 @@ label dinnerWithMyMan:
                         k "That's not good!"
                         k "Anything I can do to make it better?"
                         v "I don't know... maybe I'm still scared?"
-                        k "They reach out and envelope you in their arms."
+                        "They reach out and envelope you in their arms." #i wanna die
                         "They're surprisingly warm and maybe you have a slight inclination to lean into them..."
                         v "Thank you. I think I needed a hug."
                     "You sit in silence for a bit longer."
                     "After finishing the meal, they take your hand and walk you back to the room."
-                    jump book_p4
+                    jump book_p4_p
 
             ## BOOK/NAP
-            label book_p4:
+            label book_p4_p:
                 if acceptedBook:
                     "With nothing to do in the room other than read, perhaps that's what you should do."
                     menu:
                         "Read":
                             compliance += 2
-                            jump read_p4
+                            jump read_p4_p
                         "Sleep":
                             if compliance > highComplianceDN:
                                 compliance -= 2
                                 "You watch in horror as Jaydyn simply decides to read the book."
                                 "Did they forget who gave them the book?"
                                 "Don't read it!"
-                                jump read_p4
+                                jump read_p4_p
                             else:
                                 "Sleeping is probably the best option."
                                 "You climb into bed."
-                    label read_p4:
+                    label read_p4_p:
                         "Minutes stretch into hours as Jaydyn goes through the book."
                         "You feel a warmness building in Jaydyn as they start to appreciate the story more."
                         "This doesn't seem like a good thing but there's little you can do."
@@ -660,8 +646,6 @@ label dinnerWithMyMan:
 
                 "You eventually drift to sleep."
                 jump dinner
-
-    jump escape_attempt
     return
 
 
