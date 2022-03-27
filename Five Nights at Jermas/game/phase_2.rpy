@@ -43,7 +43,7 @@ label phase_2:
 
         "Like clockwork, the kidnapper starts walking down the hall."
         "The latch opens with a click and they walk in."
-        show issac straight
+        show isaac straight
         play kidnapper_channel [ "<sync music>./audio/Bedroomphobia_kidnapper.mp3", bedroom_kidnapper ]
 
         # demand scene
@@ -53,12 +53,12 @@ label phase_2:
                 "Maybe there's still a chance of going home? They seem like they listen..."
                 v "C-can I please go home?"
                 k "You don't seem so determined anymore. That's good."
-                show issac happy
+                show isaac happy
                 k "But I think you're starting to understand now."
                 k "This is your home."
                 "With that, they leave the room and you hear a latch click."
                 stop kidnapper_channel fadeout 1.0
-                hide issac
+                hide isaac
                 "You pretty much expected that."
                 "All you can do is just sit and wait."
 
@@ -70,7 +70,7 @@ label phase_2:
                 k "You might need a shower soon. Not to worry! I'll help you with that later."
                 "With that, they leave the room and you hear a latch click."
                 stop kidnapper_channel fadeout 1.0
-                hide issac
+                hide isaac
                 "Once again, you're alone in this little room with nothing to do."
 
         "Though it's been a couple of days, there really isn't much here that would be helpful for escape."
@@ -126,12 +126,12 @@ label phase_2:
                 "You launch yourself at your captor."
                 "They take one step back, and you land flat on your face."
                 #show creepy smile
-                show issac angry
+                show isaac angry
                 k "Now, now."
                 k "We can't have much of that can we?"
                 "As you pull yourself off the floor, They quickly make their escape."
                 stop kidnapper_channel fadeout 1.0
-                hide issac
+                hide isaac
                 "Exhausted and deafeated, you climb into bed and cry yourself to sleep."
                 stop music fadeout 1.0
                 scene black
@@ -161,7 +161,7 @@ label phase_2:
         "As expected, you hear the footsteps again."
         "The latch opens with a click and they walk in."
 
-        show issac straight
+        show isaac straight
         v "Let me guess. You have oatmeal for me."
         play kidnapper_channel [ "<sync music>./audio/Bedroomphobia_kidnapper.mp3", bedroom_kidnapper ]
 
@@ -174,7 +174,7 @@ label phase_2:
                 $ acceptedBook = True
                 v "I do need some entertainment, I guess..."
                 k "Trust me, you'll love this book."
-                show issac happy
+                show isaac happy
                 k "Hopefully it inspires you in your actual life."
                 "That confuses you."
                 v "What do you mean?"
@@ -182,20 +182,20 @@ label phase_2:
                 k "Don't worry about it."
                 "They leave happily."
                 stop kidnapper_channel fadeout 1.0
-                hide issac
+                hide isaac
             "Refuse the book.":
                 $ compliance -= 1
                 v "I don't want your stupid book."
                 k "No? Well, I guess you'll be bored and that's your own fault."
-                show issac angry
+                show isaac angry
                 k "I'm trying to be nice to you and treat you well but if you won't accept that, I can't help you."
                 k "Whatever. I'll be back with breakfast."
                 "With that, they leave the room."
                 stop kidnapper_channel fadeout 1.0
-                hide issac
+                hide isaac
         #breakfast scene
         "You hear the click of the door again."
-        show issac straight
+        show isaac straight
         play kidnapper_channel [ "<sync music>./audio/Bedroomphobia_kidnapper.mp3", bedroom_kidnapper ]
         k "Food's ready!"
         "As expected, it's oatmeal again."
@@ -209,7 +209,7 @@ label phase_2:
                 k "Good."
                 k "I'm glad you like my cooking so much."
                 "With that, they leave the room. There is no latch noise."
-                hide issac
+                hide isaac
             "Refuse it":
                 $ compliance -= 1
                 "They make a concerned face."
@@ -217,7 +217,7 @@ label phase_2:
                 k "You can eat whenever you like, and I will take your dishes when you sleep."
                 "They put the bowl beside your bed on a night stand."
                 "With that, they leave the room. There is no latch noise."
-                hide issac
+                hide isaac
         "Within a few minutes, they return."
         k "I almost forgot, do you want coffee?"
         menu:
@@ -244,7 +244,7 @@ label phase_2:
                 k "By myself."
                 k "Without a companion."
                 "With a straight face, they leave the room."
-                hide issac
+                hide isaac
                 stop kidnapper_channel fadeout 1.0
                 jump no_kitchen
 
@@ -256,14 +256,14 @@ label phase_2:
             menu:
                 "Yes":
                     $ compliance += 1
-                    show issac vhappy
+                    show isaac vhappy
                     v "It's cute. And the coffee smells great."
                     k "I'm glad you like it! The coffee is just about ready, so why don't you sit down?"
                 "No":
                     $ compliance -= 1
                     v "I don't want to be here."
                     k "Sure you do! Sit down over there, please."
-                    show issac vhappy
+                    show isaac vhappy
 
         "The kidnapper pours you both cups of coffee."
         k "Careful, it's hot. Wouldn't want you to burn yourself."
@@ -274,30 +274,30 @@ label phase_2:
         k "Do you have a favorite coffee flavor? I personally love vanilla."
         menu:
             "Answer":
-                show issac happy
+                show isaac happy
                 $ compliance += 1
                 $ knowsFav = True
                 v "I-I like pumpkin spice coffee."
                 k "Ah, yes, a classic. I love it too."
             "Ignore":
-                show issac straight
+                show isaac straight
                 $ compliance -= 1
                 k "Wow, tough crowd."
                 k "I'll know all of your preferences soon enough, anyway."
         "Both of you continue to drink."
         "They get up."
-        show issac close_straight
+        show isaac close_straight
         k "Well, that's enough of an adventure for you. I hope you had a good time!"
         "They take your hand to lead you back to your room."
         "You test their grip and notice there's no way to get your hand out."
         "It was probably unfair to expect to be able to escape this easily."
 
         scene hallway
-        show issac close_straight
+        show isaac close_straight
         "We continue to walk in silence back to the room."
         scene bedroom_day
         k "Okay, back into the room you go! Sleep well!"
-        hide issac
+        hide isaac
         stop kidnapper_channel fadeout 1.0
         jump after_kitchen
 
@@ -345,11 +345,11 @@ label phase_2:
         you find yourself almost habituated with them - a signal that the day is about to start.
         """
         "The latch opens with a click and they walk in."
-        show issac straight
+        show isaac straight
         v "Do you have my oatmeal now?"
 
         k "Getting eager for my oats, aren't you?"
-        show issac vhappy
+        show isaac vhappy
         k "You'll have to wait for me a little longer. It's not ready yet."
         if acceptedBook:
             k "Would you like to read that book together while we wait?"
@@ -361,7 +361,7 @@ label phase_2:
                     "You find yourself relaxing."
                     "After a few minutes, they get up to leave."
                     k "I'll be back!"
-                    hide issac
+                    hide isaac
                     stop kidnapper_channel fadeout 1.0
                 "No":
                     $ compliance -= 1
@@ -370,13 +370,13 @@ label phase_2:
                     k "It's okay, we can spend time together later."
                     k "I'll be back with the oats you want so badly."
                     "They leave the room."
-                    hide issac
+                    hide isaac
                     stop kidnapper_channel fadeout 1.0
         else:
             k "But, I did bring the book with me if you'd like to give it another shot."
             menu:
                 "Accept the book.":
-                    show issac happy
+                    show isaac happy
                     $ compliance += 1
                     $ acceptedBook = True
                     "Yesterday was pretty boring..."
@@ -387,23 +387,23 @@ label phase_2:
                     v "What do you mean?"
                     "They smiled."
                     k "Don't worry about it."
-                    hide issac
+                    hide isaac
                     stop kidnapper_channel fadeout 1.0
                 "Refuse the book.":
-                    show issac angry
+                    show isaac angry
                     $ compliance -= 1
                     v "I still don't want your stupid book."
                     k "That's okay, you'll just be bored."
                     k "Or maybe not, since I have something more planned for you."
                     k "Anyway, I'll be back with breakfast!"
                     "They leave in good spirits, for some reason..."
-                    hide issac
+                    hide isaac
                     stop kidnapper_channel fadeout 1.0
 
 
         #breakfast scene
         "After a few minutes, you hear the click of the door again."
-        show issac straight
+        show isaac straight
         play kidnapper_channel [ "<sync music>./audio/Bedroomphobia_kidnapper.mp3", bedroom_kidnapper ]
         k "Food's ready!"
         "Ah, here's the oatmeal."
@@ -418,7 +418,7 @@ label phase_2:
                 v "This is good!"
                 k "I'm glad you like my cooking so much."
                 "With that, they leave the room. There is no latch noise."
-                hide issac
+                hide isaac
                 stop kidnapper_channel fadeout 1.0
             "Refuse it":
                 $ compliance -= 1
@@ -427,11 +427,11 @@ label phase_2:
                 k "Well, as usual, I'll just leave it here for when you want it."
                 "They put the bowl beside your bed on a night stand."
                 "With that, they leave the room. There is no latch noise."
-                hide issac
+                hide isaac
                 stop kidnapper_channel fadeout 1.0
 
         "Within a few minutes, they return."
-        show issac straight
+        show isaac straight
         play kidnapper_channel [ "<sync music>./audio/Bedroomphobia_kidnapper.mp3", bedroom_kidnapper ]
         k "Wow, I forgot again. Would you like coffee today?"
         if acceptedCoffee:
@@ -451,7 +451,7 @@ label phase_2:
                     k "Oh... why do you not want any today?"
                     k "Nevermind, that's fine, I still have another idea you might like."
                     "With a disappointed face, they leave the room."
-                    hide issac
+                    hide isaac
                     stop kidnapper_channel fadeout 1.0
                     jump no_kitchen_day_5
         else:
@@ -475,13 +475,13 @@ label phase_2:
                     k "You still don't want any?."
                     k "Again, that's fine, I still have another idea you might like."
                     "With a straight face, they leave the room."
-                    hide issac
+                    hide isaac
                     stop kidnapper_channel fadeout 1.0
                     jump no_kitchen_day_5
 
         label kitchen_day_5:
             scene kitchen
-            show issac happy
+            show isaac happy
             if acceptedCoffee:
                 k "Welcome back to the kitchen!"
                 "You both sit down."
@@ -491,12 +491,12 @@ label phase_2:
                 "There was indeed a coffeepot brewing some delicious-smelling vanilla coffee."
                 menu:
                     "yes":
-                        # show happy issac
+                        # show happy isaac
                         $ compliance += 1
                         v "It's cute. And the coffee smells great."
                         k "I'm glad you like it! The coffee is just about ready, so why don't you sit down?"
                     "no":
-                        # show upset issac
+                        # show upset isaac
                         $ compliance -= 1
                         v "I don't want to be here."
                         k "Haha, you'll change your mind once you try the coffee. Sit down over there."
@@ -504,7 +504,7 @@ label phase_2:
             "They pour out the coffee and you drink."
             "You don't talk about very much."
             if knowsFav:
-                show issac vhappy
+                show isaac vhappy
                 k "Did you notice it's pumpkin spice today?"
                 k "If you talk to me, I can give you whatever you want."
                 v "T-thank you."
@@ -512,7 +512,7 @@ label phase_2:
                 "Still, they're a kidnapper."
                 "You don't say anything else."
             else:
-                show issac close_straight
+                show isaac close_straight
                 k "If you had told me what coffee you like, I could've gotten it for you."
                 k "Always remember, I can't be good to you if you're not good to me."
                 v "Okay, I'll keep that in mind."
@@ -524,7 +524,7 @@ label phase_2:
                 "Like yesterday, they grab your hand firmly and walk you back down the hall."
                 scene hallway
                 with fade
-                show issac happy
+                show isaac happy
             else:
                 k "Well, that's enough of an adventure for you. I hope you had a good time!"
                 "They take your hand to lead you back down."
@@ -532,14 +532,14 @@ label phase_2:
                 "It was probably unfair to expect to be able to escape this easily."
                 scene hallway
                 with fade
-                show issac happy
+                show isaac happy
             # hallway image here
             "We continue to walk in silence back to the room."
             scene bedroom_day
             with fade
 
             k "Okay, back into the room you go! I'll come get you later! I have a surprise!"
-            hide issac
+            hide isaac
             stop kidnapper_channel fadeout 1.0
             $ acceptedCoffee = True
             jump after_kitchen_day_5
@@ -584,7 +584,7 @@ label phase_2:
             "You feel a gentle hand brush your face."
             v "W-wh-what?"
             k "Rise and shine~"
-            show issac vhappy
+            show isaac vhappy
             play kidnapper_channel [ "<sync music>./audio/Bedroomphobia_kidnapper.mp3", bedroom_kidnapper ]
             k "It's time for lunch!"
             menu:
@@ -598,7 +598,7 @@ label phase_2:
                     v "I just don't want to."
                     k "Alright, that's fine. I'm sure you'll agree later."
                     "With that, they leave the room, leaving you with nothing more to do but sleep."
-                    hide issac
+                    hide isaac
                     stop kidnapper_channel fadeout 1.0
                     "You slowly drift to sleep..."
                     jump end_day_5
@@ -613,7 +613,7 @@ label phase_2:
                     jump lunchtime
         label lunchtime:
             scene kitchen
-            show issac straight
+            show isaac straight
             $ hadLunch = True
             if acceptedCoffee:
                 "You find yourself in the now-familiar kitchen."
@@ -635,14 +635,14 @@ label phase_2:
                     "Like it":
                         $ compliance += 1
                         v "I'm really liking it!"
-                        show issac happy
+                        show isaac happy
                         k "You can relate to it, right?"
                         v "Yup."
                         v "Plus, I'm really bored anyway, so I'm glad to have anything."
                     "Dislike it":
                         $ compliance -= 2
                         v "It's awful."
-                        show issac straight
+                        show isaac straight
                         v "What, you thought I'd be happy with this just because it's in a book?"
                         v "I'm not Belle, you know."
                         # sad face
@@ -662,7 +662,7 @@ label phase_2:
                         v "I'm doing okay!"
                 label good:
                     $ compliance += 2
-                    show issac vhappy
+                    show isaac vhappy
                     k "That's good to hear!"
                     k "Though, I think you do need a shower."
                     k "I know I promised you that before, but I've just been so busy with you!"
@@ -674,7 +674,7 @@ label phase_2:
                     v "Thank you!"
                 label bad:
                     $ compliance -= 1
-                    show issac straight
+                    show isaac straight
                     v "I hate it here."
                     k "That's not good!"
                     k "Anything I can do to make it better?"
@@ -700,7 +700,7 @@ label phase_2:
             scene bedroom_day
             jump end_day_5
         label end_day_5:
-            hide issac
+            hide isaac
             stop kidnapper_channel
             k "Goodnight!"
             "Though you are not tired, you climb into bed."
