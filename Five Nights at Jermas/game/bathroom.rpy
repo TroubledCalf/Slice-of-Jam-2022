@@ -5,7 +5,7 @@ default lowComplBR = -2
 default canBrush = False
 default canBath = False
 
-label goToBathroom
+label goToBathroom:
     $ currentCompliance = currentCompliance / 2
 
     "Another day passes."
