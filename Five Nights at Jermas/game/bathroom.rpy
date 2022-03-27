@@ -2,7 +2,7 @@ default timesGoneToBR = 0
 default highComplBR = 5 # change number based on how many actual choices there are in prev section
 
 default canBrush = False
-default canShower = False
+default canBath = False
 
 label goToBathroom
     $ currentCompliance = currentCompliance / 2
@@ -50,7 +50,7 @@ label inBathroom:
     $ allDone = False
     $ usedToilet = False
     $ brushedTeeth = False
-    $ tookShower = False
+    $ tookBath = False
     while not allDone:
         "Looking around, what will you do?"
         menu:
@@ -66,7 +66,38 @@ label inBathroom:
                 else:
                     "Instead, the doors stay closed."
                     v "God damn it."
-                    "They must have locked the drawer"
+                    "They must have locked the drawer somehow. They don't even trust you for toothpaste?"
+                    "And the drugs cabinet, in all likelihood. That makes more sense actually."
+                $ brushedTeeth = True
+            "Take a bath" if not tookBath
+                "You undress and step into the bath."
+                if currentCompliance < highComplBR:
+                    "You hope desperately there are no hidden cameras in this bathroom."
+                "You reach for the nozzle and turn for the water."
+                if canBath:
+                    call takeBath
+                else:
+                    "only for nothing to come out."
+                    "This is ridiculous! You can't even take a bath? What, are you not trusted with large bodies of water?"
+                    "It certainly seems as much."
+                $ tookBath = True
+
+        jump exitBR
+
+label exitBR
+    "Before you leave the bathroom, a thought occurs to you."
+    v "He said to knock and wait for him when I want to leave."
+    "An odd request. What you do in the bathroom is your business."
+    menu:
+        "Knock and wait for them.":
+            $ currentCompliance += 2
+            "You knock on the door and wait patiently. You see no reason to disobey now."
+            "You put your ear to the door listening for footsteps or any indication of their approach but find none."
+            v "Hey! No worries, I'm right here."
+            "The door swings open to them grinning widely"
+
+        "Open the door yourself.":
+            $ currentCompliance -= 2
 
 
 ###################################### MENU OPTIONS (SINCE SOMETHIMES THE VICTIM WILL DISOBEY)
@@ -100,5 +131,61 @@ label useToilet:
                 "You put on the toilet paper as instructed. After all, there's no reason to upset them over this."
             else:
                 "You put it on wrong, ignoring their instructions. You have no reason to listen to a kidnapper."
-
     "Satisfied with your toilet paper duties, you rise."
+    return
+
+label brushTeeth:
+    "The door swings open and you see all the contents."
+    "toothpaste, hair and toothbrushes, and many bottle of pills. Pills with another sticky note."
+    v "'Don't Touch! :-) --Isaac'"
+    menu:
+        "Rummage through the pills.":
+            currentCompliance -= 1
+            "You're really putting your school's D.A.R.E. program to good use."
+            "You find mostly tylenol and advil. Some other drugs you don't know but none you think will be useful."
+            "At this point you've over turned enough bottles there's no hope in putting them back into place."
+            "Oh well."
+        "Leave them be.":
+            currentCompliance += 1
+            if currentCompliance > highComplBR:
+                "You're really putting your school's D.A.R.E. program to good use."
+                "You find mostly tylenol and advil. Some other drugs you don't know but none you think will be useful."
+                "At this point you've over turned enough bottles there's no hope in putting them back into place."
+                "Oh well."
+            else:
+                "You forgo your curiosity and reach for the toothbrush."
+    "Its funny. You never thought there'd be a day where you'd look forward to dental hygeine."
+    "But between your current situation and the stench in your bedroom, the mint and water is refreshing."
+    return
+
+label takeBath:
+    "You let yourself be submerged in the warm water. It almost feels like someone holding you."
+    "You shake the thought off. Such an idea is uncomfortable given the circumstances."
+    "You look around."
+    "Beside the nozzle is a basket of soaps and hair products. On them is another sticky note."
+    "How did they put a sticky note in the bathtub?"
+    v "Use these! I chose them out just for you. -- Isaac."
+    if brekkiePref == 1:
+        "In the basket all the items are scented with banana. Interesting."
+    elif brekkiePref == 2:
+        "In the basket all the items are scented with strawberry. Interesting."
+    elif brekkiePref == 3:
+        "In the basket all the items are scented with honey. Interesting."
+    else:
+        "All items are scented plain. Odd."
+    "Will you actually use the products given?"
+    menu:
+        "Use them":
+            $ saidToShampoo = True
+        "Don't use them":
+            $ saidToShampoo = False
+    if saidToShampoo or currentCompliance > highComplBR:
+        "You open the bottles and rub shampoo into your hair."
+        v "It's nice in a weird way that they still think of me."
+        "Weird? Certainly. 'Nice' is a separate question."
+        "Still, its hard to deny that at the very least you smell a lot better."
+    else:
+        v "No thank you."
+        "There's no need to cover yourself in whatever your captor has arranged for you."
+    "You emerge eventually, cleaned and all."
+    return
