@@ -21,11 +21,11 @@ label dinnerWithMyMan:
     menu:
         "yes":
             v "Sure!"
-            compliance += 1
+            $ compliance += 1
             jump yes_to_chat
 
         "no":
-            compliance -= 1
+            $ compliance -= 1
             "Probably not the best idea to tell them too much about yourself."
             if compliance > 1:
                 v "Sure!"
@@ -42,32 +42,32 @@ label dinnerWithMyMan:
 
     ## LUNCH
     label lunch:
-            "You hear the familiar steps and know it's probably lunch time."
-            "The door opens and they walk in."
-            v "Is it time for lunch?"
-            k "Yes it is! Are you going to join me?"
-            menu:
-                "Refuse":
-                    $ compliance -= 1
-                    k "You don't want to have lunch?"
-                    k "We've come so far!"
-                    "No. You've already spent a lot of time with them and gained so little out of it."
-                    v "I appreciate everything you've done for me, but I just don't want lunch today."
-                    v "I hope you can respect that."
-                    "A disappointed look crosses their face."
-                    k "Of course."
-                    "With that, they left the room, leaving you with nothing more to do but sleep."
-                    "You slowly drift to sleep..."
-                    jump book
-                "Follow them":
-                    $ compliance += 3
-                    "They've treated you well so far, so why not?"
-                    "You choose to go to lunch with them."
-                    v "Okay, let's go!"
-                    k "I told you that you'd eventually get used to me."
-                    "That... was a terrifying thought..."
-                    "They grab your hand and take you to the kitchen."
-                    jump lunchtime
+        "You hear the familiar steps and know it's probably lunch time."
+        "The door opens and they walk in."
+        v "Is it time for lunch?"
+        k "Yes it is! Are you going to join me?"
+        menu:
+            "Refuse":
+                $ compliance -= 1
+                k "You don't want to have lunch?"
+                k "We've come so far!"
+                "No. You've already spent a lot of time with them and gained so little out of it."
+                v "I appreciate everything you've done for me, but I just don't want lunch today."
+                v "I hope you can respect that."
+                "A disappointed look crosses their face."
+                k "Of course."
+                "With that, they left the room, leaving you with nothing more to do but sleep."
+                "You slowly drift to sleep..."
+                jump book
+            "Follow them":
+                $ compliance += 3
+                "They've treated you well so far, so why not?"
+                "You choose to go to lunch with them."
+                v "Okay, let's go!"
+                k "I told you that you'd eventually get used to me."
+                "That's... a terrifying thought..."
+                "They grab your hand and take you to the kitchen."
+                jump lunchtime
         label lunchtime:
             "Like before, you see a pile of vegetables on the counter."
             k "We're making soup again!"
@@ -165,7 +165,7 @@ label dinnerWithMyMan:
             v "I love you too!"
             jump badEnd
         elif compliance < -7: # the 1st outcome
-            match var_flag:
+            $ match var_flag:
                 case 0:
                     "You try to escape by distracting the kidnapper. You plan to make them go to the kitchen to cook something for you."
                     v "Hey, um, Isaac."
