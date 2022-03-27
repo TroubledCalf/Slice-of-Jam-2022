@@ -76,11 +76,11 @@ label phase_2:
         "Do nothing":
             $ compliance += 4
             "You drift to sleep, harrowed by the day's events..."
-            if compliance < -2
+            if compliance < -2:
               jump day_3
             else:
               jump day_4
-  
+
   # lunch day
   label day_4:
     $ compliance = 0
@@ -90,9 +90,9 @@ label phase_2:
 
     "As expected, you hear the footsteps again."
     "The latch opens with a click and they walk in."
-    
+
     v "Let me guess. You have oatmeal for me."
-    
+
     k "Haha, there's the spirit. You're finally understanding your place in our home."
     k "But no, breakfast isn't ready yet. I actually wanted to come give you a book."
     "They hold out a hardcover copy of 'Beauty and the Beast'."
@@ -117,7 +117,7 @@ label phase_2:
 
     #breakfast scene
     "You hear the click of the door again."
-    k "Food's ready!"      
+    k "Food's ready!"
     "Oatmeal again."
     "Could this person cook anything else?"
     k "Here's your oatmeal, just the way you like it!"
@@ -175,7 +175,7 @@ label phase_2:
           $ compliance -= 1
           v "I don't want to be here."
           k "Sure you do! Sit down over there, please."
-      
+
       # filler
       "They continue to drink in silence."
       "They get up."
@@ -192,7 +192,7 @@ label phase_2:
       "Maybe you should've taken the coffee?"
       "They could've taken you to the kitchen."
       jump day_5
-    
+
     label after_kitchen:
       "Having nothing better to do, it's probably time to sleep."
       "You slowly drift into dreams in the bed that you've unfortunately gotten used to."
@@ -201,7 +201,7 @@ label phase_2:
 
 # lunch for real
 label day_5:
-  $ compliance = 0
+    $ compliance = 0
     "You wake up to yet another day on this thin mattress."
 
     if acceptedCoffee:
@@ -209,13 +209,13 @@ label day_5:
     else:
       pass
 
-    """After five or so days (had it been that many? you're starting to lose count...) of hearing those footsteps, 
+    """After five or so days (had it been that many? you're starting to lose count...) of hearing those footsteps,
       you find yourself almost habituated with them - a signal that the day is about to start.
     """
     "The latch opens with a click and they walk in."
-    
+
     v "Do you have my oatmeal now?"
-    
+
     k "Getting eager for my oats, aren't you?"
     k "You'll have to wait for me a little longer. It's not ready yet."
     if acceptedBook:
@@ -223,29 +223,29 @@ label day_5:
     else:
       k "But, I did bring the book with me if you'd like to give it another shot."
       menu:
-      "Accept the book.":
-        $ compliance += 1
-        $ acceptedBook = True
-        "Yesterday was pretty boring..."
-        v "Okay, fine."
-        k "Trust me, you'll love this book."
-        k "Hopefully it inspires you in your actual life."
-        "That confused you."
-        v "What do you mean?"
-        "They smiled."
-        k "Don't worry about it."
-      "Refuse the book.":
-        $ compliance -= 1
-        v "I still don't want your stupid book."
-        k "That's okay, you'll just be bored."
-        k "Or maybe not, since I have something more planned for you."
-        k "Anyway, I'll be back with breakfast!"
-        "They left in good spirits, for some reason..."
+          "Accept the book.":
+              $ compliance += 1
+              $ acceptedBook = True
+              "Yesterday was pretty boring..."
+              v "Okay, fine."
+              k "Trust me, you'll love this book."
+              k "Hopefully it inspires you in your actual life."
+              "That confused you."
+              v "What do you mean?"
+              "They smiled."
+              k "Don't worry about it."
+          "Refuse the book.":
+                $ compliance -= 1
+                v "I still don't want your stupid book."
+                k "That's okay, you'll just be bored."
+                k "Or maybe not, since I have something more planned for you."
+                k "Anyway, I'll be back with breakfast!"
+                "They left in good spirits, for some reason..."
 
 
     #breakfast scene
     "After a few minutes, you hear the click of the door again."
-    k "Food's ready!"      
+    k "Food's ready!"
     "Ah, here's the oatmeal."
     "It looked more appetizing than before for some reason."
     k "Here's your oatmeal, just the way you like it!"
@@ -278,12 +278,12 @@ label day_5:
           "Is it just you, or did they do that yesterday too?"
           k "Wonderful!"
           "They take your hand."
-          k "Let's go!"          
+          k "Let's go!"
           jump kitchen
         "Refuse coffee":
           "There wasn't really anything helpful in the kitchen."
           k "Oh... why do you not want any today?"
-          k "Nevermind, that's fine, I still have another idea you might like."          
+          k "Nevermind, that's fine, I still have another idea you might like."
           "With a disappointed face, they leave the room."
           jump no_kitchen
     else:
@@ -305,7 +305,7 @@ label day_5:
         "Refuse coffee":
           "You still don't want their coffee"
           k "You still don't want any?."
-          k "Again, that's fine, I still have another idea you might like."          
+          k "Again, that's fine, I still have another idea you might like."
           "With a straight face, they leave the room."
           jump no_kitchen
 
@@ -341,20 +341,17 @@ label day_5:
       k "Okay, back into the room you go! I'll come get you later! I have a surprise!"
       $ acceptedCoffee = True
       jump after_kitchen_day_5
-    
+
     label no_kitchen_day_5:
       "Maybe you should've taken the coffee?"
       "They could've taken you to the kitchen."
       if acceptedBook:
         "You decide it's better to just read the book"
       jump lunch
-    
+
     label after_kitchen_day_5:
       "Having nothing better to do, it's probably time to sleep."
       "You slowly drift into dreams in the bed that you've unfortunately gotten used to."
       jump lunch
-    
+
     label lunch:
-      
-
-
