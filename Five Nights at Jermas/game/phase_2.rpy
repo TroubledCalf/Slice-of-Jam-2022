@@ -309,9 +309,8 @@ label phase_2:
             "Having nothing better to do, it's probably time to sleep."
             "You slowly drift into dreams in the bed that you've unfortunately gotten used to."
             scene black
-            with fade
-            stop stop
-            stop victim_channel
+            with fade            
+            stop victim_channel fadeout 1.0
             if compliance < -1:
                 jump day_4
             else:
@@ -322,8 +321,7 @@ label phase_2:
             "You slowly drift into dreams in the bed that you've unfortunately gotten used to."
             scene black
             with fade
-            stop stop
-            stop victim_channel
+            stop victim_channel fadeout 1.0
             if compliance < -2:
                 jump day_4
             else:
