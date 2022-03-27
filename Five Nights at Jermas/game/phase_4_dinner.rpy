@@ -93,6 +93,7 @@ label dinnerWithMyMan:
     label lunch_p4:
         "After a while, you hear the familiar steps and know it's probably lunch time."
         "The door opens and they walk in."
+        show isaac happy
         if took_Shower:
             k "Wow, you smell nice today~"
             v "Thanks!"
@@ -114,15 +115,19 @@ label dinnerWithMyMan:
                     $ compliance -= 1
                     jump lunchtime_p4
                 else:
+                    show isaac angry
                     k "You don't want to have lunch?"
                     k "We've come so far!"
                     "No. You've already spent a lot of time with them and gained so little out of it."
                     v "I appreciate everything you've done for me, but I just don't want lunch today."
                     v "I hope you can respect that."
+                    show isaac straight
                     "A disappointed look crosses their face."
                     k "Of course."
+                    hide isaac straight
                     "With that, they leave the room, leaving you with nothing more to do but sleep."
                     "You slowly drift to sleep..."
+                    scene black
                     jump book_p4
             "Follow them":
                 $ compliance += 3
@@ -132,8 +137,11 @@ label dinnerWithMyMan:
                 k "I told you that you'd eventually get used to me."
                 "That's... a terrifying thought..."
                 "They grab your hand and take you to the kitchen."
+                hide isaac happy
                 jump lunchtime_p4
         label lunchtime_p4:
+            scene kitchen
+            show isaac happy
             if hadLunch:
                 "Like before, you see a pile of vegetables on the counter."
                 k "We're making soup again!"
@@ -141,6 +149,7 @@ label dinnerWithMyMan:
                 "Sad."
                 v "So, are we going to start?"
                 if compliance > highComplianceDN:
+                    show isaac vhappy
                     k "Yup! I'll even let you use a knife this time!"
                     "Wow, they really trust you."
                 else:
@@ -152,20 +161,25 @@ label dinnerWithMyMan:
             else:
                 "You see a pile of vegetables on the countertop."
                 k "We're making soup!"
-                "Better than oatmeal, at least."
+                v "Better than oatmeal, at least."
                 k "Yup! One thing though - you don't get to use a knife."
                 "You can't help but admire their caution. They thought of everything."
                 k "I have a cabinet of spices, so put whatever you want in the boiling water."
+                hide isaac happy
                 "You spend the next 15 minutes choosing spices."
+                show isaac happy
                 k "Perfect!"
                 "They put in the spices and the both of you sit down to wait."
+                hide isaac happy
                 # CHOICE
                 if acceptedBook:
+                    show isaac happy
                     k "So, how are you liking the book?"
                     menu:
                         "Like it":
                             $ compliance += 3
                             v "I'm really liking it!"
+                            show isaac vhappy
                             k "You can relate to it, right?"
                             v "Yup."
                             v "Plus, I'm really bored anyway, so I'm glad to have anything."
@@ -174,11 +188,12 @@ label dinnerWithMyMan:
                             v "I'm not fond of it."
                             v "What, you thought I'd be happy with this just because it's in a book?"
                             v "I'm not Belle, you know."
-                            # sad face <- visual cue
+                            show isaac straight
                             k "I'm sorry to hear you didn't like it."
                             k "But I really do hope you'll get used to me eventually."
 
             "After a few minutes, they check the pot."
+            show isaac happy
             k "I think the soup's ready!"
             "You both proceed to work side-by-side to get the soup into bowls."
             "You eat quietly for a while."
@@ -198,13 +213,15 @@ label dinnerWithMyMan:
                     v "I'm doing okay!"
             label good_p4:
                 $ compliance += 2
-                k "I'm happy!"
+                v "I'm happy!"
+                show isaac vhappy
                 k "I'll make you even happier tonight."
                 v "W-what?"
                 k "It's a surprise~"
                 k "I'll just say one thing..."
                 k "I'm pretty skilled..."
                 k "... at cooking, of course."
+                show isaac happy
                 v "Oh.. oh."
                 k "What did you think I meant?"
                 k "I won't say any more, though."
@@ -215,11 +232,12 @@ label dinnerWithMyMan:
                 k "That's not good!"
                 k "Anything I can do to make it better?"
                 v "I don't know... maybe I'm still scared?"
-                k "They reach out and envelope you in their arms."
+                "They reach out and envelope you in their arms."
                 "They're surprisingly warm and maybe you have a slight inclination to lean into them..."
                 v "Thank you. I think I needed a hug."
             "You sit in silence for a bit longer."
             "After finishing the meal, they take your hand and walk you back to the room."
+            scene bedroom
             jump book_p4
 
     ## BOOK/NAP
@@ -250,6 +268,7 @@ label dinnerWithMyMan:
             "There isn't much to do, except for rereading the newspaper clippings."
 
         "You eventually drift to sleep."
+        scene black
         jump dinner
 
 
@@ -680,7 +699,7 @@ label dinnerWithMyMan:
 label inBathroom_p4:
     play music BRTheme loop
 
-    #bathroom scene?
+    scene bathroom
     "You enter the bathroom."
     $ allDone = False
     $ usedToilet = False
@@ -711,7 +730,7 @@ label inBathroom_p4:
                 if canBath:
                     call takeBath
                 else:
-                    "only for nothing to come out."
+                    "Only for nothing to come out."
                     "This is ridiculous! You can't even take a bath? What, are you not trusted with large bodies of water?"
                     "It certainly seems as much."
                 $ tookBath = True
