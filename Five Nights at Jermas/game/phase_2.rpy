@@ -76,7 +76,10 @@ label phase_2:
         "Do nothing":
             $ compliance += 4
             "You drift to sleep, harrowed by the day's events..."
-            jump day_4
+            if compliance < -2
+              jump day_3
+            else:
+              jump day_4
   
   # lunch day
   label day_4:
@@ -171,6 +174,10 @@ label phase_2:
         "no":
           $ compliance -= 1
           v "I don't want to be here."
+          k "Sure you do! Sit down over there, please."
+      
+      # filler
+      "They continue to drink in silence."
       "They get up."
       k "Well, that's enough of an adventure for you. I hope you had a good time!"
       "They take your hand to lead you back down."
@@ -189,7 +196,8 @@ label phase_2:
     label after_kitchen:
       "Having nothing better to do, it's probably time to sleep."
       "You slowly drift into dreams in the bed that you've unfortunately gotten used to."
-      jump day_5
+      if compliance < -2:
+        jump day_4
 
 # lunch for real
 label day_5:
@@ -199,21 +207,27 @@ label day_5:
     if acceptedCoffee:
       "But at least you had gotten out of this room yesterday."
     else:
-      "Five or so days (had it been that many? you're starting to lose count) in here was"
+      pass
 
-    "As expected, you hear the footsteps again."
+    """After five or so days (had it been that many? you're starting to lose count...) of hearing those footsteps, 
+      you find yourself almost habituated with them - a signal that the day is about to start.
+    """
     "The latch opens with a click and they walk in."
     
-    v "Let me guess. You have oatmeal for me."
+    v "Do you have my oatmeal now?"
     
-    k "Haha, there's the spirit. You're finally understanding your place in our home."
-    k "But no, breakfast isn't ready yet. I actually wanted to come give you a book."
-    "They hold out a hardcover copy of 'Beauty and the Beast'."
-    menu:
+    k "Getting eager for my oats, aren't you?"
+    k "You'll have to wait for me a little longer. It's not ready yet."
+    if acceptedBook:
+      k "Would you like to read that book together while we wait?"
+    else:
+      k "But, I did bring the book with me if you'd like to give it another shot."
+      menu:
       "Accept the book.":
         $ compliance += 1
         $ acceptedBook = True
-        v "I do need some entertainment, I guess..."
+        "Yesterday was pretty boring..."
+        v "Okay, fine."
         k "Trust me, you'll love this book."
         k "Hopefully it inspires you in your actual life."
         "That confused you."
@@ -222,89 +236,125 @@ label day_5:
         k "Don't worry about it."
       "Refuse the book.":
         $ compliance -= 1
-        v "I don't want your stupid book."
-        k "No? Well, I guess you'll be bored and that's your own fault."
-        k "I'm trying to be nice to you and treat you well but if you won't accept that, no one can do anything."
-        k "Whatever. I'll be back with breakfast."
-        "With that, they left the room."
+        v "I still don't want your stupid book."
+        k "That's okay, you'll just be bored."
+        k "Or maybe not, since I have something more planned for you."
+        k "Anyway, I'll be back with breakfast!"
+        "They left in good spirits, for some reason..."
+
 
     #breakfast scene
-    "You hear the click of the door again."
+    "After a few minutes, you hear the click of the door again."
     k "Food's ready!"      
-    "Oatmeal again."
-    "Could this person cook anything else?"
+    "Ah, here's the oatmeal."
+    "It looked more appetizing than before for some reason."
     k "Here's your oatmeal, just the way you like it!"
     menu:
       "Take the oatmeal.":
-        # remember breakfast choice from before
         $ compliance += 1
         "You don't really have much choice."
         k "Good."
+        "It wasn't actually half bad... was it getting better?"
+        v "This is good!"
         k "I'm glad you like my cooking so much."
         "With that, they leave the room. There is no latch noise."
       "Refuse it":
         $ compliance -= 1
-        "They make a concerned face."
-        k "Alright then. I'll leave it here in case you get hungry."
-        k "You can eat whenever you like, and I will take your dishes when you sleep."
+        "You still will not have their oatmeal, no matter how good it smells."
+        k "Wow, you still don't want it?"
+        k "Well, as usual, I'll just leave it here for when you want it."
         "He puts the bowl beside your bed on a night stand."
         "With that, they leave the room. There is no latch noise."
     "Within a few minutes, they returned."
+
     k "I almost forgot, do you want coffee?"
-    menu:
-      "Accept coffee":
-        $ acceptedCoffee = True
-        "You're tired, so why not?"
-        v "Okay."
-        "The kidnapper clapped their hands."
-        k "Wonderful!"
-        k "And do you know what this means?"
-        "Suddenly you found yourself a little nervous."
-        v "W-what does it mean?"
-        k "You get to see my kitchen!"
-        "You breathed a sigh of relief."
-        "In fact, this was a good thing!"
-        "You could now learn more about the house..."
-        jump kitchen
-      "Refuse coffee":
-        k "Oh, I would've guessed you'd be tired."
-        k "But, as always, everything is up to you."
-        k "I guess you can stay down here while I drink coffee in the kitchen."
-        k "By myself."
-        k "Without a companion."
-        "With a straight face, they leave the room."
-        jump no_kitchen
+    if acceptedCoffee:
+      menu:
+        "Accept coffee":
+          #$ acceptedCoffee = True
+          "Another look at the kitchen might help."
+          v "Okay."
+          "The kidnapper clapped their hands."
+          "Is it just you, or did they do that yesterday too?"
+          k "Wonderful!"
+          "They take your hand."
+          k "Let's go!"          
+          jump kitchen
+        "Refuse coffee":
+          "There wasn't really anything helpful in the kitchen."
+          k "Oh... why do you not want any today?"
+          k "Nevermind, that's fine, I still have another idea you might like."          
+          "With a disappointed face, they leave the room."
+          jump no_kitchen
+    else:
+      menu:
+        "Accept coffee":
+          #$ acceptedCoffee = True
+          "You didn't go last time, so maybe it's time to go today."
+          v "Okay."
+          "The kidnapper clapped their hands."
+          k "Wonderful!"
+          k "And do you know what this means?"
+          "Suddenly you found yourself a little nervous."
+          v "W-what does it mean?"
+          k "You get to see my kitchen!"
+          "You breathed a sigh of relief."
+          "In fact, this was a good thing!"
+          "You could now learn more about the house..."
+          jump kitchen
+        "Refuse coffee":
+          "You still don't want their coffee"
+          k "You still don't want any?."
+          k "Again, that's fine, I still have another idea you might like."          
+          "With a straight face, they leave the room."
+          jump no_kitchen
 
     label kitchen:
       "You follow them out of the room and up a set of stairs into a little kitchen."
       "There was indeed a coffeepot brewing some delicious-smelling vanilla coffee."
-      k "Here's my little kitchen! Do you like it?"
-      menu:
-        "yes":
-          $ compliance += 1
-          v "It's cute. And the coffee smells great."
-          k "I'm glad you like it! The coffee is just about ready, so why don't you sit down?"
-        "no":
-          $ compliance -= 1
-          v "I don't want to be here."
-      "They get up."
-      k "Well, that's enough of an adventure for you. I hope you had a good time!"
-      "They take your hand to lead you back down."
-      "You test the grip and notice there's no way to get your hand out."
-      "It was probably unfair to expect to be able to escape this easily."
-      # hallway image here
-      "Wr continue to walk in silence back to the room."
-      k "Okay, back into the room you go! Sleep well, honey!"
-      jump after_kitchen
 
-    label no_kitchen:
+      if acceptedCoffee:
+        k "Welcome back to the kitchen!"
+      else:
+        k "Here's my little kitchen! Do you like it?"
+        menu:
+          "yes":
+            $ compliance += 1
+            v "It's cute. And the coffee smells great."
+            k "I'm glad you like it! The coffee is just about ready, so why don't you sit down?"
+          "no":
+            $ compliance -= 1
+            v "I don't want to be here."
+            k "Haha, you'll change your mind once you try the coffee. Sit down over there."
+      # filler
+
+      "After finishing their coffee and looking out the window for a bit, they get up."
+      if acceptedCoffee:
+        "Like yesterday, they grab your hand firmly and walk you back down the stairs."
+      else:
+        k "Well, that's enough of an adventure for you. I hope you had a good time!"
+        "They take your hand to lead you back down."
+        "You test the grip and notice there's no way to get your hand out."
+        "It was probably unfair to expect to be able to escape this easily."
+      # hallway image here
+      "We continue to walk in silence back to the room."
+      k "Okay, back into the room you go! I'll come get you later! I have a surprise!"
+      $ acceptedCoffee = True
+      jump after_kitchen_day_5
+    
+    label no_kitchen_day_5:
       "Maybe you should've taken the coffee?"
       "They could've taken you to the kitchen."
-      jump day_5
+      if acceptedBook:
+        "You decide it's better to just read the book"
+      jump lunch
     
-    label after_kitchen:
+    label after_kitchen_day_5:
       "Having nothing better to do, it's probably time to sleep."
       "You slowly drift into dreams in the bed that you've unfortunately gotten used to."
-      jump day_5
+      jump lunch
+    
+    label lunch:
+      
 
 
