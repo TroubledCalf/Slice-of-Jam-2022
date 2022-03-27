@@ -183,6 +183,7 @@ label start:
                 #if available, show kidnapper on top of player
                 "After a few seconds of you struggling, they pin you down."
                 k "Did you think you had a chance?"
+                hide fight
                 "You're lifted and carried onto the bed."
                 show isaac happy at top:
                     zoom 1.6
@@ -368,7 +369,19 @@ label start:
             "Walk over to the door":
                 jump after_walk_to_door
             "Remain where you are.":
-                pass
+                scene black
+                with fade
+                if compliance >= -2: # for phase 1, the middle (normal) range is -2 to 2, inclusive.
+                    "You slowly fall asleep...hoping that the day will be different tomorrow."
+                    stop kidnapper_channel fadeout 1.0
+                    stop victim_channel fadeout 1.0
+                    call interludeOne
+                    jump phase_2
+                else:
+                    "You fall asleep..."
+                    stop kidnapper_channel fadeout 1.0
+                    stop victim_channel fadeout 1.0
+                    jump day_2
 
         label after_walk_to_door:
             scene door_night
