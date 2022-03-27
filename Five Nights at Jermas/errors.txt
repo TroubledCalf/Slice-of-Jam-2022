@@ -2,21 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/bathroom.rpy", line 73: reached end of line when expecting ':'.
-    "Take a bath" if not tookBath
-                                 ^
-
-File "game/bathroom.rpy", line 88: expected ':' not found.
-    label exitBR
-                ^
-
-File "game/bathroom.rpy", line 164: expected statement.
-    currentCompliance -= 1
-                       ^
-
-File "game/bathroom.rpy", line 170: expected statement.
-    currentCompliance += 1
-                      ^
+File "game/script.rpy", line 315: Line is indented, but the preceding with statement statement does not expect a block. Please check this line's indentation.
+    if compliance >= -2: 
+    ^
 
 Ren'Py Version: Ren'Py 7.4.9.2142
-Sat Mar 26 22:29:11 2022
+Sun Mar 27 02:38:46 2022

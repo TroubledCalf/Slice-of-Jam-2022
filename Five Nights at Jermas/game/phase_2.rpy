@@ -2,6 +2,7 @@ default acceptedCoffee = False
 default acceptedBook = False
 label phase_2:
     label day_3:
+        scene bedroom
         $ compliance = compliance // 2
         "You're starting to feel unclean. Of course, there's no shower in here."
         "No mirror either, so you can't even check your appearance for sure."
@@ -47,7 +48,7 @@ label phase_2:
         k "This time, I made you oatmeal the way you asked."
         k "See, I can be nice to you if you want, but you just have to cooperate."
         k "Your treatment is entirely up to you, my dear."
-        # a note-so-nice smile I imagine
+        # a not-so-nice smile I imagine
         "He waits expectantly with the bowl."
         menu:
             "Take the oatmeal.":
@@ -64,18 +65,28 @@ label phase_2:
                 k "You can eat whenever you like, and I will take your dishes when you sleep."
                 "He puts the bowl beside your bed on a night stand."
                 # filler
-
-        # filler
+        "He takes a few steps back and turns towards the door."
         menu:
             "Attack your captor":
                 $ compliance -= 4
                 "You launch yourself at your captor."
-                # filler
+                "He takes one step back, and you land flat on your face."
+                #show creepy smile
+                k "Now, now."
+                k "We can't have much of that can we?"
+                "As you pull yourself off the floor, he quickly makes his escape."
+                "Exhausted and deafeated, you climb into bed and cry yourself to sleep."
+
+                scene black
+                with fade
+
                 jump day_3
 
             "Do nothing":
                 $ compliance += 4
                 "You drift to sleep, harrowed by the day's events..."
+                scene black
+                with fade
                 if compliance < -2:
                     jump day_3
                 else:
@@ -207,7 +218,7 @@ label phase_2:
         if acceptedCoffee:
             "But at least you had gotten out of this room yesterday."
             "You're quickly interrupted from that thought by a familiar noise."
-        
+
         "Yet again, you hear the same footsteps coming down the hall."
 
         """After five or so days (had it been that many? you're starting to lose count...) of hearing those footsteps,
@@ -279,7 +290,7 @@ label phase_2:
                     "Is it just you, or did they do that yesterday too?"
                     k "Wonderful!"
                     "They take your hand."
-                    k "Let's go!"          
+                    k "Let's go!"
                     jump kitchen_day_5
                 "Refuse coffee":
                     "There wasn't really anything helpful in the kitchen."
@@ -351,11 +362,11 @@ label phase_2:
                 "It's a pretty good story..."
                 "You find yourself relating a lot with Belle."
                 "After reading for a while, you start to get sleepy..."
-                $ compliance += 1 
+                $ compliance += 1
                 jump lunch
             "Maybe just a nap would be nice..."
             jump lunch
-        
+
         label after_kitchen_day_5:
             "The kitchen trip didn't really offer much information."
             "It was worth a shot though."
@@ -365,7 +376,7 @@ label phase_2:
                 "It's a pretty good story..."
                 "You could relate a lot with Belle."
                 "After reading for a while, you start to get sleepy..."
-                $ compliance += 1 
+                $ compliance += 1
                 jump lunch
             "Maybe just a nap would be nice..."
             jump lunch

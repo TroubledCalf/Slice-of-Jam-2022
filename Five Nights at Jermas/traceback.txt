@@ -1,52 +1,36 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-After initialization, but before game start.
-  File "game/screens.rpy", line 292, in analyze_screen
-    screen navigation():
-  File "game/screens.rpy", line 292, in analyze
-    screen navigation():
-  File "game/screens.rpy", line 292, in analyze
-    screen navigation():
-  File "game/screens.rpy", line 294, in analyze
-    vbox:
-  File "game/screens.rpy", line 294, in analyze
-    vbox:
-  File "game/screens.rpy", line 296, in analyze
-    if if renpy.get_screen("main_menu"):
-SyntaxError: invalid syntax (screens.rpy, line 296)
+While running game code:
+  File "renpy/common/00keymap.rpy", line 469, in script
+    python hide:
+  File "renpy/common/00keymap.rpy", line 469, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 488, in _execute_python_hide
+    renpy.save("_reload-1", "reload save game")
+AttributeError: 'NoneType' object has no attribute 'stores'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/bootstrap.py", line 331, in bootstrap
-    renpy.main.main()
-  File "renpy/main.py", line 652, in main
-    run(restart)
-  File "renpy/main.py", line 89, in run
-    renpy.display.screen.analyze_screens()
-  File "renpy/display/screen.py", line 925, in analyze_screens
-    s.ast.analyze_screen()
-  File "game/screens.rpy", line 292, in analyze_screen
-    screen navigation():
-  File "game/screens.rpy", line 292, in analyze
-    screen navigation():
-  File "game/screens.rpy", line 292, in analyze
-    screen navigation():
-  File "game/screens.rpy", line 294, in analyze
-    vbox:
-  File "game/screens.rpy", line 294, in analyze
-    vbox:
-  File "game/screens.rpy", line 296, in analyze
-    if if renpy.get_screen("main_menu"):
-  File "renpy/pyanalysis.py", line 542, in is_constant_expr
-    node, literal = ccache.ast_eval_literal(expr)
-  File "renpy/pyanalysis.py", line 696, in ast_eval_literal
-    expr = py_compile(expr, 'eval', ast_node=True)
-  File "renpy/python.py", line 835, in py_compile
-    raise e
-SyntaxError: invalid syntax (screens.rpy, line 296)
+  File "renpy/common/00keymap.rpy", line 469, in script
+    python hide:
+  File "renpy/ast.py", line 928, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "renpy/python.py", line 2245, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/00keymap.rpy", line 469, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 488, in _execute_python_hide
+    renpy.save("_reload-1", "reload save game")
+  File "renpy/loadsave.py", line 394, in save
+    roots = renpy.game.log.freeze(None)
+  File "renpy/python.py", line 2142, in freeze
+    self.complete(False)
+  File "renpy/python.py", line 1726, in complete
+    self.current.stores[name], self.current.delta_ebc[name] = sd.get_changes(begin)
+AttributeError: 'NoneType' object has no attribute 'stores'
 
 Windows-10-10.0.22000
 Ren'Py 7.4.9.2142
 Oatmeal with Jerma 1.0
-Sun Mar 27 00:04:11 2022
+Sun Mar 27 02:38:28 2022

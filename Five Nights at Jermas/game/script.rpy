@@ -2,7 +2,6 @@
 default compliance = 0
 default brekkiePref = 0
 default ateFood = False
-
 # Soundtracks
 
 # Characters
@@ -10,7 +9,7 @@ define v = Character("You")
 define k = Character("Kidnapper")
 
 # Character sprites
-
+image eyes = "images/kindapper sprites/eyes.png"
 
 # Scenes/backgrounds
 image black = "#000"
@@ -18,6 +17,7 @@ image bedroom = "images/backgrounds/bedroom_concept_art.png"
 image white = "#ffffff"
 image red = "#CD5C5C"
 image hallway = "images/backgrounds/hallway.png"
+image door_night = "images/backgrounds/door_nighttime.png"
 
 label start:
     stop music
@@ -34,7 +34,7 @@ label start:
 
         "Slowly, your senses start to come to you..."
 
-        "You're laying down on a thin mattress in what appears to be a small bedroom? Definitely not your bedroom."
+        "You're laying down on a thin mattress in what appears to be a small bedroom? It is definitely not your bedroom."
 
         "The room smells musty and damp. The floor feels cold on your feet."
 
@@ -55,7 +55,7 @@ label start:
                 "You hide underneath the covers and shiver as you wait for the door to open."
                 "Your heart beats faster as the steps get closer..."
                 "The door swings open with a creak."
-                "Someone steps in and all you can do is hope to not be killed as you stuffle out your breath."
+                "Someone steps in and all you can do is hope to not be killed as you try to silence your breath."
                 k "Hi~ I know you're awake, by the way. There's no need to pretend."
                 "You slowly lift your head out of the blankets."
                 k "There you are!"
@@ -65,7 +65,7 @@ label start:
                 "You get up from the bed and wait for the door to open."
                 "Your heart beats faster as the steps get closer..."
                 "The door swings open with a creak."
-                # show the kidnapper
+                # show kidnapper smiling
                 "A shadowy figure enters the room."
                 k "Hello, I see you're up now."
                 # how should the kidnapper address the victim other than "you?"
@@ -81,14 +81,18 @@ label start:
                 $ compliance -= 1
                 "You jump off the bed and scream at them."
                 v "I want to go home now!"
+                #show the kidnapper angry
                 k "Go home? This IS your home now. Don't you worry, you'll love it here!"
+                #hide kidnapper
                 "With that, they leave the room and you hear a latch click."
                 "All you can do is curl up and start sobbing."
             "Just accept the kidnapper for now":
                 $ compliance += 1
+                #show kidnapper smiling
                 v "Oh.. okay..."
                 k "See, you're getting it!"
                 k "We're going to have so much fun together!"
+                #hide kidnapper
                 "With that, they leave the room and you hear a latch click."
                 "You take a deep breath, grateful to still be alive."
                 "At least this person doesn't seem intent on killing you. That means you could escape..."
@@ -115,6 +119,7 @@ label start:
                 k "If you are not hungry right now, that is fine."
                 k "You can eat whenever you like, and I will take your dishes when you sleep."
                 "He puts the bowl beside your bed on a night stand."
+        #show kidnapper neutral
         "He stands up once again."
         k "Before I leave, is there anything more you'd like to speak about?"
         "You get an idea."
@@ -123,13 +128,20 @@ label start:
             "Attack your captor":
                 $ compliance -= 4
                 "You launch yourself at them."
-                "They seem to take a few kicks from you before sighing."
+                #show kidnapper angry and zoomed in
+                "You knock them to the floor, but they quickly flip you on your back."
+                #if available, show kidnapper on top of player
+                "After a few seconds of you struggling, they pin you down."
                 k "Did you think you had a chance?"
+                #show kidnapper smiling and zoomed in
                 "You're lifted and carried onto the bed."
                 k "Please don't cause problems for us."
                 v "THERE IS NO 'US!'"
+                #show kidnapper disappointed
                 k "Are you so sure of that? I wouldn't hold your breath."
                 k "Just go back to sleep, will you?"
+                scene black
+                with fade
                 v "You hide under the covers, sorely defeated."
                 $ compliance = compliance // 2
                 jump day_2
@@ -147,7 +159,8 @@ label start:
         # and you have breakfast again
 
         "You wake up."
-
+        scene bedroom
+        with fade
         "You look out into the room you're in and remember everything from yesterday."
 
         "Trapped."
@@ -157,10 +170,14 @@ label start:
         "And you can't do a thing about it."
 
         # add more thoughts, specifcally emotions here
-        "You let this thought consume you until you hear the footsteps from yesterday."
+        "You let this thought consume you until you hear the same footsteps from yesterday."
 
-        "They calmly walk into the room as if the relationship between the both of you is anything other than kidnapper and victim."
+        "They calmly and comfortably walk into the room."
+        "Too calmly."
+        "Too comfortably."
+        "Like the two of you were married or something."
 
+        #show kidnapper smiling
         k "Good morning. How are you today?"
 
         menu:
@@ -171,6 +188,7 @@ label start:
                 k "Go home? You forgot already? This is your home now."
                 k "But I understand, it'll take you some time to accept that."
                 k "I came down to let you know breakfast will be ready soon."
+                #hide kidnapper
                 "With that, they leave the room and you hear a latch click."
                 "Once again, you just lay defeated."
                 "There is nothing you can do, so you just sit there."
@@ -179,6 +197,7 @@ label start:
                 v "So are you going to bring me food soon?"
                 k "See, you're getting it!"
                 k "Keep this up and maybe I'll even let you out of this room..."
+                #hide kidnapper
                 "With that, they leave the room and you hear a latch click."
                 "You take a deep breath, once again grateful to still be alive."
                 "If you were let out of this room, you could escape..."
@@ -186,10 +205,12 @@ label start:
 
         #breakfast scene, pretty much EXACTLY the same as yesterday
         "You hear the click of the door again."
+        #show kidnapper smiling
         k "It is time for some more oatmeal! I know you wanted some more since yesterday."
         "They approach you holding a tray and take a seat beside you on the bed."
         "Oatmeal. Again."
         "But given that you are kidnapped, you can't say much. This is definitely better than not getting food at all."
+        #show kidnapper neutral
         k "I know that I've been offering you oatmeal two days in a row...I'm so sorry."
         k "But I don't know...after all, we don't know each other as well."
         k "That's okay though! We have all this time together to get even closer!"
@@ -226,6 +247,8 @@ label start:
                     "watermelon":
                         $ compliance -= 2
                         $ brekkiePref = 4
+                        #hide kidnapper smiling
+                        #show kidnapper neutral
                         "Their smile fades slightly, before they regains composure."
                         k "...You'll learn to appreciate what I offer you in time."
             "Refuse it":
@@ -233,17 +256,18 @@ label start:
                 "They continue to smile at you."
                 k "If you are not hungry right now, that is fine."
                 k "You can eat whenever you like, and I will take your dishes when you sleep."
-                "They puts the bowl beside your bed on a night stand."
+                "They put the bowl beside your bed on a night stand."
 
-        "They stands up once again."
+        "They stand up once again."
         k "Before I leave, is there anything more you'd like to speak about?"
 
         menu:
             "Attack your captor":
                 $ compliance -= 4
                 "You launch yourself at your captor."
+                #show kidnapper angry
                 "They hit you back with ease, leaving you in a heap on the floor."
-                "Really? I've treated you so well and you attack me like this?"
+                "Really? I've treated you so well and you attack me like this?!"
                 "Please don't ruin our relationship."
                 v "LET ME OUT OF HERE!"
                 k "You never learn, do you?"
@@ -261,6 +285,7 @@ label start:
         #to the player that you need to pass this point to advance to the next phase
         #(as well as meeting the threshold compliance score)
 
+        #hide kidnapper smiling
         "You watch the kidnapper walk out of the door. But something is different from last time."
         "They always lock the door when they leave, but this time, they just left."
 
@@ -271,6 +296,8 @@ label start:
                 pass
 
         label after_walk_to_door:
+            scene door_night
+            with fade
             "As you have expected, when you turn the doorknob, it is not locked."
             "Should you open the door?"
             menu:
@@ -283,11 +310,13 @@ label start:
                     k "Good night!"
                     jump day_2
                 "Go back to the bed. Right now is not the time.":
-                        if compliance >= -2: # for phase 1, the middle (normal) range is -2 to 2, inclusive.
-                            "You slowly fall asleep...hoping that the day will be different tomorrow."
-                            jump phase_2
-                        else:
-                            "You fall asleep..."
-                            jump day_2
+                    scene black
+                    with fade
+                    if compliance >= -2: # for phase 1, the middle (normal) range is -2 to 2, inclusive.
+                        "You slowly fall asleep...hoping that the day will be different tomorrow."
+                        jump phase_2
+                    else:
+                        "You fall asleep..."
+                        jump day_2
 
     return
