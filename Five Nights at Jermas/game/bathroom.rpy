@@ -8,7 +8,7 @@ default canBrush = False
 default canBath = False
 
 label goToBathroom:
-    $ currentCompliance = currentCompliance / 2
+    $ currentCompliance = currentCompliance // 2
 
     "Another day passes."
     "You play along with your captor, satisfying them."
@@ -20,6 +20,7 @@ label goToBathroom:
     else:
         "After some time, the door swings open."
 
+    scene hallway
     show isaac happy
     "They look at you, smiling."
     k "How can I help you?"
@@ -75,7 +76,7 @@ label inBathroom:
                     "Instead, the doors stay closed."
                     v "God damn it."
                     "They must have locked the drawer somehow. They don't even trust you for toothpaste?"
-                    "And the drugs cabinet. That makes more sense actually."
+                    "And the drug cabinet. That makes more sense actually."
                 $ brushedTeeth = True
             "Take a bath" if not tookBath:
                 "You undress and step into the bath."
@@ -113,6 +114,7 @@ label exitBR:
             k "Jaydyn. I thought you would remember. Do you need a memory device? I have a supply of sticky notes actually."
             v "No thanks. I'll uh, remember next time."
             "You apologize briefly for 'forgetting' and they soon perk up and smile again."
+    scene hallway
     show isaac happy
     "They direct you towards your given bedroom again. Notably following you the whole way through."
 
@@ -175,7 +177,7 @@ label useToilet:
 
 label brushTeeth:
     "The door swings open and you see all the contents."
-    "toothpaste, hair and toothbrushes, and many bottle of pills. Pills with another sticky note."
+    "toothpaste, hair and toothbrushes, and many bottles of pills. Pills with another sticky note."
     v "'Don't Touch! :-) --Isaac'"
     menu:
         "Rummage through the pills.":
@@ -193,7 +195,7 @@ label brushTeeth:
                 "Oh well."
             else:
                 "You forgo your curiosity and reach for the toothbrush."
-    "Its funny. You never thought there'd be a day where you'd look forward to dental hygeine."
+    "It's funny. You never thought there'd be a day where you'd look forward to dental hygeine."
     "But between your current situation and the stench in your bedroom, the mint and water is refreshing."
     return
 
@@ -203,15 +205,15 @@ label takeBath:
     "You look around."
     "Beside the nozzle is a basket of soaps and hair products. On them is another sticky note."
     "How did they put a sticky note in the bathtub?"
-    v "Use these! I chose them out just for you. -- Isaac."
+    v "Use these! I picked them out just for you. -- Isaac."
     if brekkiePref == 1:
-        "In the basket all the items are scented with banana. Interesting."
+        "All the items in the basket are scented with banana. Interesting."
     elif brekkiePref == 2:
-        "In the basket all the items are scented with strawberry. Interesting."
+        "All the items in the baskets are scented with strawberry. Interesting."
     elif brekkiePref == 3:
-        "In the basket all the items are scented with honey. Interesting."
+        "All the items in the basket are scented with honey. Interesting."
     else:
-        "All items are scented plain. Odd."
+        "All the items are scented plain. Odd."
     "Will you actually use the products given?"
     menu:
         "Use them":
@@ -222,7 +224,7 @@ label takeBath:
         "You open the bottles and rub shampoo into your hair."
         v "It's nice in a weird way that they still think of me."
         "Weird? Certainly. 'Nice' is a separate question."
-        "Still, its hard to deny that at the very least you smell a lot better."
+        "Still, it's hard to deny that at the very least you smell a lot better."
     else:
         v "No thank you."
         "There's no need to cover yourself in whatever your captor has arranged for you."

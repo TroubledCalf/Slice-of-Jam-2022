@@ -42,7 +42,7 @@
         "After he finishes chopping his fruit, he approaches you with the knife."
         "He sits you both down on the couch."
         "He snatches your hand and turns it over, revealing your palm."
-        "Weilding the knife, he makes a slit across your palm, and does the same to this own hand."
+        "Wielding the knife, he makes a slit across your palm, and does the same to this own hand."
         "You grab his bloodied hand with your own. You wince in pain."
         k "Aw, I'm sorry, honey. I don't want to make you cry."
         "He says as he wipes a tear from your cheek."
@@ -61,5 +61,5 @@
         "As you black out, he gets closer to your face, and you notice him staring intensely at your lips."
 
         scene black
-        "You feel him gently brush your lips and grab the small of your back before you slump over, and your vision fades to black"
+        "You feel him gently brush your lips and grab the small of your back before you slump over. Your vision fades to black"
         "BAD END"

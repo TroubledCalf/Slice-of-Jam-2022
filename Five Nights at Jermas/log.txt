@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Sun Mar 27 16:06:47 2022
 Windows-10-10.0.22000
 Ren'Py 7.4.10.2178
@@ -46,3 +47,121 @@ Version: '4.6.0 - Build 30.0.100.9805'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1736, 976) drawable=(1736, 976)
 Maximum texture size: 4096x4096
+=======
+Sun Mar 27 16:32:00 2022
+Windows-10-10.0.22000
+Ren'Py 7.4.9.2142
+ 
+
+Bootstrap to the start of init.init took 0.06s
+Early init took 0.00s
+Loader init took 0.02s
+Loading error handling took 0.01s
+Loading script took 0.18s
+Loading save slot metadata. took 0.01s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.04s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\17703\\AppData\\Roaming/RenPy/backups\\Five Nights at Jermas':
+Dump and make backups. took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.02s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.22s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.07s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 2060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 512.15'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1733, 975) drawable=(1733, 975)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script.rpy", line 168, in script
+    show isaac angry zoom 1.6
+  File "renpy/ast.py", line 1197, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "renpy/ast.py", line 1167, in show_imspec
+    atl=atl)
+  File "renpy/exports.py", line 744, in show
+    if not base.find_target() and renpy.config.missing_show:
+  File "renpy/display/image.py", line 409, in find_target
+    self.target = target._duplicate(a)
+  File "renpy/display/core.py", line 390, in _duplicate
+    args.extraneous()
+  File "renpy/display/core.py", line 271, in extraneous
+    " ".join(self.args),
+Exception: Image 'isaac angry' does not accept attributes 'zoom 1 .6'.
+
+While running game code:
+  File "game/script.rpy", line 168, in script
+    show isaac angry zoom 1.6
+Exception: Image 'isaac angry' does not accept attributes 'zoom 1 .6'.
+Resetting cache.
+Bootstrap to the start of init.init took 216.20s
+Early init took 0.00s
+Loader init took 0.02s
+Loading error handling took 0.02s
+Loading script took 0.16s
+Loading save slot metadata. took 0.01s
+Loading persistent took 0.00s
+Importing _renpysteam: ImportError('No module named _renpysteam',)
+Running init code took 0.02s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\17703\\AppData\\Roaming/RenPy/backups\\Five Nights at Jermas':
+Dump and make backups. took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.24s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.15s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: 'NVIDIA Corporation'
+Renderer: 'NVIDIA GeForce RTX 2060/PCIe/SSE2'
+Version: '4.6.0 NVIDIA 512.15'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1733, 975) drawable=(1733, 975)
+Maximum texture size: 4096x4096
+>>>>>>> 738acd0f5874ea973d0f50041e66b83d1f8fd25a
