@@ -69,38 +69,38 @@ label interludeTwoMidComp:
 
     return
 
-label interludeThreeMidComp
+label interludeThreeMidComp:
     "They step into your room again. Your room? What, no, this is just where you're being held."
-     k "I love your behavior recently. Very nice."
-     v "Yes?"
-     k "Well, I thought that as good as you've been it would be worth a celebration."
-     "They walk closer with a wide smile."
-     "They stand waiting for something. Probably for you to speak."
-     v "Okay. And this celebration is...?"
-     "They suddenly step back, surprisingly."
-     k "Don't be ridiculous! If I told you, it would spoil the surprise."
-     "This is worrying. Just what do they have in mind?"
-     k "But rest assured, it is something to look forward to."
-     "You smile at them."
-     v "I will wait with excitment."
-     k "Perfect."
-     "And with that they exit the room."
-     v "Odd. But not bad?"
-     "Certainly. Whatever happens tomorrow, you'll have to tread carefully."
-     return
+    k "I love your behavior recently. Very nice."
+    v "Yes?"
+    k "Well, I thought that as good as you've been it would be worth a celebration."
+    "They walk closer with a wide smile."
+    "They stand waiting for something. Probably for you to speak."
+    v "Okay. And this celebration is...?"
+    "They suddenly step back, surprisingly."
+    k "Don't be ridiculous! If I told you, it would spoil the surprise."
+    "This is worrying. Just what do they have in mind?"
+    k "But rest assured, it is something to look forward to."
+    "You smile at them."
+    v "I will wait with excitment."
+    k "Perfect."
+    "And with that they exit the room."
+    v "Odd. But not bad?"
+    "Certainly. Whatever happens tomorrow, you'll have to tread carefully."
+    return
 
-label interludeThreeHighComp
+label interludeThreeHighComp:
     "They step into your bedroom again. Your bedroom? No! You're being held against your will. You shouln't think of this as 'your' space"
-     k "I love your behavior recently. And, I thought that as good as you've been it would be worth a celebration."
-     show black with fade
+    k "I love your behavior recently. And, I thought that as good as you've been it would be worth a celebration."
+    show black with fade
 
-     hide black with fade
-     v "I will wait with excitment."
-     k "Perfect."
-     "And they finally exit the room."
-     "This isn't good. Being left in the dark about what's happening."
-     v "Odd. But not bad?"
-     "Certainly hope so. You need to avoid being so compliant to them."
-     "You don't know whats going to happen next."
-     "Be careful."
-     return
+    hide black with fade
+    v "I will wait with excitment."
+    k "Perfect."
+    "And they finally exit the room."
+    "This isn't good. Being left in the dark about what's happening."
+    v "Odd. But not bad?"
+    "Certainly hope so. You need to avoid being so compliant to them."
+    "You don't know whats going to happen next."
+    "Be careful."
+    return
