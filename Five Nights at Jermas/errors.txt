@@ -2,6 +2,7 @@
 errors listed below, and try again.
 
 
+<<<<<<< Updated upstream
 The label kitchen is defined twice, at File "game/phase_2.rpy", line 165:
     label kitchen:
 and File "game/phase_2.rpy", line 312:
@@ -10,3 +11,25 @@ and File "game/phase_2.rpy", line 312:
 
 Ren'Py Version: Ren'Py 7.4.9.2142
 Sat Mar 26 22:04:50 2022
+=======
+The label kitchen is defined twice, at File "game/phase_2.rpy", line 162:
+    label kitchen:
+and File "game/phase_2.rpy", line 277:
+    label kitchen:
+
+
+The label no_kitchen is defined twice, at File "game/phase_2.rpy", line 184:
+    label no_kitchen:
+and File "game/phase_2.rpy", line 299:
+    label no_kitchen:
+
+
+The label after_kitchen is defined twice, at File "game/phase_2.rpy", line 189:
+    label after_kitchen:
+and File "game/phase_2.rpy", line 304:
+    label after_kitchen:
+
+
+Ren'Py Version: Ren'Py 7.4.9.2142
+Sat Mar 26 21:56:25 2022
+>>>>>>> Stashed changes

@@ -29,7 +29,7 @@ define config.version = "1.0"
 ## Text that is placed on the game's about screen. Place the text between the
 ## triple-quotes, and leave a blank line between paragraphs.
 
-define gui.about = _p("created by")
+define gui.about = _p("programmed and written by Sashwat Patel, Angela Rhee, Catherine Saha, and Rudra Sett; 2D art by Bianca Windemuth; backgrounds and room design by Austin Szema; composition by Jayden Raske Productions")
 
 
 ## A short name for the game used for executables and directories in the built
