@@ -2,21 +2,45 @@
 errors listed below, and try again.
 
 
-File "game/phase_2.rpy", line 292: expected statement.
-    music stop
-              ^
+File "game/phase_2.rpy", line 345: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
 
-File "game/phase_2.rpy", line 293: expected statement.
-    victim_channel stop
-                       ^
+File "game/phase_2.rpy", line 354: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
 
-File "game/phase_2.rpy", line 304: expected statement.
-    music stop
-              ^
+File "game/phase_2.rpy", line 371: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
 
-File "game/phase_2.rpy", line 305: expected statement.
-    victim_channel stop
-                       ^
+File "game/phase_2.rpy", line 381: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
 
-Ren'Py Version: Ren'Py 7.4.10.2178
-Sun Mar 27 17:27:23 2022
+File "game/phase_2.rpy", line 402: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
+
+File "game/phase_2.rpy", line 411: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
+
+File "game/phase_2.rpy", line 435: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
+
+File "game/phase_2.rpy", line 459: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
+
+File "game/phase_2.rpy", line 523: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
+
+File "game/phase_2.rpy", line 582: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
+
+Ren'Py Version: Ren'Py 7.4.9.2142
+Sun Mar 27 17:58:33 2022
