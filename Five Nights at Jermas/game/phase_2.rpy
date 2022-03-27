@@ -4,7 +4,7 @@ default hadLunch = False
 default knowsFav = False
 label phase_2:
     label day_3:
-        scene bedroom
+        scene bedroom_day
         $ compliance = compliance // 2
         play victim_channel bedroom_victim fadein 2.0
         play music bedroom_main volume 0.5
@@ -310,7 +310,7 @@ label phase_2:
 
     # lunch for real
     label day_5:
-        scene room
+        scene bedroom_day
         $ compliance = 0
         "You wake up to yet another day on this thin mattress."
         play victim_channel bedroom_victim fadein 2.0

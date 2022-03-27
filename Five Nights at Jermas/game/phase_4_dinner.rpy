@@ -680,7 +680,7 @@ label dinnerWithMyMan:
 label inBathroom_p4:
     play music BRTheme loop
 
-    scene
+    #bathroom scene?
     "You enter the bathroom."
     $ allDone = False
     $ usedToilet = False
