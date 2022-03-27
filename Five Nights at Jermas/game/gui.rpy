@@ -85,7 +85,7 @@ define gui.title_text_size = 75
 ## Main and Game Menus #########################################################
 
 ## The images used for the main and game menus.
-define gui.main_menu_background = "gui/main_menu.png"
+define gui.main_menu_background = "images/backgrounds/eyes.png"
 define gui.game_menu_background = "gui/game_menu.png"
 
 
@@ -258,7 +258,7 @@ define gui.notify_ypos = 68
 define gui.choice_spacing = 33
 
 ## Buttons in the navigation section of the main and game menus.
-define gui.navigation_spacing = 6
+define gui.navigation_spacing = 30
 
 ## Controls the amount of spacing between preferences.
 define gui.pref_spacing = 15

@@ -12,7 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("Five Nights at Jermas")
+define config.name = _("Oatmeal with Jerma")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
@@ -63,7 +63,7 @@ define config.has_voice = True
 
 # UNCOMMENT THIS ONLY IN COMMENT FOR TESTING
 
-#define config.main_menu_music = "audio/Main_Menu.mp3"
+define config.main_menu_music = "audio/SoJ_Menu_music_update.mp3"
 
 
 ## Transitions #################################################################

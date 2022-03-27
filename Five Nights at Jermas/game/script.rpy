@@ -20,14 +20,15 @@ image red = "#CD5C5C"
 image hallway = "images/backgrounds/hallway.png"
 
 label start:
+    stop music
     #phase 1
     label day_1:
         scene black
 
         "You wake up."
 
-        show bg bedroom
-        with fade(0.1,0.0,1.5)
+        show bedroom
+        with fade
 
         "Where is this?"
 
@@ -75,50 +76,49 @@ label start:
                 "This is very wrong."
                 # these are sort of place-holder values and options just to get something down
 
-        label loop_back_phase1:
-            menu:
-                "Demand to go home":
-                    $ compliance -= 1
-                    "You jump off the bed and scream at them."
-                    v "I want to go home now!"
-                    k "Go home? This IS your home now. Don't you worry, you'll love it here!"
-                    "With that, they leave the room and you hear a latch click."
-                    "All you can do is curl up and start sobbing."
-                "Just accept the kidnapper for now":
-                    $ compliance += 1
-                    v "Oh.. okay..."
-                    k "See, you're getting it!"
-                    k "We're going to have so much fun together!"
-                    "With that, they leave the room and you hear a latch click."
-                    "You take a deep breath, grateful to still be alive."
-                    "At least this person doesn't seem intent on killing you. That means you could escape..."
+        menu:
+            "Demand to go home":
+                $ compliance -= 1
+                "You jump off the bed and scream at them."
+                v "I want to go home now!"
+                k "Go home? This IS your home now. Don't you worry, you'll love it here!"
+                "With that, they leave the room and you hear a latch click."
+                "All you can do is curl up and start sobbing."
+            "Just accept the kidnapper for now":
+                $ compliance += 1
+                v "Oh.. okay..."
+                k "See, you're getting it!"
+                k "We're going to have so much fun together!"
+                "With that, they leave the room and you hear a latch click."
+                "You take a deep breath, grateful to still be alive."
+                "At least this person doesn't seem intent on killing you. That means you could escape..."
 
 
-            "You hear the click of the door again."
-            k "I would be a poor host if I did not provide for my guests."
-            "They approach you holding a tray and take a seat beside you on the bed."
-            "Oatmeal."
-            "Not the most enjoyable of meals, not by a long shot."
-            k "I wish I could have made something more appealing, but of course..."
-            k "It's hard to do so without knowing your preferences."
-            # a note-so-nice smile I imagine
-            "They wait expectantly."
-            menu:
-                "Take the oatmeal.":
-                    $ compliance += 1
-                    "Unpleasant as your situation may be, it is hard to refuse warm food."
-                    k "Good."
-                    k "I wouldn't want you to go hungry."
-                "Refuse it":
-                    $ compliance -= 1
-                    "They continue to smile at you."
-                    k "If you are not hungry right now, that is fine."
-                    k "You can eat whenever you like, and I will take your dishes when you sleep."
-                    "He puts the bowl beside your bed on a night stand."
-            "He stands up once again."
-            k "Before I leave, is there anything more you'd like to speak about?"
-            "You get an idea."
-            v "Actually, yes."
+        "You hear the click of the door again."
+        k "I would be a poor host if I did not provide for my guests."
+        "They approach you holding a tray and take a seat beside you on the bed."
+        "Oatmeal."
+        "Not the most enjoyable of meals, not by a long shot."
+        k "I wish I could have made something more appealing, but of course..."
+        k "It's hard to do so without knowing your preferences."
+        # a note-so-nice smile I imagine
+        "They wait expectantly."
+        menu:
+            "Take the oatmeal.":
+                $ compliance += 1
+                "Unpleasant as your situation may be, it is hard to refuse warm food."
+                k "Good."
+                k "I wouldn't want you to go hungry."
+            "Refuse it":
+                $ compliance -= 1
+                "They continue to smile at you."
+                k "If you are not hungry right now, that is fine."
+                k "You can eat whenever you like, and I will take your dishes when you sleep."
+                "He puts the bowl beside your bed on a night stand."
+        "He stands up once again."
+        k "Before I leave, is there anything more you'd like to speak about?"
+        "You get an idea."
+        v "Actually, yes."
         menu:
             "Attack your captor":
                 $ compliance -= 4
@@ -132,7 +132,7 @@ label start:
                 k "Just go back to sleep, will you?"
                 v "You hide under the covers, sorely defeated."
                 $ compliance = compliance // 2
-                jump loop_back_phase1
+                jump day_2
 
             "Do nothing":
                 $ compliance += 4
@@ -285,7 +285,7 @@ label start:
                 "Go back to the bed. Right now is not the time.":
                         if compliance >= -2: # for phase 1, the middle (normal) range is -2 to 2, inclusive.
                             "You slowly fall asleep...hoping that the day will be different tomorrow."
-                            jump day_3
+                            jump phase_2
                         else:
                             "You fall asleep..."
                             jump day_2

@@ -70,7 +70,7 @@ label inBathroom:
                     "They must have locked the drawer somehow. They don't even trust you for toothpaste?"
                     "And the drugs cabinet, in all likelihood. That makes more sense actually."
                 $ brushedTeeth = True
-            "Take a bath" if not tookBath
+            "Take a bath" if not tookBath:
                 "You undress and step into the bath."
                 if currentCompliance < highComplBR:
                     "You hope desperately there are no hidden cameras in this bathroom."
@@ -85,7 +85,7 @@ label inBathroom:
 
         jump exitBR
 
-label exitBR
+label exitBR:
     "Before you leave the bathroom, a thought occurs to you."
     v "He said to knock and wait for him when I want to leave."
     "An odd request. What you do in the bathroom is your business."
@@ -161,13 +161,13 @@ label brushTeeth:
     v "'Don't Touch! :-) --Isaac'"
     menu:
         "Rummage through the pills.":
-            currentCompliance -= 1
+            $ currentCompliance -= 1
             "You're really putting your school's D.A.R.E. program to good use."
             "You find mostly tylenol and advil. Some other drugs you don't know but none you think will be useful."
             "At this point you've over turned enough bottles there's no hope in putting them back into place."
             "Oh well."
         "Leave them be.":
-            currentCompliance += 1
+            $ currentCompliance += 1
             if currentCompliance > highComplBR:
                 "You're really putting your school's D.A.R.E. program to good use."
                 "You find mostly tylenol and advil. Some other drugs you don't know but none you think will be useful."

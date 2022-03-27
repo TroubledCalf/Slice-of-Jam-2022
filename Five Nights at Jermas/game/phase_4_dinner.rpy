@@ -36,7 +36,7 @@ label dinnerWithMyMan:
             v "I love you too!"
             jump badEnd
         elif compliance < -7: # the 1st outcome
-            "You try to escape by distracting the kidnapper. You plan to make Isaac go to the kitchen to cook something for them."
+            "You try to escape by distracting the kidnapper. You plan to make them go to the kitchen to cook something for you."
             v "Hey, um, Isaac."
             k "Yeah? Do you need something?"
             v "Yeah, actually...would it be possible if you cook something for me?"
@@ -48,11 +48,27 @@ label dinnerWithMyMan:
             k "Okay, we have some ramen noodles and..."
             "The kidnapper's voice starts fading out for you, because you are too anxious, looking for the right opportunity to make your escape."
             k "...You've been awfully quiet. Is everything okay?"
-            "Their eyes are right in front of your eyes. They know. They know that you are trying to escape."
+            "Their eyes are right in front of your eyes. They know. They know that you are trying to escape." #eyes jumpscare
             v "...N-no? Everything is fine!"
             "Today is not the day..."
             jump dinnerWithMyMan
         else:
+            "You try to escape by distracting Isaac. You plan to make Isaac go to the kitchen to cook something for you."
+            v "Hey, Isaac."
+            k "Yeah? Do you need something?"
+            v "Yeah, actually, I really liked the tuna sandwich you made, and I was wondering you can make some more for me?"
+            k "Oh really? I'm so glad that you liked it. I'll try to make one as soon as possible!"
+            "Isaac excitedly scampers to the cabinets in the kitchen while humming 'Hip To Be Square' by Huey Lewis & The News. Until he groans a little."
+            k "I'm so sorry, but I have to go upstairs to get some more ingredients...I'm so sorry, I'm so sorry..."
+            v "It's okay."
+            k "I'll quickly go upstairs to get some more. Will you wait for me?"
+            v "Sure, don't worry too much about me."
+            "Isaac runs upstairs, and closes the door on you."
+            "You are left alone, and you start thinking."
+            """You have a staircase to upper ground, which means you can find the front door to get out of the building.
+            But there is always a chance that while you are looking for the front door, you meeet Isaac. You will not be able to get out.
+            You will be stuck here forever, under Isaac's watch."""
+            """Another option is the glass sliding door placed """
             jump winEnd
 
     label winEnd:
