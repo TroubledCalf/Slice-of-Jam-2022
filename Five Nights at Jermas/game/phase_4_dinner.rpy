@@ -1,20 +1,23 @@
-default highComplianceDN = 3 # <- this is just a placeholder value
+default highComplianceDN = 3
 default var_flag = 0 # <- flag for variation in dialogue for pretend-phase
 default took_Shower = False
 label dinnerWithMyMan:
+    scene bedroom_day
     $ compliance = compliance // 2
-    #place holder dialogue
     "You wake up feeling excited for the first time in a while."
     v "Today's going to be great!"
     "Wait... hmmm... is it correct to be excited? This person was a kidnapper, right?"
     "You stand by the door to greet your captor."
 
-    "The sound of steps appears as expected and they walk in."
+    "The sound of footsteps appear as expected and they walk in."
+    show isaac happy
     k "Good morning, Jaydyn!"
     v "Is my oatmeal ready?"
     k "Nope, but we can eat in the kitchen today."
     v "Okay!"
+    scene kitchen
     "You follow them down the hall to the kitchen, where oatmeal is set out."
+    show isaac happy
     k "I made you your usual!"
     v "Thank you!"
     "They wait a little longer for the oats to finish cooking."
@@ -38,11 +41,14 @@ label dinnerWithMyMan:
             else:
                 jump no_to_chat
     label yes_to_chat:
+        scene black
         "They talk a lot about different places they want to see in the future."
         "Oddly enough, Jaydyn is excited about those places."
-        "This might be dangerous."
-        "Jaydyn shouldn't trust this person, and yet... they are."
+        "This may be dangerous."
+        "Jaydyn shouldn't trust this person, and yet... they do."
         "The conversation goes on for a terrifyingly long time..."
+        scene kitchen
+        show isaac happy
         k "Well, that was a good talk!"
     label no_to_chat:
         v "I'd prefer not to."
@@ -50,13 +56,16 @@ label dinnerWithMyMan:
         "But not Jaydyn's decision to leave earlier?"
         k "In that case, I'll leave you alone for now."
         k "Bye!"
+        hide isaac happy
         "They leave the room and the footsteps fade away."
+        scene black
     jump shower_p4
     ## SHOWER
     label shower_p4:
+        scene bedroom_day
         "You sit by yourself for a while longer."
         "Maybe you should take a shower."
-        "Your captor might treat you even better if you're clean..."
+        "Your captor may treat you even better if you're clean..."
         menu:
             "Take shower":
                 $ compliance += 1
@@ -72,6 +81,7 @@ label dinnerWithMyMan:
                     "You decide to just sit around in your room."
                     jump lunch_p4
         label after_shower_p4:
+            scene bedroom_day
             "After your time in the bathroom, you're satisfied."
             "All you can do now is sit around."
             jump lunch_p4
@@ -108,7 +118,7 @@ label dinnerWithMyMan:
                     v "I hope you can respect that."
                     "A disappointed look crosses their face."
                     k "Of course."
-                    "With that, they left the room, leaving you with nothing more to do but sleep."
+                    "With that, they leave the room, leaving you with nothing more to do but sleep."
                     "You slowly drift to sleep..."
                     jump book_p4
             "Follow them":
@@ -141,7 +151,7 @@ label dinnerWithMyMan:
                 k "We're making soup!"
                 "Better than oatmeal, at least."
                 k "Yup! One thing though - you don't get to use a knife."
-                "You can't help but admire his caution. They thought of everything."
+                "You can't help but admire their caution. They thought of everything."
                 k "I have a cabinet of spices, so put whatever you want in the boiling water."
                 "You spend the next 15 minutes choosing spices."
                 k "Perfect!"
@@ -161,7 +171,7 @@ label dinnerWithMyMan:
                             v "I'm not fond of it."
                             v "What, you thought I'd be happy with this just because it's in a book?"
                             v "I'm not Belle, you know."
-                            # sad face
+                            # sad face <- visual cue
                             k "I'm sorry to hear you didn't like it."
                             k "But I really do hope you'll get used to me eventually."
 
@@ -312,8 +322,8 @@ label dinnerWithMyMan:
 
         menu:
             "Attempt to escape":
-                jump escape_attempt # compare the compliance score here
-            "Stay with them": # regardless of the compliance score, you choose to lose (why? i don't know)
+                jump escape_attempt
+            "Stay with them":
                 jump badEnd
 
     label escape_attempt:
@@ -323,12 +333,12 @@ label dinnerWithMyMan:
         # 3. your compliance score is too high => you are not able to escape. bad ending.
         if compliance > highComplianceDN: # the 3rd outcome
             "You will escape."
-            v "You know, I've been thinking, I've grown into you, Isaac."
+            v "You know, I've been thinking, I've grown towards you, Isaac."
             v "I want to stay with you."
             "You need to escape."
             "You MUST escape."
             "Remember, you were kidnapped here."
-            v "Can I stay here? Too many bad things are happening when I am out there, and I am too scared to go out."
+            v "Can I stay here? Too many bad things happen when I am out there, and I am too scared to go out."
             v "I feel much safer when I am with you. You are my safe haven, Isaac."
             "No, no, NO! THIS IS NOT WHAT YOU ARE SUPPOSED TO DO!"
             "JAYDYN! NO!"
@@ -340,17 +350,17 @@ label dinnerWithMyMan:
             "Jaydyn, smiling as brilliantly as ever, replies back to Isaac."
             v "I love you too!"
             jump badEnd
-        elif compliance < -7: # the 1st outcome
+        elif compliance < -highComplianceDN: # the 1st outcome
             if var_flag ==  1:
-                "You try to escape by distracting the kidnapper. This time, you plan to ask for some chili pepper." # asking for different condiment
+                "You try to escape by distracting the kidnapper. This time, you plan to ask for some chili pepper."
                 v "Hey, Isaac."
                 k "What's up?"
                 v "Yeah, I was wondering if you have chili pepper..."
                 k "Oh, is the food bland this time? I'm sorry, I don't usually cook for someone else, so I didn't know how you'd like it."
                 v "...It's fine. It's just that I'm used to eating food a bit spicy back at home..." # <- kind of showing that YOU and JAYDYN have the same end goal: going back home
-                k "Okay, thanks for letting me know. I'll go check the kitchen if we have any."
+                k "Okay, thanks for letting me know. I'll go check the kitchen to see if we have any."
                 "The kidnapper gets up from the chair, but their eyes linger on yours for way too long."
-                "They seem a bit disappointed when you mentioned your life before this, as if they want you to forget everythign except the current life here."
+                "They seem a bit disappointed when you mentioned your life before this, as if they want you to forget everything except the current life here."
                 "But disappointment is not the only emotion you see. You also see suspicion, doubt in their eyes. What if they have figured out again?"
                 "You try to get out of this uncomfortable situation by smiling at them. They smile back, but it seems as if their suspicion has yet to subside."
                 k "You've never smiled at me like that. Is there something wrong you did that you are not telling me right now?"
@@ -368,24 +378,25 @@ label dinnerWithMyMan:
                 "You briefly think that tuna sandwich is definitely much more appetizing than the daily oatmeal bowls before opening your mouth again to speak."
                 v "I was wondering what your favorite drink is..."
                 "The kidnapper's eyes widen, definitely taken aback by your surprisingly intimate question. They struggle to muster up an answer for awhile but manage to speak."
-                k "W-wow, I didn't expect you to ask me that kind of question. This whole time, I thought you didn't want to have anything with me."
+                k "W-wow, I didn't expect you to ask me that kind of question. This whole time, I thought you didn't want to have anything to do with me."
                 k "I guess I was wrong about you."
                 "You give them a shrug, because you have no other way to reply to that statement. Their eyes shine with excitement, delighted by your question."
                 v "Can you make some for me, whatever it is? After all, dinners are special, and you know what that means."
                 "You are disgusted as you say that, but you can't do much about this either. Even worse, they blush to that."
                 "It is even more clear that you need to get out of this place. Immediately."
                 k "Y-you are definitely something. You are doing things to me. But yeah, I will make some for you, just give me a quick minute or two."
-                """You nod. The kidnapper leaves the dining room, and you decide that unlike your previous tries, you remain in your seat.
+                """You nod. The kidnapper leaves the dining room, and you decide that unlike your previous tries, you should remain in your seat.
                 You realize that you were being too anxious and trying things that were simply out of character. You need to give the kidnapper some trust.
                 Once you do that, you are sure that this time you will be able to escape."""
                 "The kidnapper comes back with the drink. By the scent of it, it is alcoholic. That is okay. You drank a lot before coming to this place anyway."
                 "You vaguely remember something about not accepting drinks from strangers, but this doesn't matter. You have to build trust."
-                "So you accept the drink and neck half of it down. Simple. It is not like it is your first time downing something tasting like hard liquor." # <- i'm not projecting i swear
+                "So you accept the drink and neck half of it down. Simple. It's not like it's your first time downing something tasting like hard liquor."
                 """But after a while, you feel a bit dizzy. You start wondering to yourself whether you drank it too fast.
                 But to think about your past experience, this should be nothing."""
                 v "...Did you drug me?"
                 k "I'm sorry, I'm so sorry...I wasn't sure if you were going to stay with me."
-                k "YOU KEEP TRYING TO LEAVE MY SIDE, WHEN I'M HERE TRYING TO PROTECT YOU!!!" #angry
+                show isaac angry
+                k "YOU KEEP TRYING TO LEAVE MY SIDE, WHEN I'M HERE TRYING TO PROTECT YOU!!!"
                 k "There are so many dangerous things out there, and I can protect you. Why do you keep trying to leave me..."
                 "You shed a sorrowful tear of defeat before finally blacking out." #black out
                 $ var_flag == 0
@@ -394,26 +405,27 @@ label dinnerWithMyMan:
                 "You try to escape by distracting the kidnapper. You plan to make them go to the kitchen to cook something for you."
                 v "Hey, um, Isaac."
                 k "Yeah? Do you need something?"
-                v "Yeah, actually...would it be possible if you cook something for me?"
+                v "Yeah, actually...would it be possible for you to cook something for me?"
                 k "Oh...is the food not to your liking?"
-                v "Oh no, it's just that I am especially feeling hungry today..."
+                v "Oh no, it's just that I am feeling especially hungry today..."
                 "The kidnapper stares into your eyes, long and hard. You get the shivers from their penetrating stare."
                 "They may have noticed you had something going on. But the kidnapper doesn't say much. They just stare."
                 "Then, they finally get up from the table to fetch you something, but their eyes never leave you."
                 k "Okay, we have some ramen noodles and..."
                 "The kidnapper's voice starts fading out for you, because you are too anxious, looking for the right opportunity to make your escape."
                 k "...You've been awfully quiet. Is everything okay?"
-                "Their eyes stare into your soul. They know. They know that you are trying to escape." #eyes jumpscare
+                "Their eyes stare into your soul. They know. They know that you are trying to escape."
+                show eyes
                 v "...N-no? Everything is fine!"
                 "Today is not the day..."
-                jump pretend_phase # change this label to somewhere else other than dinnerWithMyMan for the sake of variety in dialogue.
+                jump pretend_phase
         else:
             "You try to escape by distracting Isaac. You plan to make Isaac go to the kitchen to cook something for you."
             v "Hey, Isaac."
             k "Yeah? Do you need something?"
             v "Yeah, actually, I really liked the tuna sandwich you made, and I was wondering you can make some more for me?"
             k "Oh really? I'm so glad that you liked it. I'll try to make one as soon as possible!"
-            "Isaac excitedly scampers to the cabinets in the kitchen while humming 'Hip To Be Square' by Huey Lewis & The News. Until he groans a little."
+            "Isaac excitedly scampers to the cabinets in the kitchen while humming 'Hip To Be Square' by Huey Lewis & The News. Until they groan a little."
             k "I'm so sorry, but I have to go upstairs to get some more ingredients...I'm so sorry, I'm so sorry..."
             v "It's okay."
             k "I'll quickly go upstairs to get some more. Will you wait for me?"
@@ -421,15 +433,15 @@ label dinnerWithMyMan:
             "Isaac runs upstairs, and closes the door on you."
             "You are left alone, and you start thinking."
             """You have a staircase to upper ground, which means you can find the front door to get out of the building.
-            But there is always a chance that while you are looking for the front door, you meeet Isaac. You will not be able to get out.
+            But there is always a chance that while you are looking for the front door, you meet Isaac. You will not be able to get out.
             You will be stuck here forever, under Isaac's watch."""
-            """Another option is the glass sliding door. You see that the basement, or the entire house in fact, is placed
+            """Another option is the glass sliding door. You see that the basement, or the entire house in fact, is built
             on a declining hill. There is nothing beyond but just greenery and the moonlight that is shining ironically too bright.
             Isaac is upstairs, probably actually getting ingredients, so there is less chance for Isaac to appear in front of the glass door
             as you attempt to escape."""
             "At this point, escaping through the glass door is the only viable option that you have."
             """As swiftly as possible, you slide open the door, and as you step out
-            and your foot touch the dirt that has been warmed by the midsummer sun, tears stream start running down your face."""
+            and your foot touches the dirt that has been warmed by the midsummer sun, a stream of tears start running down your face."""
             "You are finally free."
             jump winEnd #black out
 
@@ -664,6 +676,7 @@ label dinnerWithMyMan:
 label inBathroom_p4:
     play music BRTheme loop
 
+    scene
     "You enter the bathroom."
     $ allDone = False
     $ usedToilet = False

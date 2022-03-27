@@ -2,17 +2,45 @@
 errors listed below, and try again.
 
 
-The label good_p4 is defined twice, at File "game/phase_4_dinner.rpy", line 186:
-            label good_p4:
-and File "game/phase_4_dinner.rpy", line 594:
-            label good_p4:
+File "game/phase_2.rpy", line 345: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
 
+File "game/phase_2.rpy", line 354: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
 
-The label bad_p4 is defined twice, at File "game/phase_4_dinner.rpy", line 199:
-            label bad_p4:
-and File "game/phase_4_dinner.rpy", line 607:
-            label bad_p4:
+File "game/phase_2.rpy", line 371: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
 
+File "game/phase_2.rpy", line 381: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
 
-Ren'Py Version: Ren'Py 7.4.9.2142
-Sun Mar 27 16:03:07 2022
+File "game/phase_2.rpy", line 402: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
+
+File "game/phase_2.rpy", line 411: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
+
+File "game/phase_2.rpy", line 435: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
+
+File "game/phase_2.rpy", line 459: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
+
+File "game/phase_2.rpy", line 523: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
+
+File "game/phase_2.rpy", line 582: expected simple expression
+    stop kidnapper_channel fadeout
+                                  ^
+
+Ren'Py Version: Ren'Py 7.4.10.2178
+Sun Mar 27 17:49:21 2022
