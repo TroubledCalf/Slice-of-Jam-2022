@@ -2,9 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/phase_4_dinner.rpy", line 422: play requires a file
-    play jumpScare
-                  ^
+File "game/phase_4_dinner.rpy", line 455: indentation mismatch.
 
 Ren'Py Version: Ren'Py 7.4.10.2178
-Sun Mar 27 18:20:42 2022
+Sun Mar 27 18:49:16 2022
