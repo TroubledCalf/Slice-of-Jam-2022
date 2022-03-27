@@ -49,6 +49,8 @@ image bedroom_night = "images/backgrounds/bedroom2_nighttime.png"
 image white = "#ffffff"
 image red = "#CD5C5C"
 image hallway = "images/backgrounds/hallway.png"
+image kitchen = "images/backgrounds/kitchen.png"
+image bathroom = "images/backgrounds/bathroom.png"
 image door_night = "images/backgrounds/door_nighttime.png"
 
 label start:
