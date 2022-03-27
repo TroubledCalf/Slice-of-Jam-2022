@@ -2,9 +2,21 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 41: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    zoome 2.0
-             ^
+File "game/phase_2.rpy", line 292: expected statement.
+    music stop
+              ^
 
-Ren'Py Version: Ren'Py 7.4.9.2142
-Sun Mar 27 17:18:47 2022
+File "game/phase_2.rpy", line 293: expected statement.
+    victim_channel stop
+                       ^
+
+File "game/phase_2.rpy", line 304: expected statement.
+    music stop
+              ^
+
+File "game/phase_2.rpy", line 305: expected statement.
+    victim_channel stop
+                       ^
+
+Ren'Py Version: Ren'Py 7.4.10.2178
+Sun Mar 27 17:27:23 2022
