@@ -204,9 +204,13 @@ label start:
                 jump day_1
 
             "Do nothing":
+<<<<<<< Updated upstream
                 $ compliance += 4
 
                 hide isaac
+=======
+                $ compliance += 2
+>>>>>>> Stashed changes
                 v "Nevermind."
                 k "Okay! We can talk tomorrow. I'm sure you must be exhausted."
                 "You see the kidnapper finally leaving you in the lonely room. Thank God."
@@ -358,7 +362,7 @@ label start:
                 jump day_2
 
             "Do nothing":
-                $ compliance += 4
+                $ compliance += 2
                 "Okay. That's fine! I hope you open up more to me soon."
                 stop kidnapper_channel fadeout 1.0
 
