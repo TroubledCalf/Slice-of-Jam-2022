@@ -314,6 +314,7 @@ label start:
                     with fade
                     if compliance >= -2: # for phase 1, the middle (normal) range is -2 to 2, inclusive.
                         "You slowly fall asleep...hoping that the day will be different tomorrow."
+                        call interludeOne
                         jump phase_2
                     else:
                         "You fall asleep..."

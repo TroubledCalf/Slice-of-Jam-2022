@@ -68,7 +68,7 @@ label inBathroom:
                     "Instead, the doors stay closed."
                     v "God damn it."
                     "They must have locked the drawer somehow. They don't even trust you for toothpaste?"
-                    "And the drugs cabinet, in all likelihood. That makes more sense actually."
+                    "And the drugs cabinet. That makes more sense actually."
                 $ brushedTeeth = True
             "Take a bath" if not tookBath:
                 "You undress and step into the bath."
@@ -112,7 +112,11 @@ label exitBR:
         $ canBrush = True
     elif not canBath and currentCompliance >= lowComplBR and brushedTeeth:
         $ canBath = True
-    elif canBrush and canBath and currentCompliance >= lowComplBR:
+    elif canBrush and canBath and currentCompliance >= lowComplBR and usedToilet and brushedTeeth and tookBath:
+        if currentCompliance > highComplBR:
+            call interludeThreeHighComp
+        else:
+            call interludeThreeMidComp
         jump dinnerWithMyMan
     elif lowComplBR > currentCompliance:
         k "I am a bit disappointed in you. I expected a little bit more trust. Until you trust me a bit more, I'll have to refuse your bathroom requests."
