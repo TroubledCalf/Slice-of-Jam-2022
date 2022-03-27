@@ -2,6 +2,24 @@ default acceptedCoffee = False
 default acceptedBook = False
 default hadLunch = False
 default knowsFav = False
+# Character sprites
+image isaac insane = "./images/kidnapper_sprites/eyes.png"
+image isaac straight = "./images/kidnapper_sprites/straight.png"
+image isaac angry = "./images/kidnapper_sprites/angry.png"
+image isaac half = "./images/kidnapper_sprites/halfNhalf.png"
+image isaac happy = "./images/kidnapper_sprites/happy.png"
+image isaac vhappy = "./images/kidnapper_sprites/wistful.png"
+
+image isaac close_angry:
+    "./images/kidnapper_sprites/angry.png"
+    zoom 2.0
+image isaac close_happy:
+    "./images/kidnapper_sprites/happy.png"
+    zoom 2.0
+image isaac close_straight:
+    "./images/kidnapper_sprites/straight.png"
+    zoom 2.0
+
 label phase_2:
     label day_3:
         scene bedroom_day
@@ -89,7 +107,7 @@ label phase_2:
                 "They make a concerned face."
                 k "If you are not hungry right now, that is fine, but please eat at some point."
                 k "You can just leave the bowl here if you do eat it, and I'll collect it while you sleep."
-                "He puts the bowl beside your bed on a night stand."
+                "They put the bowl beside your bed on a night stand."
                 k "I do hope you'll eat. I know you must be going through a lot of emotions right now."
                 "What is wrong with this person?"
                 v "Um... YOU are my problem right now."
@@ -111,7 +129,7 @@ label phase_2:
                 show issac angry
                 k "Now, now."
                 k "We can't have much of that can we?"
-                "As you pull yourself off the floor, he quickly makes his escape."
+                "As you pull yourself off the floor, They quickly make their escape."
                 stop kidnapper_channel fadeout 1.0
                 hide issac
                 "Exhausted and deafeated, you climb into bed and cry yourself to sleep."
@@ -180,7 +198,7 @@ label phase_2:
         show issac straight
         play kidnapper_channel [ "<sync music>./audio/Bedroomphobia_kidnapper.mp3", bedroom_kidnapper ]
         k "Food's ready!"
-        "Oatmeal again."
+        "As expected, it's oatmeal again."
         "Can this person cook anything else?"
         k "Here's your oatmeal, just the way you like it!"
         menu:
@@ -204,6 +222,7 @@ label phase_2:
         k "I almost forgot, do you want coffee?"
         menu:
             "Accept coffee":
+                $ compliance += 1
                 $ acceptedCoffee = True
                 "You're tired, so why not?"
                 v "Okay."
@@ -218,6 +237,7 @@ label phase_2:
                 "You can now learn more about the house..."
                 jump kitchen
             "Refuse coffee":
+                $ compliance -= 1
                 k "Oh, I would've guessed you'd be tired."
                 k "But, as always, everything is up to you."
                 k "I guess you can stay down here while I drink coffee in the kitchen."
@@ -275,7 +295,7 @@ label phase_2:
         scene hallway
         show issac close_straight
         "We continue to walk in silence back to the room."
-        scene room
+        scene bedroom_day
         k "Okay, back into the room you go! Sleep well!"
         hide issac
         stop kidnapper_channel fadeout 1.0
@@ -291,7 +311,7 @@ label phase_2:
             with fade
             stop stop
             stop victim_channel
-            if compliance < -2:
+            if compliance < -1:
                 jump day_4
             else:
                 jump day_5
@@ -405,7 +425,7 @@ label phase_2:
                 "You still will not have their oatmeal, no matter how good it smells."
                 k "Wow, you still don't want it?"
                 k "Well, as usual, I'll just leave it here for when you want it."
-                "He puts the bowl beside your bed on a night stand."
+                "They put the bowl beside your bed on a night stand."
                 "With that, they leave the room. There is no latch noise."
                 hide issac
                 stop kidnapper_channel fadeout 1.0
@@ -515,7 +535,7 @@ label phase_2:
                 show issac happy
             # hallway image here
             "We continue to walk in silence back to the room."
-            scene room
+            scene bedroom_day
             with fade
 
             k "Okay, back into the room you go! I'll come get you later! I have a surprise!"
@@ -560,7 +580,7 @@ label phase_2:
             jump lunch
 
         label lunch:
-            scene room
+            scene bedroom_day
             "You feel a gentle hand brush your face."
             v "W-wh-what?"
             k "Rise and shine~"
@@ -604,7 +624,7 @@ label phase_2:
             "You are just glad to not have oatmeal."
             v "So are we going to start?"
             k "Yup! One thing though - you don't get to use a knife."
-            "You can't help but admire his caution. They thought of everything."
+            "You can't help but admire their caution. They thought of everything."
             k "I have a cabinet of spices, so put whatever you want in the boiling water."
             "You spend the next 15 minutes choosing spices."
             k "Perfect!"
@@ -677,7 +697,7 @@ label phase_2:
             "They take the bowls and put them in the sink."
             k "Okay, you know the drill!"
             "They take your hand and walk you back to your new room."
-            scene room
+            scene bedroom_day
             jump end_day_5
         label end_day_5:
             hide issac

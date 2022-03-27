@@ -29,13 +29,13 @@ image isaac happy = "./images/kidnapper_sprites/happy.png"
 image isaac vhappy = "./images/kidnapper_sprites/wistful.png"
 
 image isaac close_angry:
-    "./images/kindapper_sprites/angry.png"
+    "./images/kidnapper_sprites/angry.png"
     zoom 2.0
 image isaac close_happy:
-    "./images/kindapper_sprites/happy.png"
+    "./images/kidnapper_sprites/happy.png"
     zoom 2.0
 image isaac close_straight:
-    "./images/kindapper_sprites/straight.png"
+    "./images/kidnapper_sprites/straight.png"
     zoom 2.0
 
 # Scenes/backgrounds
