@@ -8,7 +8,6 @@ label interludeOne:
     "With hope and a certain balance, you can get through this."
 
     show bedroom_day with fade
-    scene bedroom_day
 
     return
 
@@ -33,7 +32,7 @@ label interludeTwoHighComp:
     "Perhaps you can gain something actually nice if you continue to play along?"
     "Are you listening?"
 
-    hide black with fade
+    show door_night with fade
 
     v "That's wonderful!"
     "What? Did you here what was being said?"
@@ -121,7 +120,7 @@ label interludeThreeHighComp:
     "Don't you let yourself just do whatever they want. You lost your freedom once already,"
     "Don't lose this freedom too."
 
-    hide black with fade
+    show door_night with fade
     v "I will wait with excitment."
     k "Perfect."
     hide isaac
