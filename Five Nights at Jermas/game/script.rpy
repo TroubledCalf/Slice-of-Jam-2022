@@ -15,7 +15,17 @@ define v = Character("You")
 define k = Character("Kidnapper")
 
 # Character sprites
-image eyes = "images/kindapper sprites/eyes.png"
+image eyes = "images/kindapper_sprites/eyes.png"
+image isaac straight:
+    "./images/kindapper_sprites/straight.png"
+image isaac angry:
+    "./images/kindapper_sprites/angry.png"
+image isaac half:
+    "./images/kindapper_sprites/halfNhalf.png"
+image isaac happy:
+    "./images/kindapper_sprites/happy.png"
+image isaac vhappy:
+    "./images/kindapper_sprites/wistful.png"
 
 # Scenes/backgrounds
 image black = "#000"
@@ -350,8 +360,12 @@ label start:
                     with fade
                     if compliance >= -2: # for phase 1, the middle (normal) range is -2 to 2, inclusive.
                         "You slowly fall asleep...hoping that the day will be different tomorrow."
+<<<<<<< HEAD
                         stop kidnapper_channel fadeout 1.0
                         stop victim_channel fadeout 1.0
+=======
+                        call interludeOne
+>>>>>>> 30dc754ba403dcfd27947482f2237771c87c5258
                         jump phase_2
                     else:
                         "You fall asleep..."

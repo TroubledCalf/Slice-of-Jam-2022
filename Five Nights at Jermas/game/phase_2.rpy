@@ -446,7 +446,7 @@ label phase_2:
                 k "So, how are you doing?"
                 menu:
                     "Bad":
-                        if compliance > 2:
+                        if compliance > 4: # currently the max day 5 c is 8, so 4 seems fitting
                             v "I'm doing good!"
                             "Wait... what? You're not doing good... Why did you say that?"
                             jump good
@@ -489,6 +489,7 @@ label phase_2:
             "They take the bowls and put them in the sink."
             k "Okay, you know the drill!"
             "They take your hand and walk you back to your new room."
+            jump end_day_5
         label end_day_5:
             k "Goodnight!"
             "Though you are not tired, you climb into bed."
@@ -496,4 +497,8 @@ label phase_2:
             if compliance < -1:
                 jump day_5
             else:
+                if compliance >= 4:
+                    call interludeTwoHighComp
+                else:
+                    call interludeTwoMidComp
                 jump goToBathroom

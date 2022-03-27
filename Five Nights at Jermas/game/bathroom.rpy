@@ -1,3 +1,5 @@
+define audio.BRTheme = "audio/Bathroom_Planning_Band_update.mp3"
+
 default timesGoneToBR = 0
 default highComplBR = 2 # change number based on how many actual choices there are in prev section
 default lowComplBR = -2
@@ -18,6 +20,7 @@ label goToBathroom:
     else:
         "After some time, the door swings open."
 
+    show isaac happy
     "They look at you, smiling."
     k "How can I help you?"
 
@@ -27,6 +30,7 @@ label goToBathroom:
             if currentCompliance > highComplBR:
                 call askForBRNormal
             else:
+                show isaac straight
                 "Their expression turns dour."
                 k "Would it kill you to speak up? I'm not going to yell at you."
         "Ask for the bathroom.":
@@ -43,9 +47,13 @@ label goToBathroom:
     k "Do whatever you need to, buddy."
     k "Oh, and of course. Knock and wait for me when you're finished."
 
+    hide isaac
+
     jump inBathroom
 
 label inBathroom:
+    play music BRTheme loop
+
     # Piss n shit
     "It's nice to actually be in a bathroom. Both access to real facilities and an actual room besides the bedroom you were kept in."
     $ allDone = False
@@ -68,7 +76,7 @@ label inBathroom:
                     "Instead, the doors stay closed."
                     v "God damn it."
                     "They must have locked the drawer somehow. They don't even trust you for toothpaste?"
-                    "And the drugs cabinet, in all likelihood. That makes more sense actually."
+                    "And the drugs cabinet. That makes more sense actually."
                 $ brushedTeeth = True
             "Take a bath" if not tookBath:
                 "You undress and step into the bath."
@@ -95,6 +103,7 @@ label exitBR:
             "You knock on the door and wait patiently. You see no reason to disobey now."
             "You put your ear to the door listening for footsteps or any indication of their approach but find none."
             k "Hey! No worries, I'm right here."
+            show isaac vhappy
             "The door swings open to them grinning widely."
             k "I knew you wouldn't betray my trust."
 
@@ -105,18 +114,28 @@ label exitBR:
             k "Jaydyn. I thought you would remember. Do you need a memory device? I have a supply of sticky notes actually."
             v "No thanks. I'll uh, remember next time."
             "You apologize briefly for 'forgetting' and they soon perk up and smile again."
+    show isaac happy
     "They direct you towards your given bedroom again. Notably following you the whole way through."
 
     ## Section for expanding bathroom privileges
     if not canBrush and currentCompliance >= lowComplBR and usedToilet:
+        hide isaac
         $ canBrush = True
     elif not canBath and currentCompliance >= lowComplBR and brushedTeeth:
+        hide isaac
         $ canBath = True
-    elif canBrush and canBath and currentCompliance >= lowComplBR:
+    elif canBrush and canBath and currentCompliance >= lowComplBR and usedToilet and brushedTeeth and tookBath:
+        hide isaac
+        if currentCompliance > highComplBR:
+            call interludeThreeHighComp
+        else:
+            call interludeThreeMidComp
         jump dinnerWithMyMan
     elif lowComplBR > currentCompliance:
+        show isaac straight
         k "I am a bit disappointed in you. I expected a little bit more trust. Until you trust me a bit more, I'll have to refuse your bathroom requests."
         k "I'm sorry, but I'm doing this for you."
+        hide isaac
         jump day_5
 
 
