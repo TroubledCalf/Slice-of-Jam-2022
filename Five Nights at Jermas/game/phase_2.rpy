@@ -287,14 +287,14 @@ label phase_2:
                 k "I'll know all of your preferences soon enough, anyway."
         "Both of you continue to drink."
         "They get up."
-        show isaac close_straight
+        show isaac straight
         k "Well, that's enough of an adventure for you. I hope you had a good time!"
         "They take your hand to lead you back to your room."
         "You test their grip and notice there's no way to get your hand out."
         "It was probably unfair to expect to be able to escape this easily."
 
         scene hallway
-        show isaac close_straight
+        show isaac straight
         "We continue to walk in silence back to the room."
         scene bedroom_day
         k "Okay, back into the room you go! Sleep well!"
@@ -511,7 +511,7 @@ label phase_2:
                 "Still, they're a kidnapper."
                 "You don't say anything else."
             else:
-                show isaac close_straight
+                show isaac close_straight at top
                 k "If you had told me what coffee you like, I could've gotten it for you."
                 k "Always remember, I can't be good to you if you're not good to me."
                 v "Okay, I'll keep that in mind."
@@ -521,17 +521,15 @@ label phase_2:
             "After finishing their coffee and presumably daydreaming for a bit, they get up."
             if acceptedCoffee:
                 "Like yesterday, they grab your hand firmly and walk you back down the hall."
-                scene hallway
-                with fade
+                scene hallway with fade
                 show isaac happy
             else:
                 k "Well, that's enough of an adventure for you. I hope you had a good time!"
                 "They take your hand to lead you back down."
                 "You test the grip and notice there's no way to get your hand out."
                 "It was probably unfair to expect to be able to escape this easily."
-                scene hallway
-                with fade
                 show isaac happy
+                scene hallway with fade
             # hallway image here
             "We continue to walk in silence back to the room."
             scene bedroom_day
