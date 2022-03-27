@@ -76,10 +76,14 @@ label phase_2:
         "Do nothing":
             $ compliance += 4
             "You drift to sleep, harrowed by the day's events..."
+<<<<<<< Updated upstream
             if compliance < -2:
               jump day_3
             else:
               jump day_4
+=======
+            jump day_4
+>>>>>>> Stashed changes
 
   # lunch day
   label day_4:
@@ -205,15 +209,20 @@ label day_5:
     "You wake up to yet another day on this thin mattress."
 
     if acceptedCoffee:
-      "But at least you had gotten out of this room yesterday."
+        "But at least you had gotten out of this room yesterday."
     else:
+<<<<<<< Updated upstream
       pass
+=======
+        "Five or so days (had it been that many? you're starting to lose count) in here was"
+>>>>>>> Stashed changes
 
     """After five or so days (had it been that many? you're starting to lose count...) of hearing those footsteps,
       you find yourself almost habituated with them - a signal that the day is about to start.
     """
     "The latch opens with a click and they walk in."
 
+<<<<<<< Updated upstream
     v "Do you have my oatmeal now?"
 
     k "Getting eager for my oats, aren't you?"
@@ -248,6 +257,36 @@ label day_5:
     k "Food's ready!"
     "Ah, here's the oatmeal."
     "It looked more appetizing than before for some reason."
+=======
+    v "Let me guess. You have oatmeal for me."
+    k "Haha, there's the spirit. You're finally understanding your place in our home."
+    k "But no, breakfast isn't ready yet. I actually wanted to come give you a book."
+    "They hold out a hardcover copy of 'Beauty and the Beast'."
+    menu:
+      "Accept the book.":
+        $ compliance += 1
+        $ acceptedBook = True
+        v "I do need some entertainment, I guess..."
+        k "Trust me, you'll love this book."
+        k "Hopefully it inspires you in your actual life."
+        "That confused you."
+        v "What do you mean?"
+        "They smiled."
+        k "Don't worry about it."
+      "Refuse the book.":
+        $ compliance -= 1
+        v "I don't want your stupid book."
+        k "No? Well, I guess you'll be bored and that's your own fault."
+        k "I'm trying to be nice to you and treat you well but if you won't accept that, no one can do anything."
+        k "Whatever. I'll be back with breakfast."
+        "With that, they left the room."
+
+    #breakfast scene
+    "You hear the click of the door again."
+    k "Food's ready!"
+    "Oatmeal again."
+    "Could this person cook anything else?"
+>>>>>>> Stashed changes
     k "Here's your oatmeal, just the way you like it!"
     menu:
       "Take the oatmeal.":
@@ -345,6 +384,7 @@ label day_5:
     label no_kitchen_day_5:
       "Maybe you should've taken the coffee?"
       "They could've taken you to the kitchen."
+<<<<<<< Updated upstream
       if acceptedBook:
         "You decide it's better to just read the book"
       jump lunch
@@ -355,3 +395,11 @@ label day_5:
       jump lunch
 
     label lunch:
+=======
+      jump day_5
+
+    label after_kitchen:
+      "Having nothing better to do, it's probably time to sleep."
+      "You slowly drift into dreams in the bed that you've unfortunately gotten used to."
+      jump day_5
+>>>>>>> Stashed changes
