@@ -2,9 +2,21 @@
 errors listed below, and try again.
 
 
-File "game/phase_4_dinner.rpy", line 169: Line is indented, but the preceding one-line python statement statement does not expect a block. Please check this line's indentation.
-    case 0:
-    ^
+File "game/phase_4_dinner.rpy", line 78: reached end of line when expecting ':'.
+    if compliance > 4
+                     ^
+
+File "game/phase_4_dinner.rpy", line 81: expected statement.
+    else:
+        ^
+
+File "game/script.rpy", line 10: expected statement.
+    renpy.music.register_channel("victim_channel",loop = True)
+                                                              ^
+
+File "game/script.rpy", line 11: expected statement.
+    renpy.music.register_channel("kidnapper_channel",loop = True)
+                                                                 ^
 
 Ren'Py Version: Ren'Py 7.4.10.2178
-Sun Mar 27 11:32:03 2022
+Sun Mar 27 13:03:05 2022
