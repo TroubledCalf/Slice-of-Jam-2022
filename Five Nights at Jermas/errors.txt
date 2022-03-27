@@ -2,13 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 40: expected statement.
-    renpy.music.register_channel("victim_channel",loop = True)
-                                                              ^
+The label good_p4 is defined twice, at File "game/phase_4_dinner.rpy", line 186:
+            label good_p4:
+and File "game/phase_4_dinner.rpy", line 594:
+            label good_p4:
 
-File "game/script.rpy", line 41: expected statement.
-    renpy.music.register_channel("kidnapper_channel",loop = True)
-                                                                 ^
+
+The label bad_p4 is defined twice, at File "game/phase_4_dinner.rpy", line 199:
+            label bad_p4:
+and File "game/phase_4_dinner.rpy", line 607:
+            label bad_p4:
+
 
 Ren'Py Version: Ren'Py 7.4.9.2142
-Sun Mar 27 15:06:38 2022
+Sun Mar 27 16:03:07 2022

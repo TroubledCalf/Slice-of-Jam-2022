@@ -19,17 +19,12 @@ define v = Character("You")
 define k = Character("Kidnapper")
 
 # Character sprites
-image eyes = "./images/kindapper_sprites/eyes.png"
-image isaac straight:
-    "./images/kindapper_sprites/straight.png"
-image isaac angry:
-    "./images/kindapper_sprites/angry.png"
-image isaac half:
-    "./images/kindapper_sprites/halfNhalf.png"
-image isaac happy:
-    "./images/kindapper_sprites/happy.png"
-image isaac vhappy:
-    "./images/kindapper_sprites/wistful.png"
+image isaac insane = "./images/kindapper_sprites/eyes.png"
+image isaac straight = "./images/kidnapper_sprites/straight.png"
+image isaac angry = "./images/kidnapper_sprites/angry.png"
+image isaac half = "./images/kidnapper_sprites/halfNhalf.png"
+image isaac happy = "./images/kidnapper_sprites/happy.png"
+image isaac vhappy = "./images/kidnapper_sprites/wistful.png"
 
 image isaac close_angry:
     "./images/kindapper_sprites/angry.png"
@@ -96,10 +91,14 @@ label start:
                 k "Hi~ I know you're awake, by the way. There's no need to pretend."
                 "You slowly lift your head out of the blankets."
 <<<<<<< HEAD
+<<<<<<< HEAD
                 show isaac happy
 =======
                 # show kidnapper smiling
 >>>>>>> 14733d6f50246b259c959f1b4c0c748bc96ed133
+=======
+                show isaac happy
+>>>>>>> c5ae18d25db03da0e0eb0e651d8304dc9db6b20d
                 k "There you are!"
                 "They grin at you as you cower away."
             "See who it is":
@@ -156,8 +155,12 @@ label start:
         show isaac happy
 =======
         "After some time, you hear the click of the door again."
+<<<<<<< HEAD
         play kidnapper_channel [ "<sync victim_channel>bedroom_kidnapper", "bedroom_kidnapper" ]
 >>>>>>> 14733d6f50246b259c959f1b4c0c748bc96ed133
+=======
+        play kidnapper_channel [ "<sync victim_channel>./audio/Bedroomphobia_kidnapper.mp3", bedroom_kidnapper ]
+>>>>>>> c5ae18d25db03da0e0eb0e651d8304dc9db6b20d
         k "I would be a poor host if I did not provide for my guests."
         "They approach you holding a bowl and take a seat beside you on the bed."
         "Oatmeal."
@@ -412,10 +415,14 @@ label start:
             "Should you open the door?"
             menu:
                 "Open the door":
+<<<<<<< HEAD
                     #very close (AND CREEPY) shot on the kidnapper's eyes would be nice
                     #to visually explain that the kidnapper was, in fact, right outside of the door,
                     #waiting patiently to test you.
                     show isaac close_happy
+=======
+                    show isaac insane
+>>>>>>> c5ae18d25db03da0e0eb0e651d8304dc9db6b20d
                     k "Haha! You are so funny, you actually opened the door!"
                     k "I hope you don't feel too annoyed. I am a person too, so I sometimes forget to lock the door."
                     k "Good night!"

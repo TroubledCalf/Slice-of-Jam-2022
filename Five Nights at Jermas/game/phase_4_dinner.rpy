@@ -552,12 +552,12 @@ label dinnerWithMyMan:
                 "So this person could only cook two different things?" # emoTIONAL DAMAGE
                 "Sad."
                 v "So, are we going to start?"
-                    if compliance > highComplianceDN:
-                        k "Yup! I'll even let you use a knife this time!"
-                        "Wow, they really trust you."
-                    else:
-                        k "That's right! You still can't use a knife, though."
-                    "You work together to get the soup cooking, and then both of you sit down to wait."
+                if compliance > highComplianceDN:
+                    k "Yup! I'll even let you use a knife this time!"
+                    "Wow, they really trust you."
+                else:
+                    k "That's right! You still can't use a knife, though."
+                "You work together to get the soup cooking, and then both of you sit down to wait."
             else:
                 "You see a pile of vegetables on the countertop."
                 k "We're making soup!"
@@ -585,13 +585,13 @@ label dinnerWithMyMan:
                             if compliance > highComplianceDN:
                                 v "I'm doing good!"
                                 "Wait... what? You're kidnapped... Why did you say that?"
-                                jump good_p4
+                                jump good_p4_p
                             else:
-                                jump bad_p4
+                                jump bad_p4_p
                         "Good":
                             $ compliance += 1
                             v "I'm doing okay!"
-                    label good_p4:
+                    label good_p4_p:
                         $ compliance += 2
                         k "I'm happy!"
                         k "I'll make you even happier tonight."
@@ -604,7 +604,7 @@ label dinnerWithMyMan:
                         k "What did you think I meant?"
                         k "I won't say any more, though."
                         v "Alright then, I hope it's good!"
-                    label bad_p4:
+                    label bad_p4_p:
                         $ compliance -= 1
                         v "I'm still not feeling great."
                         k "That's not good!"
@@ -623,11 +623,11 @@ label dinnerWithMyMan:
                     "With nothing to do in the room other than read, perhaps that's what you should do."
                     menu:
                         "Read":
-                            compliance += 2
+                            $ compliance += 2
                             jump read_p4_p
                         "Sleep":
                             if compliance > highComplianceDN:
-                                compliance -= 2
+                                $ compliance -= 2
                                 "You watch in horror as Jaydyn simply decides to read the book."
                                 "Did they forget who gave them the book?"
                                 "Don't read it!"
