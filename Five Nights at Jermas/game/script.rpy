@@ -52,6 +52,7 @@ image white = "#ffffff"
 image red = "#CD5C5C"
 image hallway = "images/backgrounds/hallway.png"
 image door_night = "images/backgrounds/door_nighttime.png"
+image kitchen = "images/backgrounds/kitchen.png"
 
 label start:
     stop music
