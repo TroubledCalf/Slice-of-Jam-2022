@@ -1,5 +1,6 @@
 default timesGoneToBR = 0
-default highComplBR = 5 # change number based on how many actual choices there are in prev section
+default highComplBR = 2 # change number based on how many actual choices there are in prev section
+default lowComplBR = -2
 
 default canBrush = False
 default canBath = False
@@ -93,11 +94,31 @@ label exitBR
             $ currentCompliance += 2
             "You knock on the door and wait patiently. You see no reason to disobey now."
             "You put your ear to the door listening for footsteps or any indication of their approach but find none."
-            v "Hey! No worries, I'm right here."
-            "The door swings open to them grinning widely"
+            k "Hey! No worries, I'm right here."
+            "The door swings open to them grinning widely."
+            k "I knew you wouldn't betray my trust."
 
         "Open the door yourself.":
             $ currentCompliance -= 2
+            "You open the door only to come face to face with your captor on the other side."
+            "They almost look disappointed in you."
+            k "Jaydyn. I thought you would remember. Do you need a memory device? I have a supply of sticky notes actually."
+            v "No thanks. I'll uh, remember next time."
+            "You apologize briefly for 'forgetting' and they soon perk up and smile again."
+    "They direct you towards your given bedroom again. Notably following you the whole way through."
+
+    ## Section for expanding bathroom privileges
+    if not canBrush and currentCompliance >= lowComplBR and usedToilet:
+        $ canBrush = True
+    elif not canBath and currentCompliance >= lowComplBR and brushedTeeth:
+        $ canBath = True
+    elif canBrush and canBath and currentCompliance >= lowComplBR:
+        jump
+    elif lowComplBR > currentCompliance:
+        k "I am a bit disappointed in you. I expected a little bit more trust. Until you trust me a bit more, I'll have to refuse your bathroom requests."
+        k "I'm sorry, but I'm doing this for you."
+        jump
+
 
 
 ###################################### MENU OPTIONS (SINCE SOMETHIMES THE VICTIM WILL DISOBEY)
