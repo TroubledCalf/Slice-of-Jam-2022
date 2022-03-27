@@ -2,17 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 43: expected statement.
-    @TODO
-         ^
+File "game/badEnd.rpy", line 36: choice menuitem expects a non-empty block.
+    "Escape":
+             ^
 
-File "game/script.rpy", line 85: expected statement.
-    @TODO
-         ^
-
-File "game/script.rpy", line 90: expected statement.
-    @TODO
-         ^
-
-Ren'Py Version: Ren'Py 7.4.10.2178
-Sat Mar 26 13:01:47 2022
+Ren'Py Version: Ren'Py 7.4.9.2142
+Sat Mar 26 20:13:02 2022

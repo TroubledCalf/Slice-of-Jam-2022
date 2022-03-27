@@ -4,7 +4,7 @@ default highComplBR = 5 # change number based on how many actual choices there a
 default canBrush = False
 default canShower = False
 
-label goToBathroom
+label goToBathroom:
     $ currentCompliance = currentCompliance / 2
 
     "Another day passes."

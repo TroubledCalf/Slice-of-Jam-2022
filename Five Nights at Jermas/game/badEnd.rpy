@@ -31,10 +31,10 @@
         "This dude is a psycho!"
 
         menu:
-            "Escape"
-
-            "Stay"
-        "..."
+            "Escape":
+                "..."
+            "Stay":
+                "..."
         "..."
         "You stay."
 
