@@ -163,7 +163,7 @@ label phase_2:
                 jump no_kitchen
 
         label kitchen:
-            "You follow them out of the room and up a set of stairs into a little kitchen."
+            "You follow them out of the room and down the hall into a little kitchen."
             "There was indeed a coffeepot brewing some delicious-smelling vanilla coffee."
             k "Here's my little kitchen! Do you like it?"
             menu:
@@ -206,8 +206,9 @@ label phase_2:
 
         if acceptedCoffee:
             "But at least you had gotten out of this room yesterday."
-        else:
-            "Five or so days (had it been that many? you're starting to lose count) in here was"
+            "You're quickly interrupted from that thought by a familiar noise."
+        
+        "Yet again, you hear the same footsteps coming down the hall."
 
         """After five or so days (had it been that many? you're starting to lose count...) of hearing those footsteps,
         you find yourself almost habituated with them - a signal that the day is about to start.
@@ -330,7 +331,7 @@ label phase_2:
 
             "After finishing their coffee and looking out the window for a bit, they get up."
             if acceptedCoffee:
-                "Like yesterday, they grab your hand firmly and walk you back down the stairs."
+                "Like yesterday, they grab your hand firmly and walk you back down the hall."
             else:
                 k "Well, that's enough of an adventure for you. I hope you had a good time!"
                 "They take your hand to lead you back down."
@@ -348,13 +349,138 @@ label phase_2:
             if acceptedBook:
                 "You decide it's better to just read the book."
                 "It's a pretty good story..."
-                "You "
+                "You find yourself relating a lot with Belle."
+                "After reading for a while, you start to get sleepy..."
                 $ compliance += 1 
                 jump lunch
+            "Maybe just a nap would be nice..."
+            jump lunch
         
         label after_kitchen_day_5:
-            "Having nothing better to do, it's probably time to sleep."
-            "You slowly drift into dreams in the bed that you've unfortunately gotten used to."
+            "The kitchen trip didn't really offer much information."
+            "It was worth a shot though."
+            "But what to do for now?"
+            if acceptedBook:
+                "You decide it's good to read the book."
+                "It's a pretty good story..."
+                "You could relate a lot with Belle."
+                "After reading for a while, you start to get sleepy..."
+                $ compliance += 1 
+                jump lunch
+            "Maybe just a nap would be nice..."
             jump lunch
 
         label lunch:
+            "You feel a gentle hand brush your face."
+            v "W-wh-what?"
+            k "Rise and shine~"
+            k "It's time for lunch!"
+            menu:
+                "Refuse":
+                    $ compliance -= 1
+                    "This was the surprise?"
+                    "No. You're not going to follow them."
+                    v "No, I don't think I want to join you..."
+                    "The kidnapper sat down next to you in bed."
+                    k "Awwww, why not? It'll be fun~"
+                    v "I just don't want to."
+                    k "Alright, that's fine. I'm sure you'll agree later."
+                    "With that, they left the room, leaving you with nothing more to do but sleep."
+                    "You slowly drift to sleep..."
+                    jump end_day_5
+                "Follow them":
+                    $ compliance += 3
+                    "More information would always be helpful."
+                    "You choose to go to lunch with them."
+                    v "Okay, I can't wait!"
+                    k "I knew you'd want to spend more time with me!"
+                    "They grab your hand."
+                    k "Follow me, and we can have a lovely afternoon together."
+                    jump lunchtime
+        label lunchtime:
+            if acceptedCoffee:
+                "You found yourself in the now-familiar kitchen."
+            else:
+                "It's a relatively small kitchen but adequate for cooking."
+            "You see a stack of vegetables on the counter."
+            k "We're making soup!"
+            "You were just glad to not have oatmeal."
+            v "So are we going to start?"
+            k "Yup! One thing though - you don't get to use a knife."
+            "You can't help but admire his caution. They thought of everything."
+            k "I have a cabinet of spices, so put whatever you want in the boiling water."
+            "You spend the next 15 minutes choosing spices."
+            k "Perfect!"
+            "They put in the spices and the both of you sit down to wait."
+            if acceptedBook:
+                k "So, how are you liking the book?"
+                menu:
+                    "Like it":
+                        $ compliance += 1
+                        v "I'm really liking it!"
+                        k "You can relate to it, right?"
+                        v "Yup."
+                        v "Plus, I'm really bored anyway, so I'm glad to have anything."
+                    "Dislike it":
+                        $ compliance -= 2
+                        v "It's awful."
+                        v "What, you thought I'd be happy with this just because it's in a book?"
+                        v "I'm not Belle, you know."
+                        # sad face
+                        k "I'm sorry to hear you didn't like it."
+                        k "But I really do hope you'll get used to me eventually."
+            else:
+                k "So, how are you doing?"
+                menu:
+                    "Bad":
+                        if compliance > 2:
+                            v "I'm doing good!"
+                            "Wait... what? You're not doing good... Why did you say that?"
+                            jump good
+                        else:
+                            jump bad
+                    "Good":
+                        v "I'm doing okay!"
+                label good:
+                    $ compliance += 2
+                    k "That's good to hear!"
+                    k "Though, I think you do need a shower."
+                    k "I know I promised you that before, but I've just been so busy with you!"
+                    k "It's a lot of work to keep you happy."
+                    v "I know how hard you work!"
+                    "What's wrong with you? Have you forgetten who this is?"
+                    k "Haha, thank you for appreciating me!"
+                    k "Anyway, I will help you with the shower if today goes well."
+                    v "Thank you!"
+                label bad:
+                    $ compliance -= 1
+                    v "I hate it here."
+                    k "That's not good!"
+                    k "Anything I can do to make it better?"
+                    v "I think I really need a shower, honestly..."
+                    k "You're right! I'm so sorry. I know I promised earlier, but I forgot."
+                    k "I will definitely help with that if today goes well."
+                    v "Okay, thank you."
+            "You sit in silence for a bit longer."
+            "Suddenly, they get up."
+            k "I think the soup's ready!"
+            "They bring the soup off the stove."
+            k "Could you get the bowls and set them on the counter?"
+            "You do as they asked and they poured in soup."
+            k "Okay, let's eat!"
+            "You don't say much as you eat."
+            # filler
+            "..."
+            "The soup isn't bad."
+            k "This was good soup, don't you think?"
+            "They take the bowls and put them in the sink."
+            k "Okay, you know the drill!"
+            "They take your hand and walk you back to your new room."
+        label end_day_5:
+            k "Goodnight!"
+            "Though you are not tired, you climb into bed."
+            "After possibly hours, you finally drift to sleep."
+            if compliance < -1:
+                jump day_5
+            else:
+                jump goToBathroom
