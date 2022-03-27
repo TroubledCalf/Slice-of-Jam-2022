@@ -29,13 +29,13 @@ label goToBathroom:
         "Nod towards the bathroom.":
             $ compliance -= 1
             if compliance > highComplBR:
-                call askForBRNormal
+                call askForBRNormal from _call_askForBRNormal
             else:
                 show isaac straight
                 "Their expression turns sour."
                 k "Would it kill you to speak up? I'm not going to yell at you."
         "Ask for the bathroom.":
-            call askForBRNormal
+            call askForBRNormal from _call_askForBRNormal_1
         "Ask nicely" if timesGoneToBR > 1:
             $ compliance += 1
             v "May I please go to the bathroom?"
@@ -54,7 +54,7 @@ label goToBathroom:
 
 label inBathroom:
     play music BRTheme loop
-
+    scene bathroom
     # Piss n shit
     "It's nice to actually be in a bathroom. Both access to real facilities and an actual room besides the bedroom you were kept in."
     $ allDone = False
@@ -67,11 +67,11 @@ label inBathroom:
             "You're done here.":
                 $ allDone = True
             "Use the toilet" if not usedToilet:
-                call useToilet
+                call useToilet from _call_useToilet
             "Brush your teeth" if not brushedTeeth:
                 "You pull on the drawers over the sink hoping to get a brush and some toothpaste"
                 if canBrush:
-                    call brushTeeth
+                    call brushTeeth from _call_brushTeeth
                 else:
                     "Instead, the doors stay closed."
                     v "God damn it."
@@ -84,7 +84,7 @@ label inBathroom:
                     "You hope desperately there are no hidden cameras in this bathroom."
                 "You reach for the nozzle and turn for the water."
                 if canBath:
-                    call takeBath
+                    call takeBath from _call_takeBath
                 else:
                     "only for nothing to come out."
                     "This is ridiculous! You can't even take a bath? What, are you not trusted with large bodies of water?"
@@ -128,9 +128,9 @@ label exitBR:
     elif canBrush and canBath and compliance >= lowComplBR and usedToilet and brushedTeeth and tookBath:
         hide isaac
         if compliance > highComplBR:
-            call interludeThreeHighComp
+            call interludeThreeHighComp from _call_interludeThreeHighComp
         else:
-            call interludeThreeMidComp
+            call interludeThreeMidComp from _call_interludeThreeMidComp
         jump dinnerWithMyMan
     elif lowComplBR > compliance:
         show isaac straight

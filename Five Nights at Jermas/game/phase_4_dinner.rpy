@@ -756,11 +756,11 @@ label inBathroom_p4:
             "You're done here.":
                 $ allDone = True
             "Use the toilet" if not usedToilet:
-                call useToilet
+                call useToilet from _call_useToilet_1
             "Brush your teeth" if not brushedTeeth:
                 "You pull on the drawers over the sink hoping to get a brush and some toothpaste"
                 if canBrush:
-                    call brushTeeth
+                    call brushTeeth from _call_brushTeeth_1
                 else:
                     "Instead, the doors stay closed."
                     v "God damn it."
@@ -773,7 +773,7 @@ label inBathroom_p4:
                     "You hope desperately there are no hidden cameras in this bathroom."
                 "You reach for the nozzle and turn for the water."
                 if canBath:
-                    call takeBath
+                    call takeBath from _call_takeBath_1
                 else:
                     "Only for nothing to come out."
                     "This is ridiculous! You can't even take a bath? What, are you not trusted with large bodies of water?"

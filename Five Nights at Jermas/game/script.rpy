@@ -375,7 +375,7 @@ label start:
                     "You slowly fall asleep...hoping that the day will be different tomorrow."
                     stop kidnapper_channel fadeout 1.0
                     stop victim_channel fadeout 1.0
-                    call interludeOne
+                    call interludeOne from _call_interludeOne
                     jump phase_2
                 else:
                     "You fall asleep..."
@@ -408,7 +408,7 @@ label start:
                         "You slowly fall asleep...hoping that the day will be different tomorrow."
                         stop kidnapper_channel fadeout 1.0
                         stop victim_channel fadeout 1.0
-                        call interludeOne
+                        call interludeOne from _call_interludeOne_1
                         jump phase_2
                     else:
                         "You fall asleep..."

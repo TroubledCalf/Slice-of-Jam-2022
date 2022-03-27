@@ -710,7 +710,7 @@ label phase_2:
                 jump day_5
             else:
                 if compliance >= 4:
-                    call interludeTwoHighComp
+                    call interludeTwoHighComp from _call_interludeTwoHighComp
                 else:
-                    call interludeTwoMidComp
+                    call interludeTwoMidComp from _call_interludeTwoMidComp
                 jump goToBathroom
