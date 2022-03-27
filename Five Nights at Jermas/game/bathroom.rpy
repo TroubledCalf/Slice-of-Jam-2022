@@ -20,6 +20,7 @@ label goToBathroom:
     else:
         "After some time, the door swings open."
 
+    scene hallway
     show isaac happy
     "They look at you, smiling."
     k "How can I help you?"
@@ -114,6 +115,7 @@ label exitBR:
             k "Jaydyn. I thought you would remember. Do you need a memory device? I have a supply of sticky notes actually."
             v "No thanks. I'll uh, remember next time."
             "You apologize briefly for 'forgetting' and they soon perk up and smile again."
+    scene hallway
     show isaac happy
     "They direct you towards your given bedroom again. Notably following you the whole way through."
 
