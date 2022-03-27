@@ -419,7 +419,7 @@ label dinnerWithMyMan:
                 k "...You've been awfully quiet. Is everything okay?"
                 "Their eyes stare into your soul. They know. They know that you are trying to escape."
                 show eyes
-                play jumpScare
+                play music jumpScare
                 v "...N-no? Everything is fine!"
                 "Today is not the day..."
                 jump pretend_phase

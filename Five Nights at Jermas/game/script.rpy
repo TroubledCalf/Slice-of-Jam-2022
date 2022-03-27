@@ -67,7 +67,7 @@ label start:
         play victim_channel bedroom_victim volume 0.5
         play music bedroom_neutral volume 0.5
 
-        "Where is this?"
+        "Where are you?"
 
         "Slowly, your senses start to come to you..."
 
