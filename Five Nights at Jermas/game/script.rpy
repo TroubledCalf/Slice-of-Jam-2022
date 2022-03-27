@@ -20,14 +20,15 @@ image red = "#CD5C5C"
 image hallway = "images/backgrounds/hallway.png"
 
 label start:
+    stop music
     #phase 1
     label day_1:
         scene black
 
         "You wake up."
 
-        show bg bedroom
-        with fade(0.1,0.0,1.5)
+        show bedroom
+        with fade
 
         "Where is this?"
 

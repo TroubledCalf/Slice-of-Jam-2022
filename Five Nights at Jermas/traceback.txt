@@ -1,36 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 30, in script
-    with fade(0.1,0.0,1.5)
-  File "game/script.rpy", line 30, in <module>
-    with fade(0.1,0.0,1.5)
-Exception: Not a color: 1.5
+  File "game/script.rpy", line 31, in script
+    with fade(10.0)
+TypeError: 'MultipleTransition' object is not callable
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 30, in script
-    with fade(0.1,0.0,1.5)
-  File "renpy/ast.py", line 1436, in execute
-    trans = renpy.python.py_eval(self.expr)
-  File "renpy/python.py", line 2276, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "renpy/python.py", line 2269, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 30, in <module>
-    with fade(0.1,0.0,1.5)
-  File "renpy/curry.py", line 48, in __call__
-    return self.callable(*(self.args + args), **merged_kwargs)
-  File "renpy/display/transition.py", line 230, in Fade
-    widget = renpy.display.image.Solid(color)
-  File "renpy/display/imagelike.py", line 49, in __init__
-    self.color = renpy.easy.color(color)
-  File "renpy/color.py", line 194, in __new__
-    raise Exception("Not a color: %r" % (color,))
-Exception: Not a color: 1.5
+  File "game/script.rpy", line 31, in script
+    with fade(10.0)
+  File "renpy/ast.py", line 1443, in execute
+    renpy.exports.with_statement(trans, paired)
+  File "renpy/exports.py", line 1682, in with_statement
+    return renpy.game.interface.do_with(trans, paired, clear=clear)
+  File "renpy/display/core.py", line 2752, in do_with
+    clear=clear)
+  File "renpy/display/core.py", line 3315, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
+  File "renpy/display/core.py", line 3674, in interact_core
+    new_widget=layers_root)
+TypeError: 'MultipleTransition' object is not callable
 
 Windows-10-10.0.22000
 Ren'Py 7.4.9.2142
-Five Nights at Jermas 1.0
-Sat Mar 26 21:50:47 2022
+Oatmeal with Jerma 1.0
+Sat Mar 26 23:04:32 2022
