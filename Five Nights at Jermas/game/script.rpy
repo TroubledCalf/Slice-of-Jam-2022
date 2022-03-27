@@ -2,6 +2,7 @@ init python:
     # Channels
     renpy.music.register_channel("victim_channel",loop = True)
     renpy.music.register_channel("kidnapper_channel",loop = True)
+    renpy.music.register_channel("main_channel", loop = True)
 
 # Compliance
 default compliance = 0
@@ -9,9 +10,10 @@ default brekkiePref = 0
 default ateFood = False
 
 # Soundtracks
-define audio.bedroom_victim = "./audio/Bedroomphobia_Main.mp3"
 define audio.bedroom_main = "./audio/Bedroomphobia_Main.mp3"
-define audio.bedroom_kidnapper = "./audio/Bedroomphobia_Main.mp3"
+define audio.bedroom_victim = "./audio/Bedroomphobia_Victim.mp3"
+define audio.bedroom_neutral = "./audio/Bedroomphobia_Neutral.mp3"
+define audio.bedroom_kidnapper = "./audio/Bedroomphobia_Kidnapper.mp3"
 define audio.kidnapper_theme = "./audio/Hes_no_kidnapper.mp3"
 
 # Characters
@@ -63,8 +65,9 @@ label start:
         scene bedroom_day
         with fade
 
-        play victim_channel bedroom_victim fadein 2.0
-        play music bedroom_main volume 0.5
+        play main_channel bedroom_main
+        play victim_channel bedroom_victim volume 0.5
+        play music bedroom_neutral volume 0.5
 
         "Where is this?"
 
@@ -84,7 +87,7 @@ label start:
         "You can't do anything here. You are stuck."
 
         "Suddenly, you hear footsteps coming down the hall. "
-        play kidnapper_channel [ "<sync victim_channel>./audio/Bedroomphobia_kidnapper.mp3", bedroom_kidnapper ]
+        play kidnapper_channel [ "<sync main_channel>./audio/Bedroomphobia_kidnapper.mp3", bedroom_kidnapper ]
 
         menu:
             "Pretend to be asleep because they might be dangerous":
@@ -103,8 +106,15 @@ label start:
                 "You get up from the bed and wait for the door to open."
                 "Your heart beats faster as the steps get closer..."
                 "The door swings open with a creak."
+<<<<<<< HEAD
+                show isaac happy
+=======
                 # show kidnapper smiling
                 show isaac half
+<<<<<<< Updated upstream
+=======
+>>>>>>> 15365e7ca138963b50823426a62d571b004eb90f
+>>>>>>> Stashed changes
                 "A shadowy figure enters the room."
                 k "Hello, I see you're up now."
                 # how should the kidnapper address the victim other than "you?"
@@ -120,22 +130,36 @@ label start:
                 $ compliance -= 1
                 "You jump off the bed and scream at them."
                 v "I want to go home now!"
+<<<<<<< HEAD
+                show isaac angry
+                k "Go home? This IS your home now. Don't you worry, you'll love it here!"
+=======
                 #show the kidnapper angry
                 show isaac angry
                 k "Go home? This IS your home now. Don't you worry, you'll love it here!"
                 #hide kidnapper
+<<<<<<< Updated upstream
+=======
+>>>>>>> 15365e7ca138963b50823426a62d571b004eb90f
+>>>>>>> Stashed changes
                 hide isaac
                 stop kidnapper_channel fadeout 1.0
                 "With that, they leave the room and you hear a latch click."
                 "All you can do is curl up and start sobbing."
             "Just accept the kidnapper for now":
                 $ compliance += 1
-                #show kidnapper smiling
+                show isaac happy
                 v "Oh.. okay..."
                 show isaac happy
                 k "See, you're getting it!"
                 k "We're going to have so much fun together!"
+<<<<<<< HEAD
+=======
                 #hide kidnapper
+<<<<<<< Updated upstream
+=======
+>>>>>>> 15365e7ca138963b50823426a62d571b004eb90f
+>>>>>>> Stashed changes
                 hide isaac
                 "With that, they leave the room and you hear a latch click."
                 stop kidnapper_channel fadeout 1.0
@@ -145,31 +169,57 @@ label start:
 
 
         "After some time, you hear the click of the door again."
+<<<<<<< Updated upstream
         show isaac happy
         play kidnapper_channel [ "<sync victim_channel>bedroom_kidnapper", "bedroom_kidnapper" ]
+=======
+<<<<<<< HEAD
+        play kidnapper_channel [ "<sync main_channel>./audio/Bedroomphobia_kidnapper.mp3", bedroom_kidnapper ]
+        show isaac happy
+=======
+        show isaac happy
+        play kidnapper_channel [ "<sync victim_channel>bedroom_kidnapper", "bedroom_kidnapper" ]
+>>>>>>> 15365e7ca138963b50823426a62d571b004eb90f
+>>>>>>> Stashed changes
         k "I would be a poor host if I did not provide for my guests."
         "They approach you holding a bowl and take a seat beside you on the bed."
         "Oatmeal."
         "Not the most enjoyable of meals, not by a long shot."
         k "I wish I could have made something more appealing, but of course..."
         k "It's hard to do so without knowing your preferences."
+<<<<<<< HEAD
+        show isaac straight
+=======
         # a note-so-nice smile I imagine
         show isaac vhappy
+<<<<<<< Updated upstream
+=======
+>>>>>>> 15365e7ca138963b50823426a62d571b004eb90f
+>>>>>>> Stashed changes
         "They wait expectantly."
         menu:
             "Take the oatmeal.":
                 $ compliance += 1
                 "Unpleasant as your situation may be, it is hard to refuse warm food."
                 k "Good."
+                show isaac happy
                 k "I wouldn't want you to go hungry."
             "Refuse it":
                 $ compliance -= 1
+                show isaac happy
                 "They continue to smile at you."
                 k "If you are not hungry right now, that is fine."
                 k "You can eat whenever you like, and I will take your dishes when you sleep."
                 "He puts the bowl beside your bed on a night stand."
+<<<<<<< HEAD
+        show isaac straight
+=======
         #show kidnapper neutral
         show isaac happy
+<<<<<<< Updated upstream
+=======
+>>>>>>> 15365e7ca138963b50823426a62d571b004eb90f
+>>>>>>> Stashed changes
         "He stands up once again."
         k "Before I leave, is there anything more you'd like to speak about?"
         "You get an idea."
@@ -179,24 +229,42 @@ label start:
                 $ compliance -= 4
                 # make kidnapper audio much louder?
                 "You launch yourself at them."
+<<<<<<< HEAD
+                hide isaac
+                show isaac angry:
+                    zoom 1.6
+=======
                 #show kidnapper angry and zoomed in
                 show isaac close_angry
+<<<<<<< Updated upstream
+=======
+>>>>>>> 15365e7ca138963b50823426a62d571b004eb90f
+>>>>>>> Stashed changes
                 "You knock them to the floor, but they quickly flip you on your back."
                 #if available, show kidnapper on top of player
                 "After a few seconds of you struggling, they pin you down."
                 k "Did you think you had a chance?"
-                #show kidnapper smiling and zoomed in
+                show isaac happy:
+                    zoom 1.6
                 "You're lifted and carried onto the bed."
                 k "Please don't cause problems for us."
                 v "THERE IS NO 'US!'"
+<<<<<<< HEAD
+                show isaac straight
+=======
                 #show kidnapper disappointed
                 show isaac close_straight # we didn't have anything w a frown
+<<<<<<< Updated upstream
+=======
+>>>>>>> 15365e7ca138963b50823426a62d571b004eb90f
+>>>>>>> Stashed changes
                 k "Are you so sure of that? I wouldn't hold your breath."
                 k "Just go back to sleep, will you?"
                 hide isaac
                 stop kidnapper_channel fadeout 1.0
                 scene black
                 with fade
+                hide isaac
                 "You hide under the covers, sorely defeated."
                 "Eventually, you do fall asleep."
                 $ compliance = compliance // 2
@@ -212,7 +280,9 @@ label start:
                 $ compliance += 2
 >>>>>>> Stashed changes
                 v "Nevermind."
+                show isaac happy
                 k "Okay! We can talk tomorrow. I'm sure you must be exhausted."
+                hide isaac
                 "You see the kidnapper finally leaving you in the lonely room. Thank God."
                 stop kidnapper_channel fadeout 1.0
                 "But even if they DID leave, there is nothing for you to do here. Nor do you feel brave enough to explore the room just yet."
@@ -229,7 +299,7 @@ label start:
         scene bedroom_day
         with fade
         "You look out into the room you're in and remember everything from yesterday."
-        play victim_channel bedroom_victim fadein 2.0
+        play victim_channel [ "<sync main_channel>./audio/Bedroomphobia_Victim.mp3", bedroom_victim ]
         "Trapped."
         "Lost."
         "Confused."
@@ -238,14 +308,21 @@ label start:
 
         # add more thoughts, specifcally emotions here
         "You let this thought consume you until you hear the same footsteps from yesterday."
-        play kidnapper_channel [ "<sync victim_channel>bedroom_kidnapper", "bedroom_kidnapper" ]
+        play kidnapper_channel [ "<sync main_channel>./audio/Bedroomphobia_kidnapper.mp3", bedroom_kidnapper ]
         "They calmly and comfortably walk into the room."
         "Too calmly."
         "Too comfortably."
         "As if the two of you are married or something."
 
+<<<<<<< HEAD
+        show isaac vhappy
+=======
         #show kidnapper smiling
         show isaac happy
+<<<<<<< Updated upstream
+=======
+>>>>>>> 15365e7ca138963b50823426a62d571b004eb90f
+>>>>>>> Stashed changes
         k "Good morning. How are you today?"
 
         menu:
@@ -256,7 +333,13 @@ label start:
                 k "Go home? You forgot already? This is your home now."
                 k "But I understand, it'll take you some time to accept that."
                 k "I came down to let you know breakfast will be ready soon."
+<<<<<<< HEAD
+=======
                 #hide kidnapper
+<<<<<<< Updated upstream
+=======
+>>>>>>> 15365e7ca138963b50823426a62d571b004eb90f
+>>>>>>> Stashed changes
                 hide isaac
                 stop kidnapper_channel fadeout 1.0
                 "With that, they leave the room and you hear a latch click."
@@ -270,7 +353,13 @@ label start:
                 k "Keep this up and maybe I'll let you out of this room..."
                 k "Maybe even a reward, so to speak..."
                 hide isaac
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
                 #hide kidnapper
+>>>>>>> 15365e7ca138963b50823426a62d571b004eb90f
                 "With that, they leave the room and you hear a latch click."
                 stop kidnapper_channel fadeout 1.0
                 "You take a deep breath, once again grateful to still be alive."
@@ -279,19 +368,37 @@ label start:
 
         #breakfast scene, pretty much EXACTLY the same as yesterday
         "You hear the click of the door a little later."
+<<<<<<< HEAD
+=======
         #show kidnapper smiling
+<<<<<<< Updated upstream
+=======
+>>>>>>> 15365e7ca138963b50823426a62d571b004eb90f
+>>>>>>> Stashed changes
         show isaac happy
         k "It is time for some more oatmeal! I know you wanted some more since yesterday."
         "They approach you holding a tray and take a seat beside you on the bed."
         "Oatmeal. Again."
         "But given that you are kidnapped, you can't say much. This is definitely better than not getting food at all."
+<<<<<<< HEAD
+=======
         #show kidnapper neutral
+<<<<<<< Updated upstream
+=======
+>>>>>>> 15365e7ca138963b50823426a62d571b004eb90f
+>>>>>>> Stashed changes
         show isaac straight
         k "I know that I've been offering you oatmeal two days in a row...I'm so sorry."
         k "But I don't know...after all, we don't know each other as well."
         k "That's okay though! We have all this time together to get even closer!"
         "With that, they actually shifted toward you..."
+<<<<<<< HEAD
+=======
         # a note-so-nice smile I imagine
+<<<<<<< Updated upstream
+=======
+>>>>>>> 15365e7ca138963b50823426a62d571b004eb90f
+>>>>>>> Stashed changes
         show isaac vhappy
         "Differently from yesterday, they place the spoon in your hands, which have been shaking this entire time."
         "They wait for you to take a spoonful."
@@ -325,8 +432,14 @@ label start:
                     "watermelon":
                         $ compliance -= 2
                         $ brekkiePref = 4
+<<<<<<< HEAD
+=======
                         #hide kidnapper smiling
                         #show kidnapper neutral
+<<<<<<< Updated upstream
+=======
+>>>>>>> 15365e7ca138963b50823426a62d571b004eb90f
+>>>>>>> Stashed changes
                         show isaac straight
                         "Their smile fades slightly, before they regains composure."
                         k "Haha, you're hilarious! I like you."
@@ -348,7 +461,13 @@ label start:
                 $ compliance -= 4
                 "There is, indeed."
                 "You launch yourself at your captor."
+<<<<<<< HEAD
+=======
                 #show kidnapper angry
+<<<<<<< Updated upstream
+=======
+>>>>>>> 15365e7ca138963b50823426a62d571b004eb90f
+>>>>>>> Stashed changes
                 show isaac angry
                 "They hit you back with ease, leaving you in a heap on the floor."
                 "Really? I've treated you so well and you attack me like this?!"
@@ -372,7 +491,13 @@ label start:
         #to the player that you need to pass this point to advance to the next phase
         #(as well as meeting the threshold compliance score)
 
+<<<<<<< HEAD
+=======
         #hide kidnapper smiling
+<<<<<<< Updated upstream
+=======
+>>>>>>> 15365e7ca138963b50823426a62d571b004eb90f
+>>>>>>> Stashed changes
         hide isaac
         "You watch the kidnapper walk out of the door. But something is different from last time."
         "They always lock the door when they leave, but this time, they just left."
