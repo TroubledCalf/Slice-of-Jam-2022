@@ -27,9 +27,24 @@ label dinnerWithMyMan:
             v "I feel much safer when I am with you. You are my safe haven, Isaac."
             "No, no, NO! THIS IS NOT WHAT YOU ARE SUPPOSED TO DO!"
             "JAYDYN! NO!"
-            k "You are finally accepting me...I am so happy."
+            k "You are finally accepting me...I am so happy. I love you, I love you so much Jaydyn!"
+            "..."
+            "..."
+            "..."
+            "Jaydyn chooses to stay with Isaac."
+            "Jaydyn, smiling as brilliantly as ever, replies back to Isaac."
+            v "I love you too!"
             jump badEnd
         elif compliance < -7: # the 1st outcome
+            "You try to escape by distracting the kidnapper. You plan to make Isaac go to the kitchen to cook something for them."
+            v "Hey, um, Isaac."
+            k "Yeah? Do you need something?"
+            v "Yeah, actually...would it be possible if you cook something for me?"
+            k "Oh...is the food not to your liking?"
+            v "Oh no, it's just that I am especially feeling hungry today..."
+            "The kidnapper stares into your eyes, long and hard. You get the shivers from their pentrating stare."
+            "They may have noticed you had something going on "
+
             jump dinnerWithMyMan
         else:
             jump winEnd

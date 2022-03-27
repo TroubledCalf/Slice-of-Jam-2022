@@ -100,7 +100,7 @@ label start:
             "Oatmeal."
             "Not the most enjoyable of meals, not by a long shot."
             k "I wish I could have made something more appealing, but of course..."
-            k "its hard to do so without knowing your preferences."
+            k "It's hard to do so without knowing your preferences."
             # a note-so-nice smile I imagine
             "They wait expectantly."
             menu:
@@ -186,7 +186,7 @@ label start:
 
         #breakfast scene, pretty much EXACTLY the same as yesterday
         "You hear the click of the door again."
-        k "It is time for some more oatmeal! I know you wanted some more sicne yesterday."
+        k "It is time for some more oatmeal! I know you wanted some more since yesterday."
         "They approach you holding a tray and take a seat beside you on the bed."
         "Oatmeal. Again."
         "But given that you are kidnapped, you can't say much. This is definitely better than not getting food at all."
@@ -289,65 +289,5 @@ label start:
                         else:
                             "You fall asleep..."
                             jump day_2
-<<<<<<< HEAD
-###################################
-    # phase 5
-    label badEnd:
-        scene white
-        "You wake up abruptly to a bright light"
-        scene bedroom
-        # show k_smiling_creepy
-        k "Get up. You're going being moved."
-        v "...ok"
-        "You slowly get up and follow him"
-        "As you follow him, he grabs something off a shelf."
-        "It looks like an ankle monitor"
-        # hide k_smiling_creepy
-        "He slowly approaches you with it and bends down in front of you."
-        "He puts the ankle monitor around your left ankle, and you hear a click."
-        "As he gets back up, he snatches your hand and briskly pulls you down the hallway and up the stairs."
-
-        scene red
-        "The sudden change in brightness from the dimly lit basement to the rest of the building burns your eyes, so you shut them."
-        "He continues to drag you through the building, and eventually you feel carpet on your feet."
-        #scene living_room
-        "You slowly open your eyes and see him smiling with arms wide."
-        "After days of being locked alone in his basement, you run towards him, tears in your eyes."
-        "something im still figuring it out"
-        "He walks toward the kitchen, puts on an apron, and beams at you."
-        k "I'm sure you're hungry. I'll prepare breakfast for the both of us, honey."
-        "He turns his back and takes a knife out from the knife block."
-        "He begins chopping some fruit."
-        v "Ok!"
-        "What is wrong with you?!"
-        "The door is unlocked! Make a break for it!"
-        "Don't just stand there acting all lovey-dovey with him!"
-        "This dude is a psycho!"
-
-        menu:
-            "Escape"
-
-            "Stay"
-        "..."
-        "..."
-        "You stay."
-
-        #show k_smiling_creepy
-        "After he finishes chopping his fruit, he approaches you with the knife."
-        "He sits you both down on the couch."
-        "He snatches your hand and turns it over, revealing your palm."
-        "Weilding the knife, he makes a slit across your palm, and does the same to this own hand."
-        "You grab his bloodied hand with your own. You wince in pain."
-        k "Aw, I'm sorry, honey. I don't want to make you cry."
-        "He says as he wipes a tear from your cheek."
-        "This unleashes something in you, and you begin to bawl."
-        "Still smiling, he leans forward and kisses your forehead tenderly."
-        "He pulls away and looks you in the eyes."
-        k "Don't you ever think about leaving me, ok?"
-        k "I'm sorry I hurt you, but it hurts me more seeing you like this."
-        k "I don't know what I would do without you."
-
-=======
->>>>>>> 577292991334cafd689ff77c07a92a605d454294
 
     return
