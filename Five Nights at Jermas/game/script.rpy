@@ -19,12 +19,17 @@ define v = Character("You")
 define k = Character("Kidnapper")
 
 # Character sprites
-image isaac insane = "./images/kindapper_sprites/eyes.png"
-image isaac straight = "./images/kidnapper_sprites/straight.png"
-image isaac angry = "./images/kidnapper_sprites/angry.png"
-image isaac half = "./images/kidnapper_sprites/halfNhalf.png"
-image isaac happy = "./images/kidnapper_sprites/happy.png"
-image isaac vhappy = "./images/kidnapper_sprites/wistful.png"
+image eyes = "./images/kindapper_sprites/eyes.png"
+image isaac straight:
+    "./images/kindapper_sprites/straight.png"
+image isaac angry:
+    "./images/kindapper_sprites/angry.png"
+image isaac half:
+    "./images/kindapper_sprites/halfNhalf.png"
+image isaac happy:
+    "./images/kindapper_sprites/happy.png"
+image isaac vhappy:
+    "./images/kindapper_sprites/wistful.png"
 
 image isaac close_angry:
     "./images/kindapper_sprites/angry.png"
@@ -90,15 +95,7 @@ label start:
                 "Someone steps in and all you can do is hope to not be killed as you try to silence your breath."
                 k "Hi~ I know you're awake, by the way. There's no need to pretend."
                 "You slowly lift your head out of the blankets."
-<<<<<<< HEAD
-<<<<<<< HEAD
                 show isaac happy
-=======
-                # show kidnapper smiling
->>>>>>> 14733d6f50246b259c959f1b4c0c748bc96ed133
-=======
-                show isaac happy
->>>>>>> c5ae18d25db03da0e0eb0e651d8304dc9db6b20d
                 k "There you are!"
                 "They grin at you as you cower away."
             "See who it is":
@@ -127,11 +124,8 @@ label start:
                 show isaac angry
                 k "Go home? This IS your home now. Don't you worry, you'll love it here!"
                 #hide kidnapper
-<<<<<<< HEAD
                 hide isaac
-=======
                 stop kidnapper_channel fadeout 1.0
->>>>>>> 14733d6f50246b259c959f1b4c0c748bc96ed133
                 "With that, they leave the room and you hear a latch click."
                 "All you can do is curl up and start sobbing."
             "Just accept the kidnapper for now":
@@ -150,17 +144,9 @@ label start:
                 "But it's probably too early to try to look for an exit."
 
 
-<<<<<<< HEAD
-        "You hear the click of the door again."
-        show isaac happy
-=======
         "After some time, you hear the click of the door again."
-<<<<<<< HEAD
+        show isaac happy
         play kidnapper_channel [ "<sync victim_channel>bedroom_kidnapper", "bedroom_kidnapper" ]
->>>>>>> 14733d6f50246b259c959f1b4c0c748bc96ed133
-=======
-        play kidnapper_channel [ "<sync victim_channel>./audio/Bedroomphobia_kidnapper.mp3", bedroom_kidnapper ]
->>>>>>> c5ae18d25db03da0e0eb0e651d8304dc9db6b20d
         k "I would be a poor host if I did not provide for my guests."
         "They approach you holding a bowl and take a seat beside you on the bed."
         "Oatmeal."
@@ -207,11 +193,8 @@ label start:
                 show isaac close_straight # we didn't have anything w a frown
                 k "Are you so sure of that? I wouldn't hold your breath."
                 k "Just go back to sleep, will you?"
-<<<<<<< HEAD
                 hide isaac
-=======
                 stop kidnapper_channel fadeout 1.0
->>>>>>> 14733d6f50246b259c959f1b4c0c748bc96ed133
                 scene black
                 with fade
                 "You hide under the covers, sorely defeated."
@@ -222,15 +205,12 @@ label start:
 
             "Do nothing":
                 $ compliance += 4
-<<<<<<< HEAD
+
                 hide isaac
-                "You see the kidnapper finally leaving you in the lonely room. Thank god."
-=======
                 v "Nevermind."
                 k "Okay! We can talk tomorrow. I'm sure you must be exhausted."
                 "You see the kidnapper finally leaving you in the lonely room. Thank God."
                 stop kidnapper_channel fadeout 1.0
->>>>>>> 14733d6f50246b259c959f1b4c0c748bc96ed133
                 "But even if they DID leave, there is nothing for you to do here. Nor do you feel brave enough to explore the room just yet."
                 "After staring into the void for some time, your body gives out, and you slowly drift away to sleep..."
                 stop victim_channel fadeout 2.0
@@ -273,28 +253,19 @@ label start:
                 k "But I understand, it'll take you some time to accept that."
                 k "I came down to let you know breakfast will be ready soon."
                 #hide kidnapper
-<<<<<<< HEAD
                 hide isaac
-=======
                 stop kidnapper_channel fadeout 1.0
->>>>>>> 14733d6f50246b259c959f1b4c0c748bc96ed133
                 "With that, they leave the room and you hear a latch click."
                 "Once again, you just lay defeated."
                 "There is nothing you can do, so you just sit there."
             "Just accept the kidnapper for a little longer":
                 $ compliance += 1
-<<<<<<< HEAD
-                v "So are you going to bring me food soon?"
-                show isaac vhappy
-                k "See, you're getting it!"
-                k "Keep this up and maybe I'll even let you out of this room..."
-                hide isaac
-=======
                 v "Are you going to bring me food soon?"
+                show isaac vhappy
                 k "See, you're getting it!"
                 k "Keep this up and maybe I'll let you out of this room..."
                 k "Maybe even a reward, so to speak..."
->>>>>>> 14733d6f50246b259c959f1b4c0c748bc96ed133
+                hide isaac
                 #hide kidnapper
                 "With that, they leave the room and you hear a latch click."
                 stop kidnapper_channel fadeout 1.0
@@ -415,23 +386,16 @@ label start:
             "Should you open the door?"
             menu:
                 "Open the door":
-<<<<<<< HEAD
                     #very close (AND CREEPY) shot on the kidnapper's eyes would be nice
                     #to visually explain that the kidnapper was, in fact, right outside of the door,
                     #waiting patiently to test you.
                     show isaac close_happy
-=======
-                    show isaac insane
->>>>>>> c5ae18d25db03da0e0eb0e651d8304dc9db6b20d
                     k "Haha! You are so funny, you actually opened the door!"
                     k "I hope you don't feel too annoyed. I am a person too, so I sometimes forget to lock the door."
                     k "Good night!"
-<<<<<<< HEAD
                     hide isaac
-=======
                     stop kidnapper_channel fadeout 1.0
                     stop victim_channel fadeout 1.0
->>>>>>> 14733d6f50246b259c959f1b4c0c748bc96ed133
                     jump day_2
                 "Go back to the bed. Right now is not the time.":
                     scene black
