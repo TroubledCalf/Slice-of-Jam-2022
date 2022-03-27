@@ -393,26 +393,27 @@ label dinnerWithMyMan:
                 "You try to escape by distracting the kidnapper. You plan to make them go to the kitchen to cook something for you."
                 v "Hey, um, Isaac."
                 k "Yeah? Do you need something?"
-                v "Yeah, actually...would it be possible if you cook something for me?"
+                v "Yeah, actually...would it be possible for you to cook something for me?"
                 k "Oh...is the food not to your liking?"
-                v "Oh no, it's just that I am especially feeling hungry today..."
+                v "Oh no, it's just that I am feeling especially hungry today..."
                 "The kidnapper stares into your eyes, long and hard. You get the shivers from their penetrating stare."
                 "They may have noticed you had something going on. But the kidnapper doesn't say much. They just stare."
                 "Then, they finally get up from the table to fetch you something, but their eyes never leave you."
                 k "Okay, we have some ramen noodles and..."
                 "The kidnapper's voice starts fading out for you, because you are too anxious, looking for the right opportunity to make your escape."
                 k "...You've been awfully quiet. Is everything okay?"
-                "Their eyes stare into your soul. They know. They know that you are trying to escape." #eyes jumpscare
+                "Their eyes stare into your soul. They know. They know that you are trying to escape."
+                #eyes jumpscare <- visual cue
                 v "...N-no? Everything is fine!"
                 "Today is not the day..."
-                jump pretend_phase # change this label to somewhere else other than dinnerWithMyMan for the sake of variety in dialogue.
+                jump pretend_phase
         else:
             "You try to escape by distracting Isaac. You plan to make Isaac go to the kitchen to cook something for you."
             v "Hey, Isaac."
             k "Yeah? Do you need something?"
             v "Yeah, actually, I really liked the tuna sandwich you made, and I was wondering you can make some more for me?"
             k "Oh really? I'm so glad that you liked it. I'll try to make one as soon as possible!"
-            "Isaac excitedly scampers to the cabinets in the kitchen while humming 'Hip To Be Square' by Huey Lewis & The News. Until he groans a little."
+            "Isaac excitedly scampers to the cabinets in the kitchen while humming 'Hip To Be Square' by Huey Lewis & The News. Until they groan a little."
             k "I'm so sorry, but I have to go upstairs to get some more ingredients...I'm so sorry, I'm so sorry..."
             v "It's okay."
             k "I'll quickly go upstairs to get some more. Will you wait for me?"
@@ -420,15 +421,15 @@ label dinnerWithMyMan:
             "Isaac runs upstairs, and closes the door on you."
             "You are left alone, and you start thinking."
             """You have a staircase to upper ground, which means you can find the front door to get out of the building.
-            But there is always a chance that while you are looking for the front door, you meeet Isaac. You will not be able to get out.
+            But there is always a chance that while you are looking for the front door, you meet Isaac. You will not be able to get out.
             You will be stuck here forever, under Isaac's watch."""
-            """Another option is the glass sliding door. You see that the basement, or the entire house in fact, is placed
+            """Another option is the glass sliding door. You see that the basement, or the entire house in fact, is built
             on a declining hill. There is nothing beyond but just greenery and the moonlight that is shining ironically too bright.
             Isaac is upstairs, probably actually getting ingredients, so there is less chance for Isaac to appear in front of the glass door
             as you attempt to escape."""
             "At this point, escaping through the glass door is the only viable option that you have."
             """As swiftly as possible, you slide open the door, and as you step out
-            and your foot touch the dirt that has been warmed by the midsummer sun, tears stream start running down your face."""
+            and your foot touches the dirt that has been warmed by the midsummer sun, a stream of tears start running down your face."""
             "You are finally free."
             jump winEnd #black out
 
