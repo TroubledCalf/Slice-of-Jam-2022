@@ -79,6 +79,7 @@ label phase_2:
         #breakfast scene
         "You hear the click of the door again."
         play kidnapper_channel [ "<sync victim_channel>./audio/Bedroomphobia_kidnapper.mp3", bedroom_kidnapper ]
+        show isaac straight
         k "It's time again for me to make sure my lovely guest is stuffed and satisfied."
         k "...With food, of course."
         "They approach you with a bowl."
