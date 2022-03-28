@@ -48,20 +48,32 @@ label dinnerWithMyMan:
         "They talk a lot about different places they want to see in the future."
         "Oddly enough, Jaydyn is excited about those places."
         "This may be dangerous."
-        "Jaydyn shouldn't trust this person, and yet... they do."
+        "Jaydyn shouldn't trust this kidnapper, and yet... they do."
+        "Maybe Jaydyn's been too compliant?"
         "The conversation goes on for a terrifyingly long time..."
         scene kitchen
         show isaac happy
         k "Well, that was a good talk!"
+        jump after_breakfast_p4
     label no_to_chat:
         v "I'd prefer not to."
         k "Okay, that's fine. I respect you and your decisions."
-        "But not Jaydyn's decision to leave earlier?"
-        k "In that case, I'll leave you alone for now."
-        k "Bye!"
-        hide isaac happy
-        "They leave the room and the footsteps fade away."
-        scene black
+        "But not Jaydyn's requests to leave earlier?"
+        k "In that case, we don't have to talk."
+        k "But I really wish you would."
+        k "I think you like me more than you're aware."
+        k "There isn't really a reason to not talk to me."
+        k "But fine, as I always say, everything is up to you."
+        #k "Bye!"
+        #hide isaac happy
+        #scene black
+    label after_breakfast_p4:
+        "After finishing your coffee, you're brought back to your room."
+        scene bedroom_day
+        with fade
+        k "Bye! I'll come get you for lunch later."
+        "They leave the room."
+        hide issac
     jump shower_p4
     ## SHOWER
     label shower_p4:
@@ -226,6 +238,7 @@ label dinnerWithMyMan:
                 k "What did you think I meant?"
                 k "I won't say any more, though."
                 v "Alright then, I hope it's good!"
+                jump end_of_lunch_p4
             label bad_p4:
                 $ compliance -= 1
                 v "I'm still not feeling great."
@@ -233,10 +246,12 @@ label dinnerWithMyMan:
                 k "Anything I can do to make it better?"
                 v "I don't know... maybe I'm still scared?"
                 "They reach out and envelope you in their arms."
+                show issac close_happy
                 "They're surprisingly warm and maybe you have a slight inclination to lean into them..."
                 v "Thank you. I think I needed a hug."
-            "You sit in silence for a bit longer."
-            "After finishing the meal, they take your hand and walk you back to the room."
+            label end_of_lunch_p4:
+                "You sit in silence for a bit longer."
+                "After finishing the meal, they take your hand and walk you back to the room."
             scene bedroom
             jump book_p4
 
@@ -337,17 +352,19 @@ label dinnerWithMyMan:
                         jump not_liked_dining
             label liked_dining:
                 k "I'm glad you like it!"
+                jump after_like_choice
             label not_liked_dining:
                 v "Eh, it's whatever."
                 k "Well, I'm sure you'll like the food, at least."
-            "Anyway, why don't you sit down?"
-            "You sit down as they reveal a platter with two tuna sandwiches."
-            k "I made sandwiches for dinner!"
-            v "Food that isn't oatmeal? You're better than I thought."
-            "Really, Jaydyn? There's no need to flirt."
-            "You each get a sandwich and start eating."
-            "It's not half bad."
-            "You both discuss various topics and Jaydyn learns a little more about the kidnapper's past."
+            label after_like_choice:
+                "Anyway, why don't you sit down?"
+                "You sit down as they reveal a platter with two tuna sandwiches."
+                k "I made sandwiches for dinner!"
+                v "Food that isn't oatmeal? You're better than I thought."
+                "Really, Jaydyn? There's no need to flirt."
+                "You each get a sandwich and start eating."
+                "It's not half bad."
+                "You both discuss various topics and Jaydyn learns a little more about the kidnapper's past."
 
         menu:
             "Attempt to escape":

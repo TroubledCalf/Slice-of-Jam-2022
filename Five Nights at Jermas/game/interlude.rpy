@@ -16,9 +16,9 @@ label interludeTwoHighComp:
     scene door_night
 
     show isaac happy
-    "He steps into the room again. How you didn't hear him walk into the room, you don't know."
+    "They step into the room again. How you didn't hear them walk into the room, you don't know."
     k "Hello, uh darling."
-    "He speaks with hesitation."
+    "They speak with hesitation."
     k "I have some news I think you'll be quite excited to hear about."
     v "Oh? Good news?"
 
@@ -40,7 +40,7 @@ label interludeTwoHighComp:
     k "Exactly what I was hoping to hear."
     hide isaac
     "They get up and head out of the room, an eager pep to their step."
-    "What was that about? What did he tell you about?"
+    "What was that about? What did they tell you about?"
     v "Finally, I'll have access to a real bathroom. About time."
     "Is that what they were telling you about? You shouldn't follow them everywhere."
     v "I'll be careful though. Make the most of what I can."
@@ -56,7 +56,7 @@ label interludeTwoMidComp:
     show isaac happy
     "They step into the room again. How you didn't hear them walk into the room, you don't know."
     k "Hello, uh darling."
-    "He speaks with hesitation as you eye him."
+    "They speak with hesitation as you eye them."
     v "Hello, my mysterious benefactor."
     k "Enough attitude. I have some news I think you'll be quite excited to hear about."
     v "Oh? Good news?"

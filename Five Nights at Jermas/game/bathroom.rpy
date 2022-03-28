@@ -11,7 +11,7 @@ label goToBathroom:
     $ compliance = compliance // 2
 
     "Another day passes."
-    "You play along with your captor, satisfying them."
+    "You've been playing along with your captor, satisfying them."
     "After lunch, you feel an urge."
 
     "You knock on your door to be let out for the bathroom."
@@ -95,7 +95,7 @@ label inBathroom:
 
 label exitBR:
     "Before you leave the bathroom, a thought occurs to you."
-    v "He said to knock and wait for him when I want to leave."
+    v "They said to knock and wait for them when I want to leave."
     "An odd request. What you do in the bathroom is your business."
     menu:
         "Knock and wait for them.":
@@ -122,9 +122,11 @@ label exitBR:
     if not canBrush and compliance >= lowComplBR and usedToilet:
         hide isaac
         $ canBrush = True
+        jump dinnerWithMyMan
     elif not canBath and compliance >= lowComplBR and brushedTeeth:
         hide isaac
         $ canBath = True
+        jump dinnerWithMyMan
     elif canBrush and canBath and compliance >= lowComplBR and usedToilet and brushedTeeth and tookBath:
         hide isaac
         if compliance > highComplBR:
@@ -147,20 +149,20 @@ label askForBRNormal:
     k "Aren't you forgetting something?"
     "What? They didn't say anything before"
     k "The magic word?"
-    "He says it in a sing-song tone."
+    "They say it in a sing-song tone."
     k "Please, I mean. I won't hold it against you but remember for next time."
     return
 
 label useToilet:
-    "You relieve yourself"
+    "You relieve yourself."
     "An actual toilet for once. Way better than having to make do in the bedroom."
     "After you finish, you realize the toilet paper roll has gone out."
-    v "Shoot"
+    v "Shoot."
     "You look around  and find several toilet paper rolls."
     "One is left very visibly out of the bag with a sticky note on it."
     v "'Remember! Toiler paper always goes loose end over the top. :-) --Isaac'"
     "Huh."
-    "So that's his name."
+    "So, that's their name."
     "Anyway, back to toilet paper."
     menu:
         "Put it on loose-end-over":
@@ -169,10 +171,14 @@ label useToilet:
         "Put it on loose-end-under":
             $ compliance -= 1
             if compliance > highComplBR:
-                "You put on the toilet paper as instructed. After all, there's no reason to upset them over this."
+                "Jaydyn puts on the toilet paper as instructed. After all, there's no reason to upset them over this."
+                "Um... what? Why did you do that?"
+                "You were supposed to put it on the other way."
+                "Are you becoming loyal to the kidnapper?"
+                "Please don't."
             else:
                 "You put it on wrong, ignoring their instructions. You have no reason to listen to a kidnapper."
-    "Satisfied with your toilet paper duties, you rise."
+    "Finished with your toilet paper duties, you rise."
     return
 
 label brushTeeth:
