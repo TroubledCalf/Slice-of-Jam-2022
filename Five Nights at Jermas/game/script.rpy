@@ -302,17 +302,17 @@ label start:
                     "banana slices":
                         $ compliance += 1
                         $ brekkiePref = 1
-                        "They clasps his hands together."
+                        "They clasp their hands together."
                         k "Wonderful. I will keep this in mind!"
                     "strawberry":
                         $ compliance += 1
                         $ brekkiePref = 2
-                        "They clasps his hands together."
+                        "They clasp their hands together."
                         k "Wonderful. I will keep this in mind!"
                     "honey":
                         $ compliance += 1
                         $ brekkiePref = 3
-                        "They clasps his hands together."
+                        "They clasp their hands together."
                         k "Wonderful. I will keep this in mind!"
                     "watermelon":
                         $ compliance -= 2
