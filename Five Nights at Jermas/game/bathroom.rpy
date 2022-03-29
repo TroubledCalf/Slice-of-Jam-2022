@@ -140,6 +140,11 @@ label exitBR:
         k "I'm sorry, but I'm doing this for you."
         hide isaac
         jump day_5
+    #placeholder to at least progress the game
+    elif compliance >= lowComplBR:
+        jump dinnerWithMyMan
+    else:
+        jump day_5
 
 
 

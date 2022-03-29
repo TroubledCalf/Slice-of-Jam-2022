@@ -23,7 +23,8 @@
         show isaac vhappy
         "You slowly open your eyes and see him smiling with arms wide."
         "After days of being locked alone in his basement, you run towards him, tears in your eyes."
-        "something im still figuring it out"
+        "You embrace him, and he squeezes you back."
+        "After a few seconds, he lets you go and smiles back at you."
         "He walks toward the kitchen, puts on an apron, and beams at you."
         k "I'm sure you're hungry. I'll prepare breakfast for the both of us, honey."
         "He turns his back and takes a knife out from the knife block."
@@ -36,17 +37,20 @@
 
         menu:
             "Escape":
-                menu:
-                    "Escape":
-                        menu:
-                            "Stay":
-                                pass
-                            "Stay":
-                                pass
-                    "Stay":
-                        pass
+                "You think about escaping for a second, but you decide to stay, anyway."
+                "I'm telling you. This is a mistake."
             "Stay":
-                pass
+                menu:
+                    "Stay":
+                        menu:
+                            "Escape":
+                                "You think about escaping for a second, but you decide to stay, anyway."
+                                "I'm telling you. This is a mistake."
+                            "Stay":
+                                pass
+                    "Escape":
+                        "You think about escaping for a second, but you decide to stay, anyway."
+                        "I'm telling you. This is a mistake."
         "..."
         "You stay."
 
@@ -77,5 +81,6 @@
         "As you black out, he gets closer to your face, and you notice him staring intensely at your lips."
 
         scene black
-        "You feel him gently brush your lips and grab the small of your back before you slump over. Your vision fades to black"
+        "You feel him gently brush your lips and grab the small of your back before you slump over."
+        "Your vision fades to black"
         "BAD END"

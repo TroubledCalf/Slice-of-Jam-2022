@@ -2,45 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/phase_2.rpy", line 345: expected simple expression
-    stop kidnapper_channel fadeout
-                                  ^
-
-File "game/phase_2.rpy", line 354: expected simple expression
-    stop kidnapper_channel fadeout
-                                  ^
-
-File "game/phase_2.rpy", line 371: expected simple expression
-    stop kidnapper_channel fadeout
-                                  ^
-
-File "game/phase_2.rpy", line 381: expected simple expression
-    stop kidnapper_channel fadeout
-                                  ^
-
-File "game/phase_2.rpy", line 402: expected simple expression
-    stop kidnapper_channel fadeout
-                                  ^
-
-File "game/phase_2.rpy", line 411: expected simple expression
-    stop kidnapper_channel fadeout
-                                  ^
-
-File "game/phase_2.rpy", line 435: expected simple expression
-    stop kidnapper_channel fadeout
-                                  ^
-
-File "game/phase_2.rpy", line 459: expected simple expression
-    stop kidnapper_channel fadeout
-                                  ^
-
-File "game/phase_2.rpy", line 523: expected simple expression
-    stop kidnapper_channel fadeout
-                                  ^
-
-File "game/phase_2.rpy", line 582: expected simple expression
-    stop kidnapper_channel fadeout
-                                  ^
+File "game/bathroom.rpy", line 144: expected ':' not found.
+    else
+        ^
 
 Ren'Py Version: Ren'Py 7.4.9.2142
-Sun Mar 27 17:58:33 2022
+Mon Mar 28 21:17:06 2022
