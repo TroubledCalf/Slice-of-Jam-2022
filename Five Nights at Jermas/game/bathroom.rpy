@@ -127,14 +127,14 @@ label exitBR:
     elif not canBath and compliance >= lowComplBR and brushedTeeth:
         hide isaac
         $ canBath = True
-        call interludeThreeMidComp from _call_interludeThreeMidComp
+        call interludeThreeMidComp from _call_interludeThreeMidComp_1
         jump dinnerWithMyMan
     elif canBrush and canBath and compliance >= lowComplBR and usedToilet and brushedTeeth and tookBath:
         hide isaac
         if compliance > highComplBR:
-            call interludeThreeHighComp from _call_interludeThreeHighComp
+            call interludeThreeHighComp from _call_interludeThreeHighComp 
         else:
-            call interludeThreeMidComp from _call_interludeThreeMidComp
+            call interludeThreeMidComp from _call_interludeThreeMidComp_2 
         jump dinnerWithMyMan
     elif lowComplBR > compliance:
         show isaac straight
@@ -144,7 +144,8 @@ label exitBR:
         jump day_5
     #placeholder to at least progress the game
     elif compliance >= lowComplBR:
-        jump call interludeThreeMidComp from _call_interludeThreeMidComp
+        call interludeThreeMidComp from _call_interludeThreeMidComp_3 
+        jump dinnerWithMyMan
     else:
         jump day_5
 
@@ -154,7 +155,7 @@ label exitBR:
 label askForBRNormal:
     v "May I go to the bathroom?"
     k "Aren't you forgetting something?"
-    "What? They didn't say anything before"
+    "What? They didn't say anything before..."
     k "The magic word?"
     "They say it in a sing-song tone."
     k "Please, I mean. I won't hold it against you but remember for next time."

@@ -175,7 +175,7 @@ label start:
         v "Actually, yes."
         menu:
             "Attack your captor":
-                $ compliance -= 4
+                $ compliance -= 2
                 # make kidnapper audio much louder?
                 "You launch yourself at them."
                 show fight
@@ -201,7 +201,10 @@ label start:
                 "Eventually, you do fall asleep."
                 $ compliance = compliance // 2
                 stop victim_channel fadeout 2.0
-                jump day_1
+                if compliance > -2:
+                    jump day_2
+                else:
+                    jump day_1
 
             "Do nothing":
                 $ compliance += 4
@@ -335,7 +338,7 @@ label start:
 
         menu:
             "Attack your captor":
-                $ compliance -= 4
+                $ compliance -= 2
                 "There is, indeed."
                 "You launch yourself at your captor."
                 show isaac angry
@@ -348,7 +351,7 @@ label start:
                 "Here, maybe a good night's sleep will make you feel better."
                 stop kidnapper_channel fadeout 1.0
                 stop victim_channel fadeout 1.0
-                jump day_2
+                #jump day_2
 
             "Do nothing":
                 $ compliance += 2

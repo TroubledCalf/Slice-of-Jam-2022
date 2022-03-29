@@ -2,9 +2,23 @@
 errors listed below, and try again.
 
 
-File "game/bathroom.rpy", line 144: expected ':' not found.
-    else
-        ^
+The label _call_interludeThreeMidComp is defined twice, at File "game/bathroom.rpy", line 125:
+        call interludeThreeMidComp from _call_interludeThreeMidComp
+and File "game/bathroom.rpy", line 130:
+        call interludeThreeMidComp from _call_interludeThreeMidComp
 
-Ren'Py Version: Ren'Py 7.4.9.2142
-Mon Mar 28 21:17:06 2022
+
+The label _call_interludeThreeMidComp is defined twice, at File "game/bathroom.rpy", line 130:
+        call interludeThreeMidComp from _call_interludeThreeMidComp
+and File "game/bathroom.rpy", line 137:
+        call interludeThreeMidComp from _call_interludeThreeMidComp
+
+
+The label _call_interludeThreeMidComp is defined twice, at File "game/bathroom.rpy", line 137:
+            call interludeThreeMidComp from _call_interludeThreeMidComp
+and File "game/bathroom.rpy", line 147:
+            call interludeThreeMidComp from _call_interludeThreeMidComp
+
+
+Ren'Py Version: Ren'Py 7.4.10.2178
+Tue Mar 29 17:19:49 2022

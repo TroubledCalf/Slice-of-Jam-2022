@@ -7,3 +7,4 @@ MakeYourselfAtHome-1.0-dists/*
 *.bak
 Five Nights at Jermas/progressive_download.txt
 Five Nights at Jermas/project.json
+.gitignore

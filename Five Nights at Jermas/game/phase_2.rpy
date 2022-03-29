@@ -123,7 +123,7 @@ label phase_2:
         "They take a few steps back and turns towards the door."
         menu:
             "Attack your captor":
-                $ compliance -= 4
+                $ compliance -= 2
                 "You launch yourself at your captor."
                 "They take one step back, and you land flat on your face."
                 #show creepy smile
@@ -138,7 +138,10 @@ label phase_2:
                 scene black
                 with fade
 
-                jump day_3
+                if compliance > -3:
+                    jump day_3
+                else:
+                    jump day_4
 
             "Do nothing":
                 $ compliance += 2
