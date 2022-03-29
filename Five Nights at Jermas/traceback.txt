@@ -1,28 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/bathroom.rpy", line 18, in script
-    if currentCompliance > highComplBR:
-  File "game/bathroom.rpy", line 18, in <module>
-    if currentCompliance > highComplBR:
+  File "game/phase_4_dinner.rpy", line 772, in script
+    if currentCompliance < highComplBR:
+  File "game/phase_4_dinner.rpy", line 772, in <module>
+    if currentCompliance < highComplBR:
 NameError: name 'currentCompliance' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/bathroom.rpy", line 18, in script
-    if currentCompliance > highComplBR:
-  File "C:\Users\rudro\Programs\renpy-7.4.10-sdk/renpy/ast.py", line 1898, in execute
+  File "game/phase_4_dinner.rpy", line 772, in script
+    if currentCompliance < highComplBR:
+  File "renpy/ast.py", line 1898, in execute
     if renpy.python.py_eval(condition):
-  File "C:\Users\rudro\Programs\renpy-7.4.10-sdk/renpy/python.py", line 2276, in py_eval
+  File "renpy/python.py", line 2276, in py_eval
     return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\rudro\Programs\renpy-7.4.10-sdk/renpy/python.py", line 2269, in py_eval_bytecode
+  File "renpy/python.py", line 2269, in py_eval_bytecode
     return eval(bytecode, globals, locals)
-  File "game/bathroom.rpy", line 18, in <module>
-    if currentCompliance > highComplBR:
+  File "game/phase_4_dinner.rpy", line 772, in <module>
+    if currentCompliance < highComplBR:
 NameError: name 'currentCompliance' is not defined
 
 Windows-10-10.0.22000
-Ren'Py 7.4.10.2178
-Make Yourself at Home A Story of Beauty and the Oatmeal
-Sun Mar 27 18:38:19 2022
+Ren'Py 7.4.9.2142
+Make Yourself at Home 1.0
+Mon Mar 28 21:23:10 2022

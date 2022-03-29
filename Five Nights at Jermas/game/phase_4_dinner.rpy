@@ -769,7 +769,7 @@ label inBathroom_p4:
                 $ brushedTeeth = True
             "Take a bath" if not tookBath:
                 "You undress and step into the bath."
-                if currentCompliance < highComplBR:
+                if compliance < highComplBR:
                     "You hope desperately there are no hidden cameras in this bathroom."
                 "You reach for the nozzle and turn for the water."
                 if canBath:
