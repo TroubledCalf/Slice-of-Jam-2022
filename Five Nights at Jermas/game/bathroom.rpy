@@ -122,10 +122,12 @@ label exitBR:
     if not canBrush and compliance >= lowComplBR and usedToilet:
         hide isaac
         $ canBrush = True
+        call interludeThreeMidComp from _call_interludeThreeMidComp
         jump dinnerWithMyMan
     elif not canBath and compliance >= lowComplBR and brushedTeeth:
         hide isaac
         $ canBath = True
+        call interludeThreeMidComp from _call_interludeThreeMidComp
         jump dinnerWithMyMan
     elif canBrush and canBath and compliance >= lowComplBR and usedToilet and brushedTeeth and tookBath:
         hide isaac
@@ -142,7 +144,7 @@ label exitBR:
         jump day_5
     #placeholder to at least progress the game
     elif compliance >= lowComplBR:
-        jump dinnerWithMyMan
+        jump call interludeThreeMidComp from _call_interludeThreeMidComp
     else:
         jump day_5
 

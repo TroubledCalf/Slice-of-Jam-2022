@@ -167,9 +167,9 @@ label start:
                 "They continue to smile at you."
                 k "If you are not hungry right now, that is fine."
                 k "You can eat whenever you like, and I will take your dishes when you sleep."
-                "He puts the bowl beside your bed on a night stand."
+                "They put the bowl beside your bed on a night stand."
         show isaac straight
-        "He stands up once again."
+        "They stand up once again."
         k "Before I leave, is there anything more you'd like to speak about?"
         "You get an idea."
         v "Actually, yes."
@@ -294,7 +294,7 @@ label start:
                 k "I told you I wouldn't want you to go hungry."
                 k "On that note, what I wanted to ask was, what do you prefer on top? On your oatmeal, I mean. I only have so many ingredients."
                 k "I could give you banana slices, strawberry, hell, even honey."
-                "He looks at you pointedly on that last word."
+                "They look at you pointedly on that last word."
                 menu:
                     "remain silent.":
                         $ compliance -= 1
